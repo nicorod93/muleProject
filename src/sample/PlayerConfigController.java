@@ -34,7 +34,7 @@ public class PlayerConfigController implements Initializable {
         races.setItems(FXCollections.observableArrayList());
         races.getItems().addAll("Human", "Flapper", "Other");
         color.setItems(FXCollections.observableArrayList());
-        color.getItems().addAll("Red", "Blue", "Green", "Purple");
+        color.getItems().addAll("Red", "Blue", "Orange", "Purple");
     }
 
     @FXML
