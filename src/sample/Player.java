@@ -38,4 +38,8 @@ public class Player {
     public String getRace() {
         return race;
     }
+
+    public int getMoney() {
+        return money;
+    }
 }
