@@ -1,4 +1,6 @@
 package sample;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 /**
@@ -6,17 +8,16 @@ import java.util.ArrayList;
  */
 public class Player {
     private String name;
-    private String color;
+    private Color color;
     private String race;
     private ArrayList<Item> items;
     private int money;
     private ArrayList<Tile> tiles;
 
-    public Player(String name, String color, String race, int money) {
+    public Player(String name, Color color, String race) {
         this.name = name;
         this.color = color;
         this.race = race;
-        this.money = money;
     }
 
     public void addItem(Item item) {
@@ -31,7 +32,7 @@ public class Player {
         return name;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -41,5 +42,9 @@ public class Player {
 
     public int getMoney() {
         return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
     }
 }

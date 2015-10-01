@@ -20,6 +20,7 @@ public class Main extends Application {
     public static int counter = 1;
     public static ArrayList<Color> playerColor = new ArrayList<>();
     public static ArrayList<String> playerName = new ArrayList<>();
+    public static ArrayList<Player> playerArray = new ArrayList<>();
 
 
     @Override
