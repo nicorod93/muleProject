@@ -51,17 +51,9 @@ public class PlayerConfigController implements Initializable {
                 t.show();
                 Main.counter++;
             } else {
-                for (int i = 0; i < Main.players; i++) {
-                    Main.playerArray.add(new Player(Main.playerName.get(i), Main
-                            .playerColor.get(i), Main.playerRace.get(i)));
-                    if (Main.playerRace.equals("Flapper")) {
-                        Main.playerArray.get(i).setMoney(1600);
-                    } else if (Main.playerRace.equals("Human")) {
-                        Main.playerArray.get(i).setMoney(600);
-                    } else if (Main.playerRace.equals("Other")) {
-                        Main.playerArray.get(i).setMoney(1000);
-                    }
-                }
+                GameConfiguration game = new GameConfiguration();
+                game.initializePlayers();
+                System.out.println("Players: " + Main.playerArray);
                 Scene town = new Scene(FXMLLoader.load(getClass().getResource("map.fxml")));
                 Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 t.setScene(town);

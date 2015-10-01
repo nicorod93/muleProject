@@ -18,14 +18,16 @@ public class Player {
         this.name = name;
         this.color = color;
         this.race = race;
+        items = new ArrayList<>();
+        tiles = new ArrayList<>();
     }
 
     public void addItem(Item item) {
-        items.add(item);
+        this.items.add(item);
     }
 
     public void addProperty(Tile tile) {
-        tiles.add(tile);
+        this.tiles.add(tile);
     }
 
     public String getName() {
@@ -46,5 +48,9 @@ public class Player {
 
     public int getMoney() {
         return money;
+    }
+
+    public String toString() {
+        return name + " " + race + " " + color;
     }
 }
