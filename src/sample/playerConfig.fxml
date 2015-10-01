@@ -14,7 +14,6 @@
       </Label>
       <TextField fx:id="plname" alignment="CENTER" layoutX="191.0" layoutY="143.0" promptText="Enter Your Name" style="-fx-background-radius: 50px;" />
       <ChoiceBox fx:id="races" layoutX="209.0" layoutY="224.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: white;" />
-      <ColorPicker fx:id="color" layoutX="236.0" layoutY="307.0" promptText="Choose a Color" style="-fx-background-color: white; -fx-background-radius: 50px;" />
       <Label layoutX="223.0" layoutY="119.0" text="Enter a name">
          <font>
             <Font name="Bauhaus 93" size="21.0" />
@@ -31,5 +30,6 @@
          </font>
       </Label>
       <Button layoutX="488.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#playerConfirm" text="Button" />
+      <ChoiceBox fx:id="color" layoutX="210.0" layoutY="314.0" prefWidth="150.0" />
    </children>
 </Pane>

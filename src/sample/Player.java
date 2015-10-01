@@ -8,13 +8,13 @@ import java.util.ArrayList;
  */
 public class Player {
     private String name;
-    private Color color;
+    private String color;
     private String race;
     private ArrayList<Item> items;
     private int money;
     private ArrayList<Tile> tiles;
 
-    public Player(String name, Color color, String race) {
+    public Player(String name, String color, String race) {
         this.name = name;
         this.color = color;
         this.race = race;
@@ -34,7 +34,7 @@ public class Player {
         return name;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 

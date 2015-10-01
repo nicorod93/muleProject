@@ -20,12 +20,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PlayerConfigController implements Initializable {
-
     @FXML
     private ChoiceBox<String> races;
 
     @FXML
-    private ColorPicker color;
+    private ChoiceBox<String> color;
 
     @FXML
     private TextField plname;
@@ -34,6 +33,8 @@ public class PlayerConfigController implements Initializable {
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         races.setItems(FXCollections.observableArrayList());
         races.getItems().addAll("Human", "Flapper", "Other");
+        color.setItems(FXCollections.observableArrayList());
+        color.getItems().addAll("Red", "Blue", "Green", "Purple");
     }
 
     @FXML

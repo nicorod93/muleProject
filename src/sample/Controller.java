@@ -44,7 +44,6 @@ public class Controller implements Initializable {
             System.out.println("Map type: " + Main.mapType);
             System.out.println("Number of Players: " + Main.players);
 
-
             Scene town = new Scene(FXMLLoader.load(getClass().getResource("playerConfig.fxml")));
             Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
             t.setScene(town);

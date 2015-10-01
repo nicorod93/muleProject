@@ -18,10 +18,10 @@ public class Main extends Application {
     public static String difficulty;
     public static String mapType;
     public static int counter = 1;
-    public static ArrayList<Color> playerColor = new ArrayList<>();
+    public static ArrayList<String> playerColor = new ArrayList<>();
     public static ArrayList<String> playerName = new ArrayList<>();
+    public static int playerTurn = 0;
     public static ArrayList<Player> playerArray = new ArrayList<>();
-
 
     @Override
     public void start(Stage primaryStage) throws Exception{
