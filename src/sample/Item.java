@@ -5,10 +5,12 @@ package sample;
  */
 public class Item {
     private String name;
+    private int amount;
     private int price;
 
-    public Item(String name, int price) {
+    public Item(String name, int amount, int price) {
         this.name = name;
+        this.amount = amount;
         this.price = price;
     }
 
@@ -16,7 +18,23 @@ public class Item {
         return this.name;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
     public int getPrice() {
         return price;
+    }
+
+    public void decreaseAmount(int numSubtract) {
+        if (amount >= numSubtract) {
+            amount -= numSubtract;
+        } else {
+            amount = 0;
+        }
+    }
+
+    public void increaseAmount(int numAdd) {
+        amount += numAdd;
     }
 }

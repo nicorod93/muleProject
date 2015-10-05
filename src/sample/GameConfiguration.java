@@ -1,9 +1,13 @@
 package sample;
 
+import java.util.Timer;
+
 /**
  * Created by nico on 9/30/15.
  */
 public class GameConfiguration {
+    public Timer timer = new Timer();
+    private int[] foodRequirement = {3,3,3,4,4,4,4,5,5,5,5,0};
 
     public void initializePlayers() {
         for (int i = 0; i < Main.players; i++) {
@@ -17,15 +21,16 @@ public class GameConfiguration {
                 Main.playerArray.get(i).setMoney(1000);
             }
             if (Main.difficulty.equals("Beginner")) {
-                for (int j = 0; j < 8; j++) {
-                    Main.playerArray.get(i).addItem(new Item("Food", 30));
-                }
-                for (int m = 0; m < 4; m++) {
-                    Main.playerArray.get(i).addItem(new Item
-                            ("Energy", 25));
-                }
+                Main.playerArray.get(i).addItem(new Item("Food", 8, 30));
+                Main.playerArray.get(i).addItem(new Item
+                        ("Energy", 4, 25));
+
             }
         }
+    }
+
+    public void takeTurn() {
+
     }
 
 }
