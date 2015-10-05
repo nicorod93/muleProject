@@ -43,4 +43,13 @@ public class MapController{
         }
         butt.setDisable(true);
     }
+
+    @FXML
+    private void pass() {
+        if(Main.playerTurn < Main.players - 1) {
+            Main.playerTurn++;
+        } else {
+            Main.playerTurn = 0;
+        }
+    }
 }
