@@ -1,4 +1,5 @@
 package sample;
+import com.sun.tools.javac.jvm.Items;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class Player {
     private ArrayList<Item> items;
     private int money;
     private ArrayList<Tile> tiles;
+    private int score;
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -52,5 +54,21 @@ public class Player {
 
     public String toString() {
         return name + " " + race + " " + color;
+    }
+
+    public int setScore(int newScore) {
+        return this.score = newScore;
+    }
+
+    public int numTiles() {
+        return tiles.size();
+    }
+
+    public int valueOfGoods() {
+        int sum = 0;
+        for (Item i: items) {
+            sum += (i.getAmount() * i.getPrice());
+        }
+        return sum;
     }
 }

@@ -4,9 +4,9 @@ package sample;
  * Created by nico on 9/30/15.
  */
 public class Tile {
-    int xPosition;
-    int yPosition;
-    String name;
+    private int xPosition;
+    private int yPosition;
+    private String name;
 
     public Tile(String name, int xPosition, int yPosition) {
         this.name = name;
@@ -30,4 +30,6 @@ public class Tile {
     public String getName() {
         return name;
     }
+
+    public String toString() { return this.name + " " + xPosition + " " + yPosition; }
 }

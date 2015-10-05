@@ -1,13 +1,12 @@
 package sample;
 
-import java.util.Timer;
 
 /**
  * Created by nico on 9/30/15.
  */
 public class GameConfiguration {
-    public Timer timer = new Timer();
     private int[] foodRequirement = {3,3,3,4,4,4,4,5,5,5,5,0};
+    private int timeLeft;
 
     public void initializePlayers() {
         for (int i = 0; i < Main.players; i++) {
@@ -29,8 +28,40 @@ public class GameConfiguration {
         }
     }
 
-    public void takeTurn() {
 
+    public Player getCurrentPlayer() {
+        return Main.playerArray.get(Main.playerTurn);
+    }
+    public void newPlayerTurn() {
+        long currentTime = System.currentTimeMillis();
+        long endTime = 50*1000L;
+        while (currentTime < endTime) {
+            this.timeLeft = (int) (endTime - currentTime);
+            Main.currentPlayer = getCurrentPlayer();
+            currentTime = System.currentTimeMillis();
+        }
+        if (Main.playerTurn < Main.players - 1) {
+            Main.playerTurn++;
+        } else {
+            newRound();
+            Main.playerTurn = 0;
+        }
+    }
+
+    public int getTimeLeft() {
+        return timeLeft;
+    }
+
+    public void newRound() {
+        Main.round++;
+        for (int i = 0; i < Main.players; i++) {
+            int money = Main.playerArray.get(i).getMoney();
+            int numLand = Main.playerArray.get(i).numTiles() * 500;
+            int valueOfGoods = Main.playerArray.get(i).valueOfGoods();
+            Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
+        }
+    }
+    public void selectionRound() {
     }
 
 }
