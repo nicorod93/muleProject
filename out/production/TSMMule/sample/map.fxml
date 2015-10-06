@@ -147,26 +147,6 @@
          </font>
       </Label>
       <Button mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="80.0" prefWidth="80.0" GridPane.rowIndex="1" />
-      <ImageView fitHeight="116.0" fitWidth="133.0" GridPane.columnIndex="7">
-         <image>
-            <Image url="@pics/sun.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="68.0" GridPane.rowIndex="1">
-         <image>
-            <Image url="@pics/grass_strands.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="68.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-         <image>
-            <Image url="@pics/grass_strands.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="68.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
-         <image>
-            <Image url="@pics/grass_strands.png" />
-         </image>
-      </ImageView>
       <Button mnemonicParsing="false" onAction="#startTurn" text="Start Turn" GridPane.columnIndex="1" />
    </children>
 </GridPane>
