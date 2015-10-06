@@ -167,5 +167,6 @@
             <Image url="@pics/grass_strands.png" />
          </image>
       </ImageView>
+      <Button mnemonicParsing="false" onAction="#startTurn" text="Start Turn" GridPane.columnIndex="1" />
    </children>
 </GridPane>

@@ -32,6 +32,7 @@ public class GameConfiguration {
     public Player getCurrentPlayer() {
         return Main.playerArray.get(Main.playerTurn);
     }
+
     public void newPlayerTurn() {
         long currentTime = System.currentTimeMillis();
         long endTime = 50*1000L;
@@ -61,6 +62,7 @@ public class GameConfiguration {
             Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
         }
     }
+
     public void selectionRound() {
     }
 
