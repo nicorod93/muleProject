@@ -32,6 +32,16 @@ public class MapController{
     }
 
     @FXML
+    private void startTurn() {
+        System.out.println(Main.playerArray.get(Main.playerStart));
+        if(Main.playerStart < Main.players - 1) {
+            Main.playerStart++;
+        } else {
+            Main.playerStart = 0;
+        }
+    }
+
+    @FXML
     private void buyLand(MouseEvent event) {
         Button butt = (Button) event.getSource();
         butt.setStyle("-fx-background-color:" + Main.gameConfiguration

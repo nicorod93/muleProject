@@ -21,6 +21,7 @@ public class Main extends Application {
     public static ArrayList<String> playerColor = new ArrayList<>();
     public static ArrayList<String> playerName = new ArrayList<>();
     public static int playerTurn = 0;
+    public static int playerStart = 0;
     public static ArrayList<Player> playerArray = new ArrayList<>();
     public static GameConfiguration gameConfiguration = new GameConfiguration();
     public static Player currentPlayer;
