@@ -62,6 +62,10 @@ public class GameConfiguration {
         }
     }
     public void selectionRound() {
+//        for (Player p : Main.playerArray) {
+//            Main.currentPlayer = p;
+//            MapController.buyLand();
+//        }
     }
 
 }
