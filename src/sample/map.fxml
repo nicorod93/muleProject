@@ -136,7 +136,7 @@
             <Image url="@pics/lightBlue.png" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" onAction="#pass" prefHeight="72.0" prefWidth="65.0" style="-fx-background-color: none;" text="PASS">
+      <Button fx:id="passBut" mnemonicParsing="false" onAction="#pass" prefHeight="72.0" prefWidth="65.0" style="-fx-background-color: none;" text="PASS">
          <font>
             <Font name="Impact" size="19.0" />
          </font>
