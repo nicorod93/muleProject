@@ -26,6 +26,7 @@ public class Main extends Application {
     public static GameConfiguration gameConfiguration = new GameConfiguration();
     public static Player currentPlayer;
     public static int round = 1;
+    public static boolean bought = false;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
