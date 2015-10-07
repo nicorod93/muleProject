@@ -53,7 +53,7 @@ public class MapController{
         if(!Main.bought && Main.started) {
 
             Button butt = (Button) event.getSource();
-            butt.setStyle("-fx-background-color:" + Main.gameConfiguration
+            butt.setStyle("-fx-background-color:" + Main
                     .getCurrentPlayer().getColor());
             butt.setOpacity(.5);
             String name = butt.getId();
@@ -62,7 +62,7 @@ public class MapController{
             int yPos = GridPane.getRowIndex(butt) - 1;
             Tile tile = new Tile(name, xPos, yPos);
             System.out.println(tile);
-            Main.gameConfiguration.getCurrentPlayer().addProperty(tile);
+            Main.getCurrentPlayer().addProperty(tile);
 
             if (Main.playerTurn < Main.players - 1) {
                 Main.playerTurn++;

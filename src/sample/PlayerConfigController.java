@@ -53,6 +53,7 @@ public class PlayerConfigController implements Initializable {
                 Main.counter++;
             } else {
                 Main.initializePlayers();
+                Main.
                 System.out.println("Players: " + Main.playerArray);
                 Scene town = new Scene(FXMLLoader.load(getClass().getResource("map.fxml")));
                 Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();

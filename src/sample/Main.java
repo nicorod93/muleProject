@@ -21,7 +21,7 @@ public class Main extends Application {
     public static int playerTurn = 0;
     public static int playerStart = 0;
     public static int round = 1;
-    private int timeLeft;
+    private static int timeLeft;
 
     public static ArrayList<String> playerRace = new ArrayList<>();
     public static ArrayList<String> playerColor = new ArrayList<>();
@@ -56,7 +56,7 @@ public class Main extends Application {
         }
     }
 
-    public void setPlayersMoney() {
+    public static void setPlayersMoney() {
         for (Player p : playerArray) {
             if (p.getRace().equals("Flapper")) {
                 p.setMoney(1600);
@@ -68,7 +68,7 @@ public class Main extends Application {
         }
     }
 
-    public void setPlayersItems() {
+    public static void setPlayersItems() {
         if (difficulty.equals("Beginner")) {
             playerArray.stream().forEach(player -> player.addItem(new Item
                     ("Food", 8, 30)));
@@ -77,11 +77,11 @@ public class Main extends Application {
         }
     }
 
-    public Player getCurrentPlayer() {
+    public static Player getCurrentPlayer() {
         return playerArray.get(playerTurn);
     }
 
-    public void newPlayerTurn() {
+    public static void newPlayerTurn() {
         if (playerTurn < players - 1) {
             playerTurn++;
         } else {
@@ -89,21 +89,21 @@ public class Main extends Application {
         }
     }
 
-    public void turnTimer() {
+    public static void turnTimer() {
         long currentTime = System.currentTimeMillis();
         long endTime = 50*1000L;
         while (currentTime < endTime) {
-            this.timeLeft = (int) (endTime - currentTime);
+            timeLeft = (int) (endTime - currentTime);
             currentPlayer = getCurrentPlayer();
             currentTime = System.currentTimeMillis();
         }
     }
 
-    public int getTimeLeft() {
+    public static int getTimeLeft() {
         return timeLeft;
     }
 
-    public void newRound() {
+    public static void newRound() {
         Main.round++;
         for (int i = 0; i < Main.players; i++) {
             int money = Main.playerArray.get(i).getMoney();
