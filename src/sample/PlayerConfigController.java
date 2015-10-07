@@ -53,14 +53,14 @@ public class PlayerConfigController implements Initializable {
                 Main.counter++;
             } else {
                 Main.initializePlayers();
-                Main.
+                Main.setPlayersItems();
+                Main.setPlayersMoney();
                 System.out.println("Players: " + Main.playerArray);
                 Scene town = new Scene(FXMLLoader.load(getClass().getResource("map.fxml")));
                 Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 t.setScene(town);
                 t.setTitle("Map");
                 t.show();
-                Main.inMap = true;
             }
         } catch (Exception e) {
             throw new IllegalArgumentException("No file");

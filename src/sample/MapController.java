@@ -37,14 +37,21 @@ public class MapController{
 
     @FXML
     public void startTurn() {
-        Main.bought = false;
-        Main.started = true;
-        passBut.setDisable(false);
-        System.out.println(Main.playerArray.get(Main.playerStart));
-        if(Main.playerStart < Main.players - 1) {
-            Main.playerStart++;
-        } else {
-            Main.playerStart = 0;
+        if (Main.numSelectionRounds < Main.players * 2) {
+            System.out.println(Main.numSelectionRounds);
+            Main.bought = false;
+            Main.started = true;
+            System.out.println(Main.playerArray.get(Main.playerStart));
+            if (Main.playerStart < Main.players - 1) {
+                Main.playerStart++;
+            } else {
+                Main.playerStart = 0;
+            }
+            Main.selectionRound();
+        } else if (!Main.finishBuyingRound){
+            passBut.setDisable(false);
+            Main.bought = false;
+
         }
     }
 
@@ -63,15 +70,11 @@ public class MapController{
             Tile tile = new Tile(name, xPos, yPos);
             System.out.println(tile);
             Main.getCurrentPlayer().addProperty(tile);
-
-            if (Main.playerTurn < Main.players - 1) {
-                Main.playerTurn++;
-            } else {
-                Main.playerTurn = 0;
-            }
             butt.setDisable(true);
             passBut.setDisable(true);
             Main.bought = true;
+            Main.newPlayerTurn();
+
         } else {
             return;
         }
@@ -81,10 +84,22 @@ public class MapController{
     private void pass() {
         passBut.setDisable(true);
         Main.bought = true;
-        if(Main.playerTurn < Main.players - 1) {
-            Main.playerTurn++;
+        System.out.println(Main.getCurrentPlayer());
+        System.out.println(Main.playerTurn);
+        System.out.println(Main.playerArray.get(Main.players - 1));
+        if (Main.getCurrentPlayer().equals(Main.playerArray.get(Main.players - 1))
+                && Main.numPasses == Main.players - 1) {
+            System.out.println("DNA");
+            Main.finishBuyingRound = true;
+        } else if (Main.getCurrentPlayer().equals(Main.playerArray.get(Main
+                .players - 1)) && Main.numPasses < Main.players - 1) {
+            System.out.println("FUCK");
+            Main.numPasses = 0;
         } else {
-            Main.playerTurn = 0;
+            System.out.println("WEEE");
+            Main.numPasses++;
         }
+        Main.newPlayerTurn();
+
     }
 }

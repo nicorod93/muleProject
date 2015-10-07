@@ -22,6 +22,8 @@ public class Main extends Application {
     public static int playerStart = 0;
     public static int round = 1;
     private static int timeLeft;
+    public static int numSelectionRounds = 0;
+    public static int numPasses = 0;
 
     public static ArrayList<String> playerRace = new ArrayList<>();
     public static ArrayList<String> playerColor = new ArrayList<>();
@@ -37,6 +39,9 @@ public class Main extends Application {
     public static boolean bought = false;
     public static boolean started = false;
     public static boolean inMap = false;
+    public static boolean finishSelectionRound = false;
+    public static boolean finishBuyingRound = false;
+
 
 
 
@@ -110,6 +115,21 @@ public class Main extends Application {
             int numLand = Main.playerArray.get(i).numTiles() * 500;
             int valueOfGoods = Main.playerArray.get(i).valueOfGoods();
             Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
+        }
+    }
+
+    public static void selectionRound() {
+        if (playerArray.get(0).numTiles() == 2) {
+            System.out.println("Selection round over");
+            numSelectionRounds++;
+        } else {
+            numSelectionRounds++;
+        }
+    }
+
+    public static void buyingRound() {
+        if (numPasses == players) {
+            finishBuyingRound = true;
         }
     }
 
