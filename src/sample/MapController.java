@@ -36,7 +36,7 @@ public class MapController{
     }
 
     @FXML
-    private void startTurn() {
+    public void startTurn() {
         Main.bought = false;
         Main.started = true;
         passBut.setDisable(false);
