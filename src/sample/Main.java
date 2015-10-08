@@ -15,13 +15,14 @@ import java.util.ArrayList;
 public class Main extends Application {
     public static String difficulty;
     public static String mapType;
-
+    public static int timeLeft;
+    public static int timeRemain = 50;
+    public static String strTime = "" + Main.timeRemain;
     public static int players = 0;
     public static int counter = 1;
     public static int playerTurn = 0;
     public static int playerStart = 0;
     public static int round = 1;
-    private static int timeLeft;
     public static int numSelectionRounds = 0;
     public static int numPasses = 0;
 
@@ -41,9 +42,6 @@ public class Main extends Application {
     public static boolean inMap = false;
     public static boolean finishSelectionRound = false;
     public static boolean finishBuyingRound = false;
-
-
-
 
 
     @Override

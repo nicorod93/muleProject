@@ -1,4 +1,6 @@
 package sample;
+
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 
 import javafx.collections.FXCollections;
@@ -8,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -16,8 +19,14 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class MapController{
+public class MapController implements Initializable {
+
+    @FXML
+    private Label timerCount;
+
 
     @FXML
     private Button passBut;
@@ -35,8 +44,35 @@ public class MapController{
         }
     }
 
+    @Override
+    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+        timerCount.textProperty().set(Main.strTime);
+    }
+
+    @FXML
+    public void startTimer() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    String strTimeFinal = "" + Main.timeRemain;
+                    System.out.println(strTimeFinal + " | " + Main.timeRemain);
+                    timerCount.textProperty().set(strTimeFinal);
+                    Main.timeRemain--;
+                    if (Main.timeRemain == 0) {
+                        timerCount.textProperty().set("Time's up!");
+                        Main.bought = true;
+                        return;
+                    }
+                });
+            }
+        }, 0, 1000);
+    }
+
     @FXML
     public void startTurn() {
+        Main.timeRemain = 50;
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;
@@ -48,17 +84,15 @@ public class MapController{
                 Main.playerStart = 0;
             }
             Main.selectionRound();
-        } else if (!Main.finishBuyingRound){
+        } else if (!Main.finishBuyingRound) {
             passBut.setDisable(false);
             Main.bought = false;
-
         }
     }
 
     @FXML
     private void buyLand(MouseEvent event) {
-        if(!Main.bought && Main.started) {
-
+        if (!Main.bought && Main.started) {
             Button butt = (Button) event.getSource();
             butt.setStyle("-fx-background-color:" + Main
                     .getCurrentPlayer().getColor());
