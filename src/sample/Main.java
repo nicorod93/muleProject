@@ -34,13 +34,10 @@ public class Main extends Application {
 
     public static int[] foodRequirement = {3,3,3,3,4,4,4,4,5,5,5,5};
 
-    public static MapController mapController = new MapController();
-
     public static Player currentPlayer;
 
     public static boolean bought = false;
     public static boolean started = false;
-    public static boolean inMap = false;
     public static boolean finishBuyingRound = false;
     public static boolean finishGame = false;
     public static boolean finishTurn = false;
