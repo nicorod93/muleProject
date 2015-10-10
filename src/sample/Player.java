@@ -60,6 +60,10 @@ public class Player {
         return this.score = newScore;
     }
 
+    public int getScore() {
+        return this.score;
+    }
+
     public int numTiles() {
         return tiles.size();
     }
@@ -70,5 +74,9 @@ public class Player {
             sum += (i.getAmount() * i.getPrice());
         }
         return sum;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
     }
 }

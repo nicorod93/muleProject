@@ -50,9 +50,8 @@ public class MapController implements Initializable {
     }
 
     @FXML
-    public void startTimer() {
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
+    public boolean startTimer() {
+        Main.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 Platform.runLater(() -> {
@@ -63,16 +62,18 @@ public class MapController implements Initializable {
                     if (Main.timeRemain == 0) {
                         timerCount.textProperty().set("Time's up!");
                         Main.bought = true;
-                        return;
+                        Main.finishTurn = true;
+                        Main.timer.cancel();
                     }
                 });
             }
         }, 0, 1000);
+        return Main.finishTurn;
     }
 
     @FXML
     public void startTurn() {
-        Main.timeRemain = 50;
+        Main.timeRemain = Main.calculateTurnTime();
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;
@@ -87,6 +88,13 @@ public class MapController implements Initializable {
         } else if (!Main.finishBuyingRound) {
             passBut.setDisable(false);
             Main.bought = false;
+        } else if (!Main.finishGame) {
+            System.out.println("Before Timer");
+            while (startTimer()) {
+                System.out.println("Inside timer");
+            }
+            System.out.println("After Timer");
+            Main.newRound();
         }
     }
 
@@ -134,6 +142,5 @@ public class MapController implements Initializable {
             Main.numPasses++;
         }
         Main.newPlayerTurn();
-
     }
 }

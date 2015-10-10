@@ -9,7 +9,8 @@ import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-
+import java.util.Comparator;
+import java.util.Timer;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -22,7 +23,7 @@ public class Main extends Application {
     public static int counter = 1;
     public static int playerTurn = 0;
     public static int playerStart = 0;
-    public static int round = 1;
+    public static int round = 0;
     public static int numSelectionRounds = 0;
     public static int numPasses = 0;
 
@@ -31,7 +32,7 @@ public class Main extends Application {
     public static ArrayList<String> playerName = new ArrayList<>();
     public static ArrayList<Player> playerArray = new ArrayList<>();
 
-    private int[] foodRequirement = {3,3,3,4,4,4,4,5,5,5,5,0};
+    public static int[] foodRequirement = {3,3,3,3,4,4,4,4,5,5,5,5};
 
     public static MapController mapController = new MapController();
 
@@ -40,8 +41,11 @@ public class Main extends Application {
     public static boolean bought = false;
     public static boolean started = false;
     public static boolean inMap = false;
-    public static boolean finishSelectionRound = false;
     public static boolean finishBuyingRound = false;
+    public static boolean finishGame = false;
+    public static boolean finishTurn = false;
+
+    public static Timer timer = new Timer();
 
 
     @Override
@@ -92,16 +96,6 @@ public class Main extends Application {
         }
     }
 
-    public static void turnTimer() {
-        long currentTime = System.currentTimeMillis();
-        long endTime = 50*1000L;
-        while (currentTime < endTime) {
-            timeLeft = (int) (endTime - currentTime);
-            currentPlayer = getCurrentPlayer();
-            currentTime = System.currentTimeMillis();
-        }
-    }
-
     public static int getTimeLeft() {
         return timeLeft;
     }
@@ -113,6 +107,19 @@ public class Main extends Application {
             int numLand = Main.playerArray.get(i).numTiles() * 500;
             int valueOfGoods = Main.playerArray.get(i).valueOfGoods();
             Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
+        }
+        playerArray.sort(new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                if (o1.getScore() < o2.getScore()) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        if (round == 11) {
+            finishGame = true;
         }
     }
 
@@ -129,6 +136,23 @@ public class Main extends Application {
         if (numPasses == players) {
             finishBuyingRound = true;
         }
+    }
+
+    public static int calculateTurnTime() {
+        Player p = getCurrentPlayer();
+        ArrayList<Item> items = p.getItems();
+        int numFood = 0;
+        for (Item i : items) {
+            if (i.getName().equals("Food")) {
+                numFood += i.getAmount();
+            }
+        }
+        if (numFood > 0 && numFood < foodRequirement[round]) {
+            timeRemain = 30;
+        } else if (numFood == 0) {
+            timeRemain = 0;
+        }
+        return timeRemain;
     }
 
     public static void main(String[] args) {
