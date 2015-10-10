@@ -40,9 +40,9 @@ public class Main extends Application {
     public static boolean started = false;
     public static boolean finishBuyingRound = false;
     public static boolean finishGame = false;
-    public static boolean finishTurn = false;
+    public static boolean finishTurn;
 
-    public static Timer timer = new Timer();
+    public static Timer timer;
 
 
     @Override
@@ -85,11 +85,20 @@ public class Main extends Application {
         return playerArray.get(playerTurn);
     }
 
+    public static void newPlayerSetupTurn() {
+        if (playerTurn < players - 1) {
+            playerTurn++;
+        } else {
+            playerTurn = 0;
+        }
+    }
+
     public static void newPlayerTurn() {
         if (playerTurn < players - 1) {
             playerTurn++;
         } else {
             playerTurn = 0;
+            newRound();
         }
     }
 

@@ -51,6 +51,7 @@ public class MapController implements Initializable {
 
     @FXML
     public boolean startTimer() {
+        Main.timeRemain = Main.calculateTurnTime();
         Main.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -73,7 +74,6 @@ public class MapController implements Initializable {
 
     @FXML
     public void startTurn() {
-        Main.timeRemain = Main.calculateTurnTime();
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;
@@ -89,12 +89,16 @@ public class MapController implements Initializable {
             passBut.setDisable(false);
             Main.bought = false;
         } else if (!Main.finishGame) {
+            Main.timer = new Timer();
+            Main.finishTurn = false;
+            System.out.println(Main.finishGame);
             System.out.println("Before Timer");
             while (startTimer()) {
                 System.out.println("Inside timer");
             }
+
             System.out.println("After Timer");
-            Main.newRound();
+            Main.newPlayerTurn();
         }
     }
 
@@ -115,7 +119,7 @@ public class MapController implements Initializable {
             butt.setDisable(true);
             passBut.setDisable(true);
             Main.bought = true;
-            Main.newPlayerTurn();
+            Main.newPlayerSetupTurn();
 
         } else {
             return;
@@ -141,6 +145,6 @@ public class MapController implements Initializable {
             System.out.println("WEEE");
             Main.numPasses++;
         }
-        Main.newPlayerTurn();
+        Main.newPlayerSetupTurn();
     }
 }
