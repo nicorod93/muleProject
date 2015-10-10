@@ -148,6 +148,5 @@
       </Label>
       <Button mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="80.0" prefWidth="80.0" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#startTurn" text="Start Turn" GridPane.columnIndex="1" />
-      <Button mnemonicParsing="false" onAction="#startTimer" text="timer" GridPane.columnIndex="3" />
    </children>
 </GridPane>

@@ -51,7 +51,6 @@ public class MapController implements Initializable {
 
     @FXML
     public boolean startTimer() {
-        Main.timeRemain = Main.calculateTurnTime();
         Main.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -89,9 +88,10 @@ public class MapController implements Initializable {
             passBut.setDisable(false);
             Main.bought = false;
         } else if (!Main.finishGame) {
+            Main.timeRemain = Main.calculateTurnTime();
             Main.timer = new Timer();
             Main.finishTurn = false;
-            System.out.println(Main.finishGame);
+            System.out.println(Main.round);
             System.out.println("Before Timer");
             while (startTimer()) {
                 System.out.println("Inside timer");

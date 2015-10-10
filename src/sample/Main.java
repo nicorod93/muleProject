@@ -96,6 +96,7 @@ public class Main extends Application {
     public static void newPlayerTurn() {
         if (playerTurn < players - 1) {
             playerTurn++;
+            timeRemain = calculateTurnTime();
         } else {
             playerTurn = 0;
             newRound();
@@ -107,7 +108,7 @@ public class Main extends Application {
     }
 
     public static void newRound() {
-        Main.round++;
+        round++;
         for (int i = 0; i < Main.players; i++) {
             int money = Main.playerArray.get(i).getMoney();
             int numLand = Main.playerArray.get(i).numTiles() * 500;
@@ -124,7 +125,7 @@ public class Main extends Application {
                 }
             }
         });
-        if (round == 11) {
+        if (round == 12) {
             finishGame = true;
         }
     }
@@ -156,7 +157,9 @@ public class Main extends Application {
         if (numFood > 0 && numFood < foodRequirement[round]) {
             timeRemain = 30;
         } else if (numFood == 0) {
-            timeRemain = 0;
+            timeRemain = 5;
+        } else {
+            timeRemain = 50;
         }
         return timeRemain;
     }
