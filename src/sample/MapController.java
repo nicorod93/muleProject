@@ -90,6 +90,7 @@ public class MapController implements Initializable {
             }
             Main.selectionRound();
         } else if (!Main.finishBuyingRound) {
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney()-300);
             passBut.setDisable(false);
             Main.bought = false;
         } else if (!Main.finishGame) {
@@ -110,7 +111,6 @@ public class MapController implements Initializable {
     @FXML
     private void buyLand(MouseEvent event) {
         if (!Main.bought && Main.started) {
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney()-300);
             Button butt = (Button) event.getSource();
             butt.setStyle("-fx-background-color:" + Main
                     .getCurrentPlayer().getColor());
