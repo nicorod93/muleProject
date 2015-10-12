@@ -30,9 +30,11 @@ public class MapController implements Initializable {
     @FXML
     private Label playerMoney;
 
-
     @FXML
     private Button passBut;
+
+    @FXML
+    private Label playerName;
 
     @FXML
     private void goToTown(MouseEvent event) {
@@ -51,6 +53,7 @@ public class MapController implements Initializable {
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         timerCount.textProperty().set(Main.strTime);
         playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
     }
 
     @FXML
@@ -78,6 +81,7 @@ public class MapController implements Initializable {
     @FXML
     public void startTurn() {
         playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;
