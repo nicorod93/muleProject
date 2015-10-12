@@ -1,12 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StoreController">
    <children>
-      <Label layoutX="283.0" layoutY="190.0" text="Store" />
+      <GridPane layoutX="14.0" layoutY="11.0" prefHeight="379.0" prefWidth="574.0" style="-fx-background-color: pink;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="191.0" fitWidth="285.0">
+               <image>
+                  <Image url="@pics/food.gif" />
+               </image>
+            </ImageView>
+            <Button fx:id="foodBut" mnemonicParsing="false" onAction="#buyFood" opacity="0.0" prefHeight="196.0" prefWidth="298.0" />
+            <ImageView fitHeight="196.0" fitWidth="290.0" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@pics/energy.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="energyBut" mnemonicParsing="false" onAction="#buyEnergy" opacity="0.0" prefHeight="202.0" prefWidth="309.0" GridPane.columnIndex="1" />
+            <ImageView fitHeight="170.0" fitWidth="272.0" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@pics/backbutton.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="energyBut" mnemonicParsing="false" onMouseClicked="#back" opacity="0.0" prefHeight="179.0" prefWidth="287.0" GridPane.rowIndex="1" />
+            <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <GridPane layoutX="-6.0" layoutY="-2.0" prefHeight="189.0" prefWidth="292.0" style="-fx-background-color: yellow;">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="84.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="201.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="91.0" text="Food" />
+                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="91.0" text="Energy" GridPane.rowIndex="1" />
+                              <Label fx:id="foodLeft" alignment="CENTER" prefHeight="21.0" prefWidth="204.0" text="Food Left" GridPane.columnIndex="1" />
+                              <Label fx:id="energyLeft" alignment="CENTER" prefHeight="21.0" prefWidth="204.0" text="Energy Left" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </GridPane>
    </children>
 </Pane>

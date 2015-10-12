@@ -26,6 +26,8 @@ public class Main extends Application {
     public static int round = 0;
     public static int numSelectionRounds = 0;
     public static int numPasses = 0;
+    public static int food = 16;
+    public static int energy = 16;
 
     public static ArrayList<String> playerRace = new ArrayList<>();
     public static ArrayList<String> playerColor = new ArrayList<>();
