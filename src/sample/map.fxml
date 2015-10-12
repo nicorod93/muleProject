@@ -148,7 +148,12 @@
       </Label>
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#startTurn" text="Start Turn" GridPane.columnIndex="1" />
-      <Label fx:id="playerMoney" alignment="CENTER" prefHeight="72.0" prefWidth="76.0" text="Money" GridPane.columnIndex="5">
+      <Label fx:id="playerMoney" alignment="CENTER" prefHeight="72.0" prefWidth="76.0" text="Money" GridPane.columnIndex="6">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerName" alignment="CENTER" text="Player" GridPane.columnIndex="5">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
