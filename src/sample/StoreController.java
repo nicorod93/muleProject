@@ -55,9 +55,8 @@ public class StoreController {
     @FXML
     private void back(MouseEvent event) {
         try {
-            Scene town = new Scene(FXMLLoader.load(getClass().getResource("map.fxml")));
             Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            t.setScene(town);
+            t.setScene(Main.map);
             t.setTitle("Player Configuration");
             t.show();
         } catch (Exception e) {

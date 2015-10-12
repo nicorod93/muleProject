@@ -46,6 +46,9 @@ public class Main extends Application {
 
     public static Timer timer;
 
+    public static Scene map;
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
