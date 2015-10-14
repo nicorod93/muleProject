@@ -1,4 +1,6 @@
 package sample;
+import java.util.Comparator;
+import java.util.Timer;
 
 /**
  * Created by nico on 9/30/15.
@@ -36,5 +38,20 @@ public class Item {
 
     public void increaseAmount(int numAdd) {
         amount += numAdd;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Item)) {
+            return false;
+        }
+        Item that = (Item) o;
+        return this.getName().equals(that.getName());
     }
 }

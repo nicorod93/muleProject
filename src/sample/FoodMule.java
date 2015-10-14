@@ -8,5 +8,6 @@ public class FoodMule extends Mule {
 
     public FoodMule() {
         super.cost = FOOD_COST;
+        super.name = "Food Mule";
     }
 }
