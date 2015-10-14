@@ -154,10 +154,9 @@ public class Main extends Application {
     }
 
     public static int calculateTurnTime() {
-        Player p = getCurrentPlayer();
-        ArrayList<Item> items = p.getItems();
+
         int numFood = 0;
-        for (Item i : items) {
+        for (Item i : currentPlayer.getItems()) {
             if (i.getName().equals("Food")) {
                 numFood += i.getAmount();
             }
