@@ -80,11 +80,9 @@ public class MapController implements Initializable {
                     System.out.println(strTimeFinal + " | " + Main.timeRemain);
                     timerCount.textProperty().set(strTimeFinal);
                     Main.timeRemain--;
-                    if (Main.timeRemain == 0) {
-                        timerCount.textProperty().set("Time's up!");
+                    if (Main.timeRemain == -1) {
                         Main.bought = true;
                         Main.finishTurn = true;
-                        Main.timer.cancel();
                         endTurn();
                     }
                 });
@@ -140,7 +138,7 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-        Main.timeRemain = 50;
+        Main.timeRemain = 10;
         startBut.setDisable(true);
 
     }
