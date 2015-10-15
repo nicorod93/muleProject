@@ -40,6 +40,12 @@ public class MapController implements Initializable {
     private Button passBut;
 
     @FXML
+    private Button startBut;
+
+    @FXML
+    private Button endBut;
+
+    @FXML
     private Label playerName;
 
     @FXML
@@ -65,6 +71,7 @@ public class MapController implements Initializable {
 
     @FXML
     public boolean startTimer() {
+        startBut.setDisable(true);
         Main.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -121,8 +128,17 @@ public class MapController implements Initializable {
     }
 
     @FXML
-    public void pauseTurn() {
-        System.out.println("Paused");
+    public void endTurn() {
+        if (Main.playerTurn < Main.players - 1) {
+            Main.playerTurn++;
+            Main.timeRemain = 50;
+        } else {
+            Main.playerTurn = 0;
+            Main.timeRemain = 50;
+        }
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
+        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
     }
 
     @FXML

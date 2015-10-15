@@ -151,7 +151,7 @@
       </Label>
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="89.0" prefWidth="77.0" />
       <Circle fill="#65ff1f" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-      <Button mnemonicParsing="false" onAction="#startTurn" prefHeight="99.0" prefWidth="78.0" style="-fx-background-color: none;" text="START" GridPane.columnIndex="3" GridPane.rowIndex="5">
+      <Button fx:id="startBut" mnemonicParsing="false" onAction="#startTurn" prefHeight="99.0" prefWidth="78.0" style="-fx-background-color: none;" text="START" GridPane.columnIndex="3" GridPane.rowIndex="5">
          <font>
             <Font name="Impact" size="19.0" />
          </font></Button>
@@ -179,7 +179,7 @@
 
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="0" />
       <Circle fill="DODGERBLUE" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-      <Button mnemonicParsing="false" onAction="#pauseTurn" prefHeight="99.0" prefWidth="78.0" style="-fx-background-color: none;" text="PAUSE" GridPane.columnIndex="3" GridPane.rowIndex="7">
+      <Button fx:id="endBut" mnemonicParsing="false" onAction="#endTurn" prefHeight="99.0" prefWidth="78.0" style="-fx-background-color: none;" text="END" GridPane.columnIndex="3" GridPane.rowIndex="7">
          <font>
             <Font name="Impact" size="19.0" />
          </font>
