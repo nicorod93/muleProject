@@ -10,46 +10,23 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class StoreController {
-    @FXML
-    private Label energyLeft;
 
     @FXML
-    private Label foodLeft;
-
-    @FXML
-    private Button foodBut;
-
-    @FXML
-    private Button energyBut;
-
-    @FXML
-    private void buyFood() {
-        if (Main.food == 0) {
-            System.out.println("No food left!");
-            foodBut.setDisable(true);
-        } else {
-            foodBut.setDisable(false);
-            int currentMoney = Main.getCurrentPlayer().getMoney();
-            Main.getCurrentPlayer().setMoney(currentMoney - 30);
-            System.out.println(Main.getCurrentPlayer().getMoney());
-            Main.food--;
-            foodLeft.textProperty().set(Integer.toString(Main.food));
+    private void goBuy(MouseEvent event) {
+        try {
+            Scene town = new Scene(FXMLLoader.load(getClass().getResource("buyScreen.fxml")));
+            Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            t.setScene(town);
+            t.setTitle("Buy Screen");
+            t.show();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No file");
         }
     }
 
     @FXML
-    private void buyEnergy() {
-        if (Main.energy == 0) {
-            System.out.println("No energy left!");
-            energyBut.setDisable(true);
-        } else {
-            energyBut.setDisable(false);
-            int currentMoney = Main.getCurrentPlayer().getMoney();
-            Main.getCurrentPlayer().setMoney(currentMoney - 25);
-            System.out.println(Main.getCurrentPlayer().getMoney());
-            Main.energy--;
-            energyLeft.textProperty().set(Integer.toString(Main.energy));
-        }
+    private void goSell(MouseEvent event) {
+
     }
 
     @FXML
