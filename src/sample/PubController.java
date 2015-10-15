@@ -45,8 +45,9 @@ public class PubController {
         if (total > 250) {
             total = 250;
         }
-
-        Main.currentPlayer.setMoney(Main.currentPlayer.getMoney() + total);
+        System.out.println("You Won " + total + "At the Pub! Congrats!");
+        Player a = Main.getCurrentPlayer();
+        a.setMoney(a.getMoney() + total);
     }
 
 
