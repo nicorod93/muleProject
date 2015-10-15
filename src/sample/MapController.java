@@ -24,11 +24,19 @@ import java.util.TimerTask;
 
 public class MapController implements Initializable {
 
+    @FXML Label playerNameLabel;
+
     @FXML
     private Label timerCount;
 
     @FXML
     private Label playerMoney;
+
+    @FXML
+    private Label playerEnergy;
+
+    @FXML
+    private Label playerFood;
 
     @FXML
     private Button passBut;
@@ -51,6 +59,7 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
         playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
@@ -80,6 +89,7 @@ public class MapController implements Initializable {
 
     @FXML
     public void startTurn() {
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         if (Main.numSelectionRounds < Main.players * 2) {
