@@ -20,7 +20,6 @@ public class Main extends Application {
     public static String mapType;
     public static String strTime = "" + Main.timeRemain;
 
-    public static int timeLeft;
     public static int timeRemain = 50;
     public static int players = 0;
     public static int counter = 1;
@@ -112,9 +111,7 @@ public class Main extends Application {
         }
     }
 
-    public static int getTimeLeft() {
-        return timeLeft;
-    }
+
 
     public static void newRound() {
         round++;
@@ -170,6 +167,8 @@ public class Main extends Application {
         }
         return timeRemain;
     }
+
+
 
     public static void main(String[] args) {
         launch(args);

@@ -123,7 +123,7 @@ public class MapController implements Initializable {
     }
 
     @FXML
-    private void buyLand(MouseEvent event) {
+    public void buyLand(MouseEvent event) {
         if (!Main.bought && Main.started) {
             Button butt = (Button) event.getSource();
             butt.setStyle("-fx-background-color:" + Main
@@ -147,7 +147,7 @@ public class MapController implements Initializable {
     }
 
     @FXML
-    private void pass() {
+    public void pass() {
         passBut.setDisable(true);
         Main.bought = true;
         System.out.println(Main.getCurrentPlayer());
