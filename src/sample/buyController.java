@@ -1,14 +1,56 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created by RichardWang on 10/15/15.
  */
-public class buyController {
+public class buyController implements Initializable{
+
+    @FXML
+    private Label playerFood;
+
+    @FXML
+    private Label playerEnergy;
+
+    @FXML
+    private Label playerOre;
+
+    @FXML
+    private Label playerNameID;
+
+    @FXML
+    private Label playerMoneyLabel;
+//
+//    @FXML
+//    private Button foodBut;
+//
+//    @FXML
+//    private Button energyBut;
+//
+//    @FXML
+//    private Button muleBut;
+//
+//    @FXML
+//    private Button oreBut;
+
+    @Override
+    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+        playerEnergy.textProperty().set("x" + Integer.toString(Main.energy));
+        playerFood.textProperty().set("x" + Integer.toString(Main.food));
+        playerNameID.textProperty().set(Main.getCurrentPlayer().getName());
+        playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+    }
 
     @FXML
     private void back(MouseEvent event) {
@@ -20,5 +62,21 @@ public class buyController {
         } catch (Exception e) {
             throw new IllegalArgumentException("No file");
         }
+    }
+
+    @FXML
+    private void buyFood() {
+        Main.food--;
+        Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney()- 30);
+        playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerFood.textProperty().set("x" + Integer.toString(Main.food));
+    }
+
+    @FXML
+    private void buyEnergy() {
+        Main.energy--;
+        Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney()- 25);
+        playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerEnergy.textProperty().set("x" + Integer.toString(Main.energy));
     }
 }

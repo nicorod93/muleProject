@@ -70,7 +70,7 @@
             <Image url="@pics/League_of_Legends_logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="98.0" layoutY="182.0" prefHeight="26.0" prefWidth="204.0" text="PLAYER Setup" textFill="WHITE">
+      <Label layoutX="98.0" layoutY="182.0" prefHeight="26.0" prefWidth="204.0" text="Player Setup" textFill="WHITE">
          <font>
             <Font name="Copperplate Gothic Bold" size="23.0" />
          </font>
