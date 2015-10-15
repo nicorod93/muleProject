@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PubController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #DEB887; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PubController">
     <children>
-      <ImageView fitHeight="89.0" fitWidth="149.0" layoutX="-2.0" layoutY="272.0">
+      <ImageView fitHeight="387.0" fitWidth="551.0" layoutX="49.0" layoutY="3.0">
          <image>
-            <Image url="@pics/backbutton.png" />
+            <Image url="@pics/twistedfate.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="359.0" fitWidth="451.0" layoutX="139.0" layoutY="14.0">
-         <image>
-            <Image url="@pics/dice.jpg" />
-         </image>
-      </ImageView>
-      <Button layoutX="139.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#gamble" opacity="0.0" prefHeight="365.0" prefWidth="451.0" text="Gamble" />
-      <Button layoutX="15.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#back" opacity="0.0" prefHeight="81.0" prefWidth="116.0" text="Back" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="SADDLEBROWN" height="131.0" layoutX="48.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="538.0" />
+      <Button layoutX="40.0" layoutY="93.0" mnemonicParsing="false" onMouseClicked="#gamble" prefHeight="58.0" prefWidth="195.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="GAMBLE?">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font></Button>
+      <Button layoutX="40.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="48.0" prefWidth="187.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="GO BACK">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font></Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="SADDLEBROWN" height="20.0" layoutX="12.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="576.0" />
+      <Label alignment="CENTER" layoutX="201.0" layoutY="279.0" prefHeight="71.0" prefWidth="233.0" style="-fx-background-color: #DEB887; -fx-background-radius: 50px;" text="PUB">
+         <font>
+            <Font name="AR ESSENCE" size="70.0" />
+         </font>
+      </Label>
     </children>
 </Pane>
