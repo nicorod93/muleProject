@@ -46,8 +46,8 @@ public class PubController {
             total = 250;
         }
         System.out.println("You Won $" + total + " at the Pub! Congrats!");
-        Player a = Main.getCurrentPlayer();
-        a.setMoney(a.getMoney() + total);
+        int oldMoney = Main.getCurrentPlayer().getMoney();
+        Main.getCurrentPlayer().setMoney(oldMoney + total);
         Main.timeRemain = 0;
 
 

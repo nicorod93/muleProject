@@ -13,9 +13,9 @@ public class Player {
     private String color;
     private String race;
     private List<Item> items;
-    private int money;
+    private static int money;
     private List<Tile> tiles;
-    private int score;
+    private static int score;
 
     public Player(String name, String color, String race) {
         this.name = name;
