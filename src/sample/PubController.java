@@ -12,9 +12,9 @@ import javafx.stage.Stage;
  */
 public class PubController {
 
+
     @FXML
     private void gamble(MouseEvent event) {
-        System.out.println(Main.getTimeLeft());
         int round = Main.round;
 
         int roundBonus = 0;
@@ -29,7 +29,7 @@ public class PubController {
         }
 
         int timeBonus = 0;
-        int timeLeft = Main.getTimeLeft();
+        int timeLeft = Main.timeRemain;
         if (timeLeft >= 37) {
             timeBonus = 200;
         } else if (timeLeft >= 25) {
@@ -45,10 +45,13 @@ public class PubController {
         if (total > 250) {
             total = 250;
         }
-        System.out.println("You Won " + total + "At the Pub! Congrats!");
+        System.out.println("You Won $" + total + " at the Pub! Congrats!");
         Player a = Main.getCurrentPlayer();
         a.setMoney(a.getMoney() + total);
-   }
+        Main.timeRemain = 0;
+
+
+    }
 
 
     @FXML
