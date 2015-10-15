@@ -8,6 +8,7 @@ public class Tile {
     private int yPosition;
     private String name;
     private Mule tileMule;
+    private Player tileOwner;
 
     public Tile(String name, int xPosition, int yPosition) {
         this.name = name;
@@ -104,5 +105,13 @@ public class Tile {
                 }
             }
         }
+    }
+
+    public void setTileOwner(Player p) {
+        this.tileOwner = p;
+    }
+
+    public Player getTileOwner() {
+        return this.tileOwner;
     }
 }
