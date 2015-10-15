@@ -24,8 +24,6 @@ import java.util.TimerTask;
 
 public class MapController implements Initializable {
 
-    @FXML Label playerNameLabel;
-
     @FXML
     private Label timerCount;
 
@@ -123,7 +121,12 @@ public class MapController implements Initializable {
     }
 
     @FXML
-    public void buyLand(MouseEvent event) {
+    public void pauseTurn() {
+        System.out.println("Paused");
+    }
+
+    @FXML
+    private void buyLand(MouseEvent event) {
         if (!Main.bought && Main.started) {
             Button butt = (Button) event.getSource();
             butt.setStyle("-fx-background-color:" + Main
@@ -147,7 +150,7 @@ public class MapController implements Initializable {
     }
 
     @FXML
-    public void pass() {
+    private void pass() {
         passBut.setDisable(true);
         Main.bought = true;
         System.out.println(Main.getCurrentPlayer());
