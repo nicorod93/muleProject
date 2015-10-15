@@ -67,6 +67,8 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+        playerEnergy.textProperty().set(Main.playerArray.get(0).getSpecificItem(1).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
+        playerFood.textProperty().set(Main.playerArray.get(0).getSpecificItem(0).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
         roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
@@ -139,6 +141,8 @@ public class MapController implements Initializable {
     @FXML
     public void endTurn() {
         if (Main.playerTurn < Main.players - 1) {
+            System.out.println("THIS IS EXECUTED");
+            System.out.println(Main.playerTurn + " " + Main.players);
             Main.playerTurn++;
         } else {
             Main.playerTurn = 0;
