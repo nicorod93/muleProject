@@ -9,34 +9,34 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b5998; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ChoiceBox fx:id="difficulty" layoutX="225.0" layoutY="163.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: white;" />
-      <ChoiceBox fx:id="mapType" layoutX="225.0" layoutY="233.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: white;" />
-      <ChoiceBox fx:id="numPlayers" layoutX="226.0" layoutY="315.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: white;" />
-      <Label layoutX="139.0" layoutY="14.0" text="M.U.L.E">
+      <ChoiceBox fx:id="difficulty" layoutX="225.0" layoutY="163.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: #77BA9B;" />
+      <ChoiceBox fx:id="mapType" layoutX="225.0" layoutY="233.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: #77BA9B;" />
+      <ChoiceBox fx:id="numPlayers" layoutX="225.0" layoutY="299.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: #77BA9B;" />
+      <Label layoutX="177.0" layoutY="14.0" text="M.U.L.E" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="96.0" />
+            <Font name="Impact" size="96.0" />
          </font>
       </Label>
-      <Label layoutX="201.0" layoutY="135.0" text="Choose a Difficulty">
+      <Label layoutX="212.0" layoutY="132.0" text="Choose a Difficulty" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="23.0" />
+            <Font name="Impact" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="201.0" layoutY="205.0" text="Choose a Map Type">
+      <Label layoutX="211.0" layoutY="205.0" text="Choose a Map Type" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="23.0" />
+            <Font name="Impact" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="177.0" layoutY="287.0" text="Choose Number of Players">
+      <Label layoutX="179.0" layoutY="271.0" text="Choose Number of Players" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="23.0" />
+            <Font name="Impact" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="443.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#confirm" prefHeight="28.0" prefWidth="132.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Confirm">
+      <Button layoutX="443.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#confirm" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #77BA9B; -fx-background-radius: 50px;" text="CONFIRM" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="15.0" />
+            <Font name="Impact" size="15.0" />
          </font>
       </Button>
    </children>

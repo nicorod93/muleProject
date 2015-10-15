@@ -59,7 +59,7 @@ public class MapController implements Initializable {
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
-        playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
     }
 
@@ -88,7 +88,7 @@ public class MapController implements Initializable {
     @FXML
     public void startTurn() {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-        playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
@@ -128,6 +128,7 @@ public class MapController implements Initializable {
     @FXML
     private void buyLand(MouseEvent event) {
         if (!Main.bought && Main.started) {
+            playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
             Button butt = (Button) event.getSource();
             butt.setStyle("-fx-background-color:" + Main
                     .getCurrentPlayer().getColor());

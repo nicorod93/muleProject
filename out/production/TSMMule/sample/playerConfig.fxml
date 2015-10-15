@@ -5,34 +5,34 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PlayerConfigController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B5998; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PlayerConfigController">
    <children>
-      <Label layoutX="183.0" layoutY="14.0" text="Player">
+      <Label layoutX="207.0" layoutY="32.0" text="Player" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="71.0" />
+            <Font name="Impact" size="71.0" />
          </font>
       </Label>
-      <TextField fx:id="plname" alignment="CENTER" layoutX="191.0" layoutY="143.0" promptText="Enter Your Name" style="-fx-background-radius: 50px;" />
-      <ChoiceBox fx:id="races" layoutX="209.0" layoutY="224.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: white;" />
-      <Label layoutX="223.0" layoutY="119.0" text="Enter a name">
+      <TextField fx:id="plname" alignment="CENTER" layoutX="207.0" layoutY="161.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
+      <ChoiceBox fx:id="races" layoutX="225.0" layoutY="232.0" prefWidth="150.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
+      <Label layoutX="246.0" layoutY="134.0" text="Enter a name" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="21.0" />
+            <Font name="Impact" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="214.0" layoutY="200.0" text="Choose a Race">
+      <Label layoutX="236.0" layoutY="205.0" text="Choose a Race" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="21.0" />
+            <Font name="Impact" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="213.0" layoutY="283.0" text="Choose a Color">
+      <Label layoutX="236.0" layoutY="275.0" text="Choose a Color" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="21.0" />
+            <Font name="Impact" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="444.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#playerConfirm" prefHeight="38.0" prefWidth="134.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Next">
+      <Button layoutX="444.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#playerConfirm" prefHeight="38.0" prefWidth="134.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" text="Next" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="20.0" />
+            <Font name="Impact" size="20.0" />
          </font></Button>
-      <ChoiceBox fx:id="color" layoutX="210.0" layoutY="314.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: white;" />
+      <ChoiceBox fx:id="color" layoutX="224.0" layoutY="302.0" prefWidth="150.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
    </children>
 </Pane>
