@@ -1,38 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B5998; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PlayerConfigController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #3B5998; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PlayerConfigController">
    <children>
-      <Label layoutX="207.0" layoutY="32.0" text="Player" textFill="WHITE">
+      <ChoiceBox fx:id="difficulty" layoutX="88.0" layoutY="252.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: #77BA9B;" />
+      <ImageView fitHeight="127.0" fitWidth="322.0" layoutX="50.0" layoutY="38.0">
+         <image>
+            <Image url="@pics/League_of_Legends_logo.png" />
+         </image>
+      </ImageView>
+      <Line endX="175.0" layoutX="188.0" layoutY="211.0" startX="-100.0" />
+      <ChoiceBox fx:id="numPlayers" layoutX="88.0" layoutY="413.0" prefWidth="150.0" style="-fx-background-radius: 50px; -fx-background-color: #77BA9B;" />
+      <Button layoutX="280.0" layoutY="469.0" mnemonicParsing="false" onMouseClicked="#playerConfirm" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #77BA9B; -fx-background-radius: 50px;" text="CONFIRM" textFill="WHITE">
          <font>
-            <Font name="Impact" size="71.0" />
+            <Font name="Copperplate Gothic Light" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="88.0" layoutY="174.0" text="Game Setup" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="plname" alignment="CENTER" layoutX="207.0" layoutY="161.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
-      <ChoiceBox fx:id="races" layoutX="225.0" layoutY="232.0" prefWidth="150.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
-      <Label layoutX="246.0" layoutY="134.0" text="Enter a name" textFill="WHITE">
+      <Label layoutX="88.0" layoutY="379.0" text="Choose # of Players" textFill="WHITE">
          <font>
-            <Font name="Impact" size="21.0" />
+            <Font name="Copperplate Gothic Light" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="236.0" layoutY="205.0" text="Choose a Race" textFill="WHITE">
+      <Label layoutX="88.0" layoutY="218.0" text="Choose a Difficulty" textFill="WHITE">
          <font>
-            <Font name="Impact" size="21.0" />
+            <Font name="Copperplate Gothic Light" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="236.0" layoutY="275.0" text="Choose a Color" textFill="WHITE">
+      <ImageView fitHeight="581.0" fitWidth="880.0" layoutX="10.0" layoutY="10.0">
+         <image>
+            <Image url="@pics/hecarim.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKSLATEGRAY" height="362.0" layoutX="50.0" layoutY="167.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="377.0" />
+      <TextField fx:id="plname" alignment="CENTER" layoutX="98.0" layoutY="270.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
+      <ChoiceBox fx:id="races" layoutX="98.0" layoutY="337.0" prefWidth="150.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
+      <Label layoutX="98.0" layoutY="239.0" text="Enter a name" textFill="WHITE">
          <font>
-            <Font name="Impact" size="21.0" />
+            <Font name="Copperplate Gothic Light" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="444.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#playerConfirm" prefHeight="38.0" prefWidth="134.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" text="Next" textFill="WHITE">
+      <Label layoutX="100.0" layoutY="306.0" text="Choose a Race" textFill="WHITE">
          <font>
-            <Font name="Impact" size="20.0" />
+            <Font name="Copperplate Gothic Light" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="379.0" text="Choose a Color" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Light" size="21.0" />
+         </font>
+      </Label>
+      <Button layoutX="271.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#playerConfirm" prefHeight="38.0" prefWidth="134.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" text="Next" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Light" size="20.0" />
          </font></Button>
-      <ChoiceBox fx:id="color" layoutX="224.0" layoutY="302.0" prefWidth="150.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
+      <ChoiceBox fx:id="color" layoutX="98.0" layoutY="405.0" prefWidth="150.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
+      <ImageView fitHeight="127.0" fitWidth="322.0" layoutX="52.0" layoutY="38.0">
+         <image>
+            <Image url="@pics/League_of_Legends_logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="98.0" layoutY="182.0" prefHeight="26.0" prefWidth="204.0" text="PLAYER Setup" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="23.0" />
+         </font>
+      </Label>
+      <Line endX="175.0" layoutX="199.0" layoutY="218.0" startX="-100.0" />
    </children>
 </Pane>
