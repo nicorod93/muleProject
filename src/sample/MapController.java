@@ -71,6 +71,7 @@ public class MapController implements Initializable {
 
     @FXML
     public boolean startTimer() {
+        Main.playerTurn++;
         startBut.setDisable(true);
         Main.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -138,7 +139,7 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-        Main.timeRemain = 10;
+        Main.timeRemain = 50;
         startBut.setDisable(true);
 
     }

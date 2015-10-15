@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class Main extends Application {
     public static String difficulty;
     public static String mapType;
-    public static int timeRemain = 10;
+    public static int timeRemain = 50;
     public static String strTime = "" + Main.timeRemain;
 
 
@@ -164,7 +164,7 @@ public class Main extends Application {
         } else if (numFood == 0) {
             timeRemain = 5;
         } else {
-            timeRemain = 10;
+            timeRemain = 50;
         }
         return timeRemain;
     }
