@@ -56,11 +56,15 @@ public class PlayerConfigController implements Initializable {
                 Main.setPlayersItems();
                 Main.setPlayersMoney();
                 System.out.println("Players: " + Main.playerArray);
-                Main.map = new Scene(FXMLLoader.load(getClass().getResource
-                        ("map.fxml")));
+                System.out.println("Here0");
+                Main.map = new Scene(FXMLLoader.load(getClass().getResource("map.fxml")));
+                System.out.println("Here1");
                 Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                System.out.println("Here2");
                 t.setScene(Main.map);
+                System.out.println("Here3");
                 t.setTitle("Map");
+                System.out.println("Here4");
                 t.show();
             }
         } catch (Exception e) {
