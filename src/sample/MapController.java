@@ -84,6 +84,8 @@ public class MapController implements Initializable {
                         timerCount.textProperty().set("Time's up!");
                         Main.bought = true;
                         Main.finishTurn = true;
+                        Main.playerTurn++;
+                        playerName.textProperty().set(Main.getCurrentPlayer().getName());
                         Main.timer.cancel();
                     }
                 });
@@ -132,6 +134,7 @@ public class MapController implements Initializable {
         if (Main.playerTurn < Main.players - 1) {
             Main.playerTurn++;
             Main.timeRemain = 50;
+            startTimer();
         } else {
             Main.playerTurn = 0;
             Main.timeRemain = 50;
