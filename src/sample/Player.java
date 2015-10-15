@@ -85,6 +85,10 @@ public class Player {
         return items;
     }
 
+    public Item getSpecificItem(int i) {
+        return items.get(i);
+    }
+
     public List<Tile> getTiles() {
         return tiles;
     }
