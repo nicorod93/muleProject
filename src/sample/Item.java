@@ -10,6 +10,10 @@ public class Item {
     private int amount;
     private int price;
 
+    public Item(String name) {
+        this(name, 0, 0);
+    }
+
     public Item(String name, int amount, int price) {
         this.name = name;
         this.amount = amount;
