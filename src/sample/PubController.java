@@ -49,8 +49,6 @@ public class PubController {
         int oldMoney = Main.getCurrentPlayer().getMoney();
         Main.getCurrentPlayer().setMoney(oldMoney + total);
         Main.timeRemain = 0;
-
-
     }
 
 

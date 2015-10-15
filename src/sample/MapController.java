@@ -84,9 +84,8 @@ public class MapController implements Initializable {
                         timerCount.textProperty().set("Time's up!");
                         Main.bought = true;
                         Main.finishTurn = true;
-                        Main.playerTurn++;
-                        playerName.textProperty().set(Main.getCurrentPlayer().getName());
                         Main.timer.cancel();
+                        endTurn();
                     }
                 });
             }
@@ -111,8 +110,10 @@ public class MapController implements Initializable {
             }
             Main.selectionRound();
         } else if (!Main.finishBuyingRound) {
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney()-300);
+            System.out.println("Executed");
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 300);
             passBut.setDisable(false);
+            startBut.setDisable(true);
             Main.bought = false;
         } else if (!Main.finishGame) {
             Main.timeRemain = Main.calculateTurnTime();
@@ -133,15 +134,15 @@ public class MapController implements Initializable {
     public void endTurn() {
         if (Main.playerTurn < Main.players - 1) {
             Main.playerTurn++;
-            Main.timeRemain = 50;
-            startTimer();
         } else {
             Main.playerTurn = 0;
-            Main.timeRemain = 50;
         }
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
+        Main.timeRemain = 50;
+        startBut.setDisable(true);
+
     }
 
     @FXML
@@ -188,6 +189,7 @@ public class MapController implements Initializable {
             System.out.println("WEEE");
             Main.numPasses++;
         }
+        startBut.setDisable(false);
         Main.newPlayerSetupTurn();
     }
 }
