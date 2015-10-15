@@ -24,6 +24,10 @@ import java.util.TimerTask;
 
 public class MapController implements Initializable {
 
+
+    @FXML
+    private Label roundNumber;
+
     @FXML
     private Label timerCount;
 
@@ -63,6 +67,7 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+        roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
@@ -115,6 +120,8 @@ public class MapController implements Initializable {
             startBut.setDisable(true);
             Main.bought = false;
         } else if (!Main.finishGame) {
+            Main.roundNumber++;
+            roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
             Main.timeRemain = Main.calculateTurnTime();
             Main.timer = new Timer();
             Main.finishTurn = false;
@@ -135,11 +142,14 @@ public class MapController implements Initializable {
             Main.playerTurn++;
         } else {
             Main.playerTurn = 0;
+            Main.roundNumber++;
+            roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
+
         }
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-        Main.timeRemain = 50;
+        Main.timeRemain = 10;
         startBut.setDisable(true);
 
     }
@@ -163,7 +173,6 @@ public class MapController implements Initializable {
             passBut.setDisable(true);
             Main.bought = true;
             Main.newPlayerSetupTurn();
-
         } else {
             return;
         }

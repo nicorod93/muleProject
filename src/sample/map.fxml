@@ -59,7 +59,7 @@
             <Image url="@pics/mountain3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="0">
+      <ImageView fitHeight="93.0" fitWidth="80.0" GridPane.columnIndex="6">
          <image>
             <Image url="@pics/mountain3.png" />
          </image>
@@ -155,23 +155,23 @@
          <font>
             <Font name="Impact" size="19.0" />
          </font></Button>
-      <Label fx:id="playerMoney" alignment="CENTER" prefHeight="88.0" prefWidth="80.0" text="Money" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="6">
+      <Label fx:id="playerMoney" alignment="CENTER" prefHeight="88.0" prefWidth="80.0" text="Money" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="7">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="playerName" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="234.0" text="Player" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="5">
+      <Label fx:id="playerName" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="234.0" text="Player" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="6">
          <font>
-            <Font name="Impact" size="60.0" />
+            <Font name="Impact" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="playerEnergy" alignment="CENTER" prefHeight="88.0" prefWidth="80.0" text="Energy" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="6">
+      <Label fx:id="playerEnergy" alignment="CENTER" prefHeight="88.0" prefWidth="80.0" text="Energy" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="7">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
 
-      <Label fx:id="playerFood" alignment="CENTER" prefHeight="104.0" prefWidth="78.0" text="Food" textFill="WHITE" GridPane.columnIndex="6" GridPane.rowIndex="6">
+      <Label fx:id="playerFood" alignment="CENTER" prefHeight="104.0" prefWidth="78.0" text="Food" textFill="WHITE" GridPane.columnIndex="6" GridPane.rowIndex="7">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
@@ -184,5 +184,10 @@
             <Font name="Impact" size="19.0" />
          </font>
       </Button>
+      <Label fx:id="roundNumber" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="234.0" text="Round" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="5">
+         <font>
+            <Font name="Impact" size="60.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

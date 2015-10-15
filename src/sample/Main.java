@@ -18,15 +18,15 @@ import java.util.HashMap;
 public class Main extends Application {
     public static String difficulty;
     public static String mapType;
-    public static int timeRemain = 50;
+    public static int timeRemain = 10;
     public static String strTime = "" + Main.timeRemain;
-
 
     public static int players = 0;
     public static int counter = 1;
     public static int playerTurn = 0;
     public static int playerStart = 0;
     public static int round = 0;
+    public static int roundNumber = 0;
     public static int numSelectionRounds = 0;
     public static int numPasses = 0;
     public static int food = 16;
@@ -164,7 +164,7 @@ public class Main extends Application {
         } else if (numFood == 0) {
             timeRemain = 5;
         } else {
-            timeRemain = 50;
+            timeRemain = 10;
         }
         return timeRemain;
     }
