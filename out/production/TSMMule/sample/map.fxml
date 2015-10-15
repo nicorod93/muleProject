@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" style="-fx-background-color: #428F89;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MapController">
+<GridPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" style="-fx-background-color: #428F89; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MapController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,14 +31,14 @@
    </rowConstraints>
    <children>
 
-      <ImageView fitHeight="503.0" fitWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+      <ImageView fitHeight="490.0" fitWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
          <image>
             <Image url="@pics/riverdown.png" />
          </image>
       </ImageView>
 
-      <Button id="River" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="106.0" prefWidth="78.0" GridPane.columnIndex="4" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#293e6a" height="303.0" stroke="BLACK" strokeType="INSIDE" width="700.0" GridPane.rowIndex="6" />
+      <Button id="River" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="99.0" prefWidth="76.0" GridPane.columnIndex="4" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#293e6a" height="291.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" style="-fx-stroke: none;" width="680.0" GridPane.rowIndex="6" />
       <ImageView fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
          <image>
             <Image url="@pics/mountain2.png" />

@@ -48,7 +48,7 @@ public class PubController {
         System.out.println("You Won " + total + "At the Pub! Congrats!");
         Player a = Main.getCurrentPlayer();
         a.setMoney(a.getMoney() + total);
-    }
+   }
 
 
     @FXML
