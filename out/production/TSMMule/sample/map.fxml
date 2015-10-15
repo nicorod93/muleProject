@@ -149,6 +149,7 @@
             <Font name="Impact" size="60.0" />
          </font>
       </Label>
+<<<<<<< HEAD
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="89.0" prefWidth="77.0" GridPane.rowIndex="1" />
       <Circle fill="#65ff1f" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="6" />
       <Button mnemonicParsing="false" onAction="#startTurn" prefHeight="89.0" prefWidth="78.0" style="-fx-background-color: none;" text="Start" GridPane.columnIndex="3" GridPane.rowIndex="6">
@@ -156,6 +157,16 @@
             <Font name="Impact" size="19.0" />
          </font></Button>
       <Label fx:id="playerMoney" alignment="CENTER" prefHeight="72.0" prefWidth="76.0" text="Money" GridPane.columnIndex="6" GridPane.rowIndex="7">
+=======
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#startTurn" text="Start Turn" GridPane.columnIndex="1" />
+      <Label fx:id="playerMoney" alignment="CENTER" prefHeight="72.0" prefWidth="76.0" text="Money" GridPane.columnIndex="6">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerName" alignment="CENTER" text="Player" GridPane.columnIndex="5">
+>>>>>>> 08e237bd1dde101028a810cced3321d422470d05
          <font>
             <Font name="Impact" size="24.0" />
          </font>

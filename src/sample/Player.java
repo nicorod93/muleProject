@@ -3,6 +3,7 @@ package sample;
 //import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by MacbookRetina on 9/30/15.
@@ -11,9 +12,9 @@ public class Player {
     private String name;
     private String color;
     private String race;
-    private ArrayList<Item> items;
+    private List<Item> items;
     private int money;
-    private ArrayList<Tile> tiles;
+    private List<Tile> tiles;
     private int score;
 
     public Player(String name, String color, String race) {
@@ -25,7 +26,11 @@ public class Player {
     }
 
     public void addItem(Item item) {
-        this.items.add(item);
+        if (!items.contains(item)) {
+            this.items.add(item);
+        } else {
+            items.get(items.indexOf(item)).increaseAmount(item.getAmount());
+        }
     }
 
     public void addProperty(Tile tile) {
@@ -76,7 +81,12 @@ public class Player {
         return sum;
     }
 
-    public ArrayList<Item> getItems() {
+    public List<Item> getItems() {
         return items;
     }
+
+    public List<Tile> getTiles() {
+        return tiles;
+    }
+
 }

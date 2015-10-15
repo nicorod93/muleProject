@@ -24,7 +24,7 @@ import java.util.TimerTask;
 
 public class MapController implements Initializable {
 
-    @FXML Label playerName;
+    @FXML Label playerNameLabel;
 
     @FXML
     private Label timerCount;
@@ -38,9 +38,11 @@ public class MapController implements Initializable {
     @FXML
     private Label playerFood;
 
-
     @FXML
     private Button passBut;
+
+    @FXML
+    private Label playerName;
 
     @FXML
     private void goToTown(MouseEvent event) {
@@ -60,6 +62,7 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
         playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
     }
 
     @FXML
@@ -88,6 +91,7 @@ public class MapController implements Initializable {
     public void startTurn() {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set(Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;

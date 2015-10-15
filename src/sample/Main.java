@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import java.util.Comparator;
 import java.util.Timer;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
 
 public class Main extends Application {
     public static String difficulty;
@@ -29,10 +31,11 @@ public class Main extends Application {
     public static int food = 16;
     public static int energy = 16;
 
-    public static ArrayList<String> playerRace = new ArrayList<>();
-    public static ArrayList<String> playerColor = new ArrayList<>();
-    public static ArrayList<String> playerName = new ArrayList<>();
-    public static ArrayList<Player> playerArray = new ArrayList<>();
+    public static List<String> playerRace = new ArrayList<>();
+    public static List<String> playerColor = new ArrayList<>();
+    public static List<String> playerName = new ArrayList<>();
+    public static List<Player> playerArray = new ArrayList<>();
+    public static List<Item> items;
 
     public static int[] foodRequirement = {3,3,3,3,4,4,4,4,5,5,5,5};
 
@@ -45,6 +48,9 @@ public class Main extends Application {
     public static boolean finishTurn;
 
     public static Timer timer;
+
+    public static Scene map;
+
 
 
     @Override
@@ -148,10 +154,9 @@ public class Main extends Application {
     }
 
     public static int calculateTurnTime() {
-        Player p = getCurrentPlayer();
-        ArrayList<Item> items = p.getItems();
+
         int numFood = 0;
-        for (Item i : items) {
+        for (Item i : currentPlayer.getItems()) {
             if (i.getName().equals("Food")) {
                 numFood += i.getAmount();
             }
