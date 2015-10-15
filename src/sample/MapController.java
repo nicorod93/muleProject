@@ -24,8 +24,6 @@ import java.util.TimerTask;
 
 public class MapController implements Initializable {
 
-    @FXML Label playerNameLabel;
-
     @FXML
     private Label timerCount;
 
@@ -120,6 +118,11 @@ public class MapController implements Initializable {
             System.out.println("After Timer");
             Main.newPlayerTurn();
         }
+    }
+
+    @FXML
+    public void pauseTurn() {
+        System.out.println("Paused");
     }
 
     @FXML
