@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" style="-fx-background-color: #428F89; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MapController">
+<GridPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MapController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,82 +30,26 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-
-      <ImageView fitHeight="490.0" fitWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+      <ImageView fitHeight="297.0" fitWidth="678.0" GridPane.rowIndex="6">
          <image>
-            <Image url="@pics/riverdown.png" />
+            <Image url="@pics/1black_wood_texture_15.jpg" />
          </image>
       </ImageView>
+      <ImageView fitHeight="494.0" fitWidth="680.0" GridPane.rowIndex="2">
+         <image>
+            <Image url="@pics/map.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="612.0" fitWidth="245.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <image>
+            <Image url="@pics/riververtical_1.png" />
+         </image>
+      </ImageView>
+      <Button id="River" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="101.0" prefWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
 
       <Button id="River" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="99.0" prefWidth="76.0" GridPane.columnIndex="4" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#293e6a" height="291.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" style="-fx-stroke: none;" width="680.0" GridPane.rowIndex="6" />
-      <ImageView fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
-         <image>
-            <Image url="@pics/mountain2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="77.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
-         <image>
-            <Image url="@pics/mountain2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
-         <image>
-            <Image url="@pics/mountain5.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
-         <image>
-            <Image url="@pics/mountain3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="80.0" GridPane.columnIndex="6">
-         <image>
-            <Image url="@pics/mountain3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="80.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
-         <image>
-            <Image url="@pics/mountain3.png" />
-         </image>
-      </ImageView>
-      <Button id="Mountain2" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="100.0" prefWidth="78.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-      <Button id="Mountain2" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="101.0" prefWidth="78.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-      <Button id="Mountain1" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="104.0" prefWidth="78.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
       <Button id="Plain" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="102.0" prefWidth="78.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-      <ImageView fitHeight="89.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-         <image>
-            <Image url="@pics/mountain2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="89.0" fitWidth="79.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <image>
-            <Image url="@pics/mountain5.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="87.0" fitWidth="78.0" GridPane.columnIndex="2">
-         <image>
-            <Image url="@pics/mountain5.png" />
-         </image>
-      </ImageView>
-      <Button id="Mountain2" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="101.0" prefWidth="78.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <ImageView fitHeight="86.0" fitWidth="79.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <image>
-            <Image url="@pics/mountain2.png" />
-         </image>
-      </ImageView>
-      <Button id="Mountain3" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="100.0" prefWidth="77.0" GridPane.rowIndex="2" />
-      <Button id="Mountain1" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="102.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button id="Mountain1" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="78.0" GridPane.columnIndex="2" />
       <Button id="River" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="101.0" prefWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-      <Button id="Mountain2" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="103.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button id="Mountain3" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="100.0" prefWidth="78.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-      <Button id="Mountain3" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="98.0" prefWidth="79.0" GridPane.columnIndex="6" />
-      <ImageView fitHeight="81.0" fitWidth="74.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
-         <image>
-            <Image url="@pics/home.png" />
-         </image>
-      </ImageView>
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="1" />
       <Button id="Plain" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="109.0" prefWidth="78.0" GridPane.columnIndex="3" />
       <Button id="Plain" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="103.0" prefWidth="78.0" GridPane.columnIndex="8" />
@@ -133,61 +77,126 @@
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="102.0" prefWidth="78.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="100.0" prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="103.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="95.0" prefWidth="79.0" GridPane.rowIndex="4" />
       <Button id="River" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="99.0" prefWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-      <Button id="River" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="101.0" prefWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
       <Button id="Town" mnemonicParsing="false" onMouseClicked="#goToTown" opacity="0.0" prefHeight="98.0" prefWidth="79.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
       <Circle fill="#ffff1f" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="6" />
       <Button fx:id="passBut" mnemonicParsing="false" onAction="#pass" prefHeight="96.0" prefWidth="78.0" style="-fx-background-color: none;" text="PASS" GridPane.columnIndex="3" GridPane.rowIndex="6">
          <font>
-            <Font name="Impact" size="19.0" />
+            <Font name="Copperplate Gothic Light" size="15.0" />
          </font>
       </Button>
-      <Circle fill="#ff1f1f" radius="111.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="6" />
-      <Label fx:id="timerCount" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="268.0" prefWidth="223.0" text="Timer" GridPane.rowIndex="6">
+      <Circle fill="BURLYWOOD" radius="111.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="6" />
+      <Label fx:id="timerCount" alignment="CENTER" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="222.0" text="Timer" GridPane.rowIndex="6">
          <font>
-            <Font name="Impact" size="60.0" />
+            <Font name="Copperplate Gothic Light" size="60.0" />
          </font>
       </Label>
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="89.0" prefWidth="77.0" />
       <Circle fill="#65ff1f" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       <Button fx:id="startBut" mnemonicParsing="false" onAction="#startTurn" prefHeight="99.0" prefWidth="78.0" style="-fx-background-color: none;" text="START" GridPane.columnIndex="3" GridPane.rowIndex="5">
          <font>
-            <Font name="Impact" size="19.0" />
+            <Font name="Copperplate Gothic Light" size="15.0" />
          </font></Button>
-      <Label fx:id="playerMoney" alignment="CENTER" prefHeight="88.0" prefWidth="80.0" text="Money" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="7">
+      <Label fx:id="playerMoney" alignment="CENTER" minWidth="-Infinity" prefHeight="88.0" prefWidth="107.0" text="Money" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="7">
          <font>
-            <Font name="Impact" size="24.0" />
+            <Font name="Copperplate Gothic Light" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="playerName" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="234.0" text="Player" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="6">
+      <Label fx:id="playerName" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="380.0" text="Player" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="6">
          <font>
-            <Font name="Impact" size="50.0" />
+            <Font name="Copperplate Gothic Light" size="50.0" />
          </font>
       </Label>
       <Label fx:id="playerEnergy" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="88.0" prefWidth="119.0" text="Energy" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="7">
          <font>
-            <Font name="Impact" size="24.0" />
+            <Font name="Copperplate Gothic Light" size="20.0" />
          </font>
       </Label>
 
-      <Label fx:id="playerFood" alignment="CENTER" prefHeight="104.0" prefWidth="78.0" text="Food" textFill="WHITE" GridPane.columnIndex="6" GridPane.rowIndex="7">
+      <Label fx:id="playerFood" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="189.0" text="Food" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="7">
          <font>
-            <Font name="Impact" size="24.0" />
+            <Font name="Copperplate Gothic Light" size="20.0" />
          </font>
       </Label>
 
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="0" />
-      <Circle fill="DODGERBLUE" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-      <Button fx:id="endBut" mnemonicParsing="false" onAction="#endTurn" prefHeight="99.0" prefWidth="78.0" style="-fx-background-color: none;" text="END" GridPane.columnIndex="3" GridPane.rowIndex="7">
+      <Circle fill="RED" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+      <Button fx:id="endBut" mnemonicParsing="false" onAction="#endTurn" prefHeight="84.0" prefWidth="104.0" style="-fx-background-color: none;" text="END" GridPane.columnIndex="3" GridPane.rowIndex="7">
          <font>
-            <Font name="Impact" size="19.0" />
+            <Font name="Copperplate Gothic Light" size="15.0" />
          </font>
       </Button>
-      <Label fx:id="roundNumber" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="234.0" text="Round" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="5">
+      <Label fx:id="roundNumber" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="381.0" text="Round" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="5">
          <font>
-            <Font name="Impact" size="60.0" />
+            <Font name="Copperplate Gothic Light" size="60.0" />
          </font>
       </Label>
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="101.0" prefWidth="77.0" GridPane.rowIndex="4" />
+      <ImageView fitHeight="56.0" fitWidth="75.0" GridPane.columnIndex="2">
+         <image>
+            <Image url="@pics/mapmountain1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="56.0" fitWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <image>
+            <Image url="@pics/mapmountain1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="56.0" fitWidth="75.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
+         <image>
+            <Image url="@pics/mapmountain1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="81.0" fitWidth="76.0" GridPane.rowIndex="2">
+         <image>
+            <Image url="@pics/MercatorMountain5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="81.0" fitWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
+         <image>
+            <Image url="@pics/MercatorMountain5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="81.0" fitWidth="76.0" GridPane.columnIndex="6">
+         <image>
+            <Image url="@pics/MercatorMountain5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="102.0" fitWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+         <image>
+            <Image url="@pics/oldtownf.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="74.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
+         <image>
+            <Image url="@pics/nailbmb_Map_symbols_Mountain1%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="74.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+         <image>
+            <Image url="@pics/nailbmb_Map_symbols_Mountain1%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="74.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <image>
+            <Image url="@pics/nailbmb_Map_symbols_Mountain1%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="74.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <image>
+            <Image url="@pics/nailbmb_Map_symbols_Mountain1%20(1).png" />
+         </image>
+      </ImageView>
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="6" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.rowIndex="2" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="2" />
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#goToTown" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
    </children>
 </GridPane>
