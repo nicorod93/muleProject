@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sellController">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0">
+            <image>
+                <Image url="@pics/Old_Yordle_ShopKeeper.jpg" />
+            </image>
+        </ImageView>
+        <ImageView layoutX="321.0" layoutY="88.0">
+            <image>
+                <Image url="@pics/Poro-Snax_item.png" />
+            </image>
+        </ImageView>
+        <ImageView layoutX="451.0" layoutY="88.0">
+            <image>
+                <Image url="@pics/Crystalline_Flask_item.png" />
+            </image>
+        </ImageView>
+        <ImageView layoutX="448.0" layoutY="231.0">
+            <image>
+                <Image url="@pics/Death's_Daughter_item.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="foodBut" layoutX="313.0" layoutY="156.0" mnemonicParsing="false" onAction="#sellFood" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Food">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Button fx:id="energyBut" layoutX="440.0" layoutY="156.0" mnemonicParsing="false" onAction="#sellEnergy" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Energy">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Button fx:id="oreBut" layoutX="433.0" layoutY="301.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Smithore">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Button fx:id="muleBut" layoutX="316.0" layoutY="301.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="MULE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <ImageView fitHeight="64.0" fitWidth="71.0" layoutX="317.0" layoutY="231.0">
+            <image>
+                <Image url="@pics/gameflow_greater_stealth_totem.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+        <Button layoutX="500.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Go Back">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Label alignment="CENTER" layoutY="341.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="149.0" text="Sell" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="50.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerFood" alignment="CENTER" layoutX="308.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="89.0" text="Food" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerEnergy" alignment="CENTER" layoutX="436.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="89.0" text="Energy" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerOre" alignment="CENTER" layoutX="436.0" layoutY="187.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="89.0" text="Ore" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerMoneyLabel" alignment="CENTER" layoutX="159.0" layoutY="356.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="80.0" text="MONEY" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerNameID" alignment="CENTER" layoutX="12.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="275.0" text="Player Name" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="40.0" />
+            </font>
+        </Label>
+      <Label fx:id="playerFoodAmm" alignment="CENTER" layoutX="257.0" layoutY="356.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="112.0" text="MONEY" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Light" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerEnergyAmm" alignment="CENTER" layoutX="369.0" layoutY="356.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="112.0" text="MONEY" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Light" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-18.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="286.0" text="Welcome" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Light" size="40.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>

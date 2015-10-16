@@ -26,7 +26,15 @@ public class StoreController {
 
     @FXML
     private void goSell(MouseEvent event) {
-
+        try {
+            Scene town = new Scene(FXMLLoader.load(getClass().getResource("sellScreen.fxml")));
+            Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            t.setScene(town);
+            t.setTitle("Sell Screen");
+            t.show();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No file");
+        }
     }
 
     @FXML

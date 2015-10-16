@@ -15,7 +15,13 @@ import java.util.ResourceBundle;
 /**
  * Created by RichardWang on 10/15/15.
  */
-public class buyController implements Initializable{
+public class buyController implements Initializable {
+
+    @FXML
+    private Label playerFoodAmm;
+
+    @FXML
+    private Label playerEnergyAmm;
 
     @FXML
     private Label playerFood;
@@ -50,6 +56,8 @@ public class buyController implements Initializable{
         playerFood.textProperty().set("x" + Integer.toString(Main.food));
         playerNameID.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerEnergyAmm.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+        playerFoodAmm.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
     }
 
     @FXML
@@ -66,17 +74,37 @@ public class buyController implements Initializable{
 
     @FXML
     private void buyFood() {
-        Main.food--;
-        Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney()- 30);
-        playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-        playerFood.textProperty().set("x" + Integer.toString(Main.food));
+        if (Main.food == 0 || Main.getCurrentPlayer().getMoney() < 30) {
+            if (Main.food == 0) {
+                System.out.println("No more food!");
+            } else {
+                System.out.println("No more money!");
+            }
+        } else {
+            Main.getCurrentPlayer().getSpecificItem(0).increaseAmount(1);
+            Main.food--;
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 30);
+            playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+            playerFoodAmm.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+            playerFood.textProperty().set("x" + Integer.toString(Main.food));
+        }
     }
 
     @FXML
     private void buyEnergy() {
-        Main.energy--;
-        Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney()- 25);
-        playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-        playerEnergy.textProperty().set("x" + Integer.toString(Main.energy));
+        if (Main.energy == 0 || Main.getCurrentPlayer().getMoney() < 25) {
+            if (Main.energy == 0) {
+                System.out.println("No more energy!");
+            } else {
+                System.out.println("No more money!");
+            }
+        } else {
+            Main.getCurrentPlayer().getSpecificItem(1).increaseAmount(1);
+            Main.energy--;
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 25);
+            playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+            playerEnergyAmm.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+            playerEnergy.textProperty().set("x" + Integer.toString(Main.energy));
+        }
     }
 }
