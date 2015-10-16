@@ -22,7 +22,11 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class MapController implements Initializable {
+
 
 
     @FXML
@@ -160,6 +164,15 @@ public class MapController implements Initializable {
 
     @FXML
     private void buyLand(MouseEvent event) {
+        if (Main.placeFood) {
+            Button bb = (Button) event.getSource();
+            bb.setDisable(false);
+            bb.setOpacity(1);
+            Image image = new Image(getClass().getResourceAsStream("town.png"));
+            bb.setGraphic(new ImageView(image));
+            System.out.println("I'm here");
+            bb.setDisable(true);
+        }
         if (!Main.bought && Main.started) {
             playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
             Button butt = (Button) event.getSource();
@@ -177,6 +190,8 @@ public class MapController implements Initializable {
             passBut.setDisable(true);
             Main.bought = true;
             Main.newPlayerSetupTurn();
+
+
         } else {
             return;
         }

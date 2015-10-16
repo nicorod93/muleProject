@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.buyMuleController">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0">
+            <image>
+                <Image url="@pics/Old_Yordle_ShopKeeper.jpg" />
+            </image>
+        </ImageView>
+        <Button fx:id="foodBut" layoutX="306.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#buyFood" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Food Mule">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Button fx:id="energyBut" layoutX="444.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#buyEnergy" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Energy Mule">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Button fx:id="oreBut" layoutX="439.0" layoutY="288.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Smithore Mule">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+        <Button layoutX="500.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Go Back">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font></Button>
+        <Label alignment="CENTER" layoutX="-11.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="311.0" text="Welcome" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="40.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerMoneyLabel" alignment="CENTER" layoutX="150.0" layoutY="356.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="101.0" text="MONEY" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerNameID" alignment="CENTER" layoutX="36.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="192.0" text="Player" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="40.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerFoodAmm" alignment="CENTER" layoutX="247.0" layoutY="356.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="123.0" text="MONEY" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font>
+        </Label>
+        <Label fx:id="playerEnergyAmm" alignment="CENTER" layoutX="356.0" layoutY="356.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="112.0" text="MONEY" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="15.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="-11.0" layoutY="343.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="185.0" text="Buy" textFill="WHITE">
+            <font>
+                <Font name="Copperplate Gothic Light" size="50.0" />
+            </font>
+        </Label>
+      <ImageView layoutX="468.0" layoutY="218.0">
+         <image>
+            <Image url="@pics/blueward.gif" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="468.0" layoutY="80.0">
+         <image>
+            <Image url="@pics/purpleward.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="324.0" layoutY="80.0">
+         <image>
+            <Image url="@pics/greenWard.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="267.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="311.0" text="Outfits" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Light" size="40.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>

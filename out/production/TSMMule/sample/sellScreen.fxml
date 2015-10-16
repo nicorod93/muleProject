@@ -80,9 +80,9 @@
                 <Font name="Copperplate Gothic Light" size="15.0" />
             </font>
         </Label>
-        <Label fx:id="playerNameID" alignment="CENTER" layoutX="50.0" layoutY="87.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="149.0" text="Player Name" textFill="WHITE">
+        <Label fx:id="playerNameID" alignment="CENTER" layoutX="12.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="275.0" text="Player Name" textFill="WHITE">
             <font>
-                <Font name="Copperplate Gothic Light" size="20.0" />
+                <Font name="Copperplate Gothic Light" size="40.0" />
             </font>
         </Label>
       <Label fx:id="playerFoodAmm" alignment="CENTER" layoutX="257.0" layoutY="356.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="112.0" text="MONEY" textFill="WHITE">
@@ -95,9 +95,9 @@
             <Font name="Copperplate Gothic Light" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="27.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="286.0" text="Welcome" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="-18.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="286.0" text="Welcome" textFill="WHITE">
          <font>
-            <Font name="Copperplate Gothic Light" size="50.0" />
+            <Font name="Copperplate Gothic Light" size="40.0" />
          </font>
       </Label>
     </children>

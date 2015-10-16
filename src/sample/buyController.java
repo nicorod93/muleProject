@@ -2,8 +2,10 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -106,5 +108,28 @@ public class buyController implements Initializable {
             playerEnergyAmm.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
             playerEnergy.textProperty().set("x" + Integer.toString(Main.energy));
         }
+    }
+
+    @FXML
+    private void buyMule(MouseEvent event) {
+
+            if (Main.getCurrentPlayer().getMoney() < 300) {
+                System.out.println("Not Enough Money");
+            }
+            else {
+                try {
+                    Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 300);
+                    playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                    Scene town = new Scene(FXMLLoader.load(getClass().getResource("buyMuleScreen.fxml")));
+                    Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    t.setScene(town);
+                    t.setTitle("Sell Screen");
+                    t.show();
+                }
+                catch (Exception e) {
+                    throw new IllegalArgumentException("No file");
+                }
+            }
+
     }
 }
