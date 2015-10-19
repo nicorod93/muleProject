@@ -54,6 +54,7 @@ public class Main extends Application {
 
     public static boolean placeFood = false;
     public static boolean placeEnergy = false;
+    public static boolean placeOre = false;
 
 
 
