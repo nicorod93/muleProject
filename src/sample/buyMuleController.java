@@ -84,4 +84,17 @@ public class buyMuleController  implements Initializable {
             throw new IllegalArgumentException("No file");
         }
     }
+
+    @FXML
+    private void buyOre(MouseEvent even) {
+        try {
+            Main.placeOre = true;
+            Stage t = (Stage) ((Node) even.getSource()).getScene().getWindow();
+            t.setScene(Main.map);
+            t.setTitle("Player Configuration");
+            t.show();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No file");
+        }
+    }
 }
