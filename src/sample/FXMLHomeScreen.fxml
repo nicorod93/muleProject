@@ -45,7 +45,7 @@
       </Button>
       <ImageView fitHeight="127.0" fitWidth="322.0" layoutX="50.0" layoutY="36.0">
          <image>
-            <Image url="@pics/League_of_Legends_logo.png" />
+            <Image url="@pics/leagueOfMulelogo.png" />
          </image>
       </ImageView>
       <Line endX="175.0" layoutX="188.0" layoutY="209.0" startX="-100.0" />
