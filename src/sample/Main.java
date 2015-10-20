@@ -18,7 +18,6 @@ import java.util.HashMap;
 public class Main extends Application {
     public static String difficulty;
     public static String mapType;
-    public static int timeRemain = 10;
     public static String strTime = "" + Main.timeRemain;
 
     public static int players = 0;
@@ -26,11 +25,11 @@ public class Main extends Application {
     public static int playerTurn = 0;
     public static int playerStart = 0;
     public static int round = 0;
-    public static int roundNumber = 0;
     public static int numSelectionRounds = 0;
     public static int numPasses = 0;
     public static int food = 16;
     public static int energy = 16;
+    public static int timeRemain;
 
     public static List<String> playerRace = new ArrayList<>();
     public static List<String> playerColor = new ArrayList<>();
@@ -47,6 +46,7 @@ public class Main extends Application {
     public static boolean finishBuyingRound = false;
     public static boolean finishGame = false;
     public static boolean finishTurn;
+    public static boolean ownedTile = false;
 
     public static Timer timer;
 
@@ -109,23 +109,34 @@ public class Main extends Application {
     public static void newPlayerTurn() {
         if (playerTurn < players - 1) {
             playerTurn++;
-            timeRemain = calculateTurnTime();
         } else {
             playerTurn = 0;
             newRound();
         }
+        timeRemain = calculateTurnTime();
+        doProduction();
     }
 
-
+    public static void doProduction() {
+        for (Tile t : getCurrentPlayer().getTiles()) {
+            System.out.println(getCurrentPlayer().getNumMules());
+            System.out.println(getCurrentPlayer().getSpecificItem(1).getAmount());
+            if (getCurrentPlayer().getNumMules() <= getCurrentPlayer().getSpecificItem(1).getAmount()) {
+                System.out.println("Attempt Production");
+                Item calculatedItem = calcProduction(t);
+                System.out.println(calculatedItem);
+                if (calculatedItem != null) {
+                    System.out.println("Do Production");
+                    System.out.println("Tile produced" + calculatedItem);
+                    getCurrentPlayer().addItem(calculatedItem);
+                }
+            }
+        }
+    }
 
     public static void newRound() {
         round++;
-        for (int i = 0; i < Main.players; i++) {
-            int money = Main.playerArray.get(i).getMoney();
-            int numLand = Main.playerArray.get(i).numTiles() * 500;
-            int valueOfGoods = Main.playerArray.get(i).valueOfGoods();
-            Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
-        }
+        calaculateScore();
         playerArray.sort(new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
@@ -156,6 +167,16 @@ public class Main extends Application {
         }
     }
 
+    public static void calaculateScore() {
+        for (int i = 0; i < Main.players; i++) {
+            int money = Main.playerArray.get(i).getMoney();
+            int numLand = Main.playerArray.get(i).numTiles() * 500;
+            int valueOfGoods = Main.playerArray.get(i).valueOfGoods();
+            Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
+        }
+    }
+
+
     public static int calculateTurnTime() {
         int numFood = 0;
         for (Item i : Main.getCurrentPlayer().getItems()) {
@@ -168,12 +189,71 @@ public class Main extends Application {
         } else if (numFood == 0) {
             timeRemain = 5;
         } else {
-            timeRemain = 10;
+            timeRemain = 50;
         }
         return timeRemain;
     }
 
+    public static boolean checkPlayerTiles(Tile t) {
+        for (Player p : playerArray) {
+            for (Tile tile : p.getTiles()) {
+                if (tile.equals(t)) {
+                    ownedTile = true;
+                }
+            }
+        }
+        return ownedTile;
+    }
 
+    public static Item calcProduction(Tile tile) {
+        if (tile.getName().equals("River")) {
+            if (tile.getMule() != null) {
+                System.out.println("River Mule");
+                if (tile.getMule() instanceof EnergyMule) {
+                    return new Item("Energy", 2, 25);
+                } else if (tile.getMule() instanceof FoodMule) {
+                    return new Item("Food", 4, 25);
+                }
+            }
+        } else if (tile.getName().equals("Plain")) {
+            if (tile.getMule() != null) {
+                System.out.println("Plain Mule");
+                if (tile.getMule() instanceof EnergyMule) {
+                    return new Item("Energy", 3, 25);
+                } else if (tile.getMule() instanceof FoodMule) {
+                    return new Item("Food", 2, 25);
+                }
+            }
+        } else if (tile.getName().equals("Mountain1")) {
+            if (tile.getMule() != null) {
+                System.out.println("M1 Mule");
+                if (tile.getMule() instanceof EnergyMule) {
+                    return new Item("Energy", 1, 25);
+                } else if (tile.getMule() instanceof FoodMule) {
+                    return new Item("Food", 1, 25);
+                }
+            }
+        } else if (tile.getName().equals("Mountain2")) {
+            if (tile.getMule() != null) {
+                System.out.println("M2 Mule");
+                if (tile.getMule() instanceof EnergyMule) {
+                    return new Item("Energy", 1, 25);
+                } else if (tile.getMule() instanceof FoodMule) {
+                    return new Item("Food", 1, 25);
+                }
+            }
+        } else if (tile.getName().equals("Mountain3")) {
+            if (tile.getMule() != null) {
+                System.out.println("M3 Mule");
+                if (tile.getMule() instanceof EnergyMule) {
+                    return new Item("Energy", 1, 25);
+                } else if (tile.getMule() instanceof FoodMule) {
+                    return new Item("Food", 1, 25);
+                }
+            }
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         launch(args);

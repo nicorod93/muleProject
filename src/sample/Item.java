@@ -58,4 +58,8 @@ public class Item {
         Item that = (Item) o;
         return this.getName().equals(that.getName());
     }
+
+    public String toString() {
+        return this.name + " " + amount;
+    }
 }
