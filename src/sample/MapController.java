@@ -110,6 +110,8 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
+        Main.getCurrentPlayer().calculateScore();
+        System.out.println(Main.getCurrentPlayer().getScore());
         randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
@@ -147,6 +149,9 @@ public class MapController implements Initializable {
 
     @FXML
     public void endTurn() {
+        Main.getCurrentPlayer().calculateScore();
+        System.out.println(Main.getCurrentPlayer().getScore());
+        randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
         if (Main.playerTurn < Main.players - 1) {
             System.out.println("THIS IS EXECUTED");
             System.out.println(Main.playerTurn + " " + Main.players);
@@ -160,7 +165,7 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-        Main.timeRemain = 10;
+        Main.timeRemain = 50;
         startBut.setDisable(true);
 
     }
@@ -236,7 +241,7 @@ public class MapController implements Initializable {
             System.out.println(tile);
             Main.getCurrentPlayer().addProperty(tile);
 //            butt.setDisable(true);
-//            passBut.setDisable(true);
+            passBut.setDisable(true);
 //            Main.bought = true;
 //            Main.newPlayerSetupTurn();
 

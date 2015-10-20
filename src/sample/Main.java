@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class Main extends Application {
     public static String difficulty;
     public static String mapType;
-    public static int timeRemain = 10;
+    public static int timeRemain = 50;
     public static String strTime = "" + Main.timeRemain;
 
     public static int players = 0;
@@ -76,11 +76,11 @@ public class Main extends Application {
     public static void setPlayersMoney() {
         for (Player p : playerArray) {
             if (p.getRace().equals("Flapper")) {
-                p.setMoney(1600);
+                p.setMoney(6500);
             } else if (p.getRace().equals("Human")) {
-                p.setMoney(600);
+                p.setMoney(6000);
             } else if (p.getRace().equals("Other")) {
-                p.setMoney(1000);
+                p.setMoney(6000);
             }
         }
     }
@@ -172,7 +172,7 @@ public class Main extends Application {
         } else if (numFood == 0) {
             timeRemain = 5;
         } else {
-            timeRemain = 10;
+            timeRemain = 50;
         }
         return timeRemain;
     }
