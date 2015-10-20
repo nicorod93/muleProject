@@ -32,6 +32,10 @@ public class Item {
         return price;
     }
 
+    public void setAmount(int food) {
+        this.amount = food;
+    }
+
     public void decreaseAmount(int numSubtract) {
         if (amount >= numSubtract) {
             amount -= numSubtract;

@@ -91,6 +91,10 @@ public class Main extends Application {
                     ("Food", 8, 30)));
             playerArray.stream().forEach(player -> player.addItem(new Item("Energy",
                     4, 25)));
+            playerArray.stream().forEach(player -> player.addItem(new Item("Smithore",
+                    0, 50)));
+            playerArray.stream().forEach(player -> player.addItem(new Item("Crystite",
+                    0, 100)));
         }
     }
 

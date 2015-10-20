@@ -93,12 +93,4 @@ public class Player {
         return tiles;
     }
 
-    public void calculateScore() {
-        int itemScore = 0;
-        for (Item i: items) {
-            itemScore += i.getAmount();
-        }
-        this.score = getMoney() + 500*(tiles.size()) + itemScore;
-    }
-
 }

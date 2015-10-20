@@ -110,7 +110,7 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-
+        randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;
@@ -269,8 +269,4 @@ public class MapController implements Initializable {
         Main.newPlayerSetupTurn();
     }
 
-    private void getScore() {
-        Main.getCurrentPlayer().calculateScore();
-        System.out.println("Score: " + Main.getCurrentPlayer().getScore());
-    }
 }
