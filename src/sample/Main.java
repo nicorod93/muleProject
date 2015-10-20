@@ -52,6 +52,10 @@ public class Main extends Application {
 
     public static Scene map;
 
+    public static boolean placeFood = false;
+    public static boolean placeEnergy = false;
+    public static boolean placeOre = false;
+
 
 
     @Override

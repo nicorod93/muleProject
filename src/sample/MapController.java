@@ -22,7 +22,13 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import java.awt.Color;
+
 public class MapController implements Initializable {
+
 
 
     @FXML
@@ -160,12 +166,67 @@ public class MapController implements Initializable {
 
     @FXML
     private void buyLand(MouseEvent event) {
+        if (Main.placeFood) {
+            Button bb = (Button) event.getSource();
+            String a = bb.getStyle();
+            String b = "-fx-background-color:" + Main.getCurrentPlayer().getColor();
+            if (a.equals(b)) {
+                bb.setDisable(false);
+                bb.setOpacity(1);
+                Image image = new Image(getClass().getResourceAsStream("ward.png"));
+                bb.setGraphic(new ImageView(image));
+                bb.setStyle("-fx-background-color: transparent;");
+                bb.setDisable(true);
+                Main.placeFood = false;
+            }
+            else {
+                System.out.println("Placed Mule Wrong! Mule is lost");
+                Main.placeFood = false;
+            }
+        }
+        if (Main.placeEnergy) {
+            Button bb = (Button) event.getSource();
+            String a = bb.getStyle();
+            String b = "-fx-background-color:" + Main.getCurrentPlayer().getColor();
+            if (a.equals(b)) {
+                bb.setDisable(false);
+                bb.setOpacity(1);
+                Image image = new Image(getClass().getResourceAsStream("energyward.png"));
+                bb.setGraphic(new ImageView(image));
+                bb.setStyle("-fx-background-color: transparent;");
+                bb.setDisable(true);
+                Main.placeEnergy = false;
+            }
+            else {
+                System.out.println("Placed Mule Wrong! Mule is lost");
+                Main.placeEnergy = false;
+            }
+        }
+        if (Main.placeOre) {
+            Button bb = (Button) event.getSource();
+            String a = bb.getStyle();
+            String b = "-fx-background-color:" + Main.getCurrentPlayer().getColor();
+            if (a.equals(b)) {
+                bb.setDisable(false);
+                bb.setOpacity(1);
+                Image image = new Image(getClass().getResourceAsStream("oreward.png"));
+                bb.setGraphic(new ImageView(image));
+                bb.setStyle("-fx-background-color: transparent;");
+                bb.setDisable(true);
+                Main.placeOre = false;
+            }
+            else {
+                System.out.println("Placed Mule Wrong! Mule is lost");
+                Main.placeOre = false;
+            }
+        }
         if (!Main.bought && Main.started) {
             playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
             Button butt = (Button) event.getSource();
             butt.setStyle("-fx-background-color:" + Main
                     .getCurrentPlayer().getColor());
             butt.setOpacity(.5);
+
             String name = butt.getId();
             System.out.println(name);
             int xPos = GridPane.getColumnIndex(butt);
@@ -173,10 +234,12 @@ public class MapController implements Initializable {
             Tile tile = new Tile(name, xPos, yPos);
             System.out.println(tile);
             Main.getCurrentPlayer().addProperty(tile);
-            butt.setDisable(true);
-            passBut.setDisable(true);
-            Main.bought = true;
-            Main.newPlayerSetupTurn();
+//            butt.setDisable(true);
+//            passBut.setDisable(true);
+//            Main.bought = true;
+//            Main.newPlayerSetupTurn();
+
+
         } else {
             return;
         }
