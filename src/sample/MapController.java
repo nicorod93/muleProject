@@ -73,32 +73,31 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        playerEnergy.textProperty().set(Main.playerArray.get(0)
-                .getSpecificItem(1).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(1).getAmount()));
+        playerEnergy.textProperty().set(Main.playerArray.get(0).getSpecificItem(1).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
         playerFood.textProperty().set(Main.playerArray.get(0).getSpecificItem(0).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
-        roundNumber.textProperty().set("Round " + Integer.toString(Main.round));
+        roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
     }
 
     @FXML
     public boolean startTimer() {
-        //Main.playerTurn++;
+        Main.playerTurn++;
         startBut.setDisable(true);
         Main.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 Platform.runLater(() -> {
                     String strTimeFinal = "" + Main.timeRemain;
+                    System.out.println(strTimeFinal + " | " + Main.timeRemain);
                     timerCount.textProperty().set(strTimeFinal);
                     Main.timeRemain--;
                     if (Main.timeRemain == -1) {
                         Main.bought = true;
                         Main.finishTurn = true;
-                        startBut.setDisable(false);
-                        Main.timer.cancel();
-                        //endTurn();
+                        endTurn();
                     }
                 });
             }
@@ -111,6 +110,7 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
+        randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;
@@ -124,54 +124,60 @@ public class MapController implements Initializable {
             Main.selectionRound();
         } else if (!Main.finishBuyingRound) {
             System.out.println("Executed");
-            //Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer()
-                    //.getMoney() - 300);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 300);
             passBut.setDisable(false);
+            startBut.setDisable(true);
             Main.bought = false;
         } else if (!Main.finishGame) {
-            roundNumber.textProperty().set("Round " + Integer.toString(Main
-                    .round));
+            Main.roundNumber++;
+            roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
             Main.timeRemain = Main.calculateTurnTime();
             Main.timer = new Timer();
             Main.finishTurn = false;
             System.out.println(Main.round);
+            System.out.println("Before Timer");
             while (startTimer()) {
+                System.out.println("Inside timer");
             }
+
+            System.out.println("After Timer");
             Main.newPlayerTurn();
         }
     }
 
     @FXML
     public void endTurn() {
-        Main.newPlayerTurn();
+        if (Main.playerTurn < Main.players - 1) {
+            System.out.println("THIS IS EXECUTED");
+            System.out.println(Main.playerTurn + " " + Main.players);
+            Main.playerTurn++;
+        } else {
+            Main.playerTurn = 0;
+            Main.roundNumber++;
+            roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
+
+        }
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-        //startBut.setDisable(true);
+        playerName.textProperty().set(Main.getCurrentPlayer().getName());
+        Main.timeRemain = 10;
+        startBut.setDisable(true);
+
     }
 
     @FXML
     private void buyLand(MouseEvent event) {
-        Button landButton = (Button) event.getSource();
-        landButton.setDisable(false);
         if (Main.placeFood) {
-            System.out.println("Food Mule");
-            String a = landButton.getStyle();
+            Button bb = (Button) event.getSource();
+            String a = bb.getStyle();
             String b = "-fx-background-color:" + Main.getCurrentPlayer().getColor();
             if (a.equals(b)) {
-                Main.getCurrentPlayer().increaseMules();
-                String name = landButton.getId();
-                int xPos = GridPane.getColumnIndex(landButton);
-                int yPos = GridPane.getRowIndex(landButton);
-                Tile t = Main.getCurrentPlayer().getTileAt(name, xPos, yPos);
-                if (t != null) {
-                    System.out.println("Add mule");
-                    t.addMule(new FoodMule());
-                }
-                landButton.setDisable(false);
-                landButton.setOpacity(.5);
+                bb.setDisable(false);
+                bb.setOpacity(1);
                 Image image = new Image(getClass().getResourceAsStream("ward.png"));
-                landButton.setGraphic(new ImageView(image));
-                landButton.setDisable(true);
+                bb.setGraphic(new ImageView(image));
+                bb.setStyle("-fx-background-color: transparent;");
+                bb.setDisable(true);
                 Main.placeFood = false;
             }
             else {
@@ -180,24 +186,16 @@ public class MapController implements Initializable {
             }
         }
         if (Main.placeEnergy) {
-            System.out.println("Energy Mule");
-            String a = landButton.getStyle();
+            Button bb = (Button) event.getSource();
+            String a = bb.getStyle();
             String b = "-fx-background-color:" + Main.getCurrentPlayer().getColor();
             if (a.equals(b)) {
-                Main.getCurrentPlayer().increaseMules();
-                String name = landButton.getId();
-                int xPos = GridPane.getColumnIndex(landButton);
-                int yPos = GridPane.getRowIndex(landButton);
-                Tile t = Main.getCurrentPlayer().getTileAt(name, xPos, yPos);
-                if (t != null) {
-                    System.out.println("Add mule");
-                    t.addMule(new EnergyMule());
-                }
-                landButton.setDisable(false);
-                landButton.setOpacity(.5);
+                bb.setDisable(false);
+                bb.setOpacity(1);
                 Image image = new Image(getClass().getResourceAsStream("energyward.png"));
-                landButton.setGraphic(new ImageView(image));
-                landButton.setDisable(true);
+                bb.setGraphic(new ImageView(image));
+                bb.setStyle("-fx-background-color: transparent;");
+                bb.setDisable(true);
                 Main.placeEnergy = false;
             }
             else {
@@ -206,24 +204,16 @@ public class MapController implements Initializable {
             }
         }
         if (Main.placeOre) {
-            System.out.println("Ore Mule");
-            String a = landButton.getStyle();
+            Button bb = (Button) event.getSource();
+            String a = bb.getStyle();
             String b = "-fx-background-color:" + Main.getCurrentPlayer().getColor();
             if (a.equals(b)) {
-                Main.getCurrentPlayer().increaseMules();
-                String name = landButton.getId();
-                int xPos = GridPane.getColumnIndex(landButton);
-                int yPos = GridPane.getRowIndex(landButton);
-                Tile t = Main.getCurrentPlayer().getTileAt(name, xPos, yPos);
-                if (t != null) {
-                    System.out.println("Add mule");
-                    t.addMule(new SmithoreMule());
-                }
-                landButton.setDisable(false);
-                landButton.setOpacity(.5);
+                bb.setDisable(false);
+                bb.setOpacity(1);
                 Image image = new Image(getClass().getResourceAsStream("oreward.png"));
-                landButton.setGraphic(new ImageView(image));
-                landButton.setDisable(true);
+                bb.setGraphic(new ImageView(image));
+                bb.setStyle("-fx-background-color: transparent;");
+                bb.setDisable(true);
                 Main.placeOre = false;
             }
             else {
@@ -233,10 +223,26 @@ public class MapController implements Initializable {
         }
         if (!Main.bought && Main.started) {
             playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-            selectLand(landButton);
-            passBut.setDisable(true);
-            Main.bought = true;
-            Main.newPlayerSetupTurn();
+            Button butt = (Button) event.getSource();
+            butt.setStyle("-fx-background-color:" + Main
+                    .getCurrentPlayer().getColor());
+            butt.setOpacity(.5);
+
+            String name = butt.getId();
+            System.out.println(name);
+            int xPos = GridPane.getColumnIndex(butt);
+            int yPos = GridPane.getRowIndex(butt) - 1;
+            Tile tile = new Tile(name, xPos, yPos);
+            System.out.println(tile);
+            Main.getCurrentPlayer().addProperty(tile);
+//            butt.setDisable(true);
+//            passBut.setDisable(true);
+//            Main.bought = true;
+//            Main.newPlayerSetupTurn();
+
+
+        } else {
+            return;
         }
     }
 
@@ -244,35 +250,23 @@ public class MapController implements Initializable {
     private void pass() {
         passBut.setDisable(true);
         Main.bought = true;
+        System.out.println(Main.getCurrentPlayer());
+        System.out.println(Main.playerTurn);
+        System.out.println(Main.playerArray.get(Main.players - 1));
         if (Main.getCurrentPlayer().equals(Main.playerArray.get(Main.players - 1))
                 && Main.numPasses == Main.players - 1) {
+            System.out.println("DNA");
             Main.finishBuyingRound = true;
         } else if (Main.getCurrentPlayer().equals(Main.playerArray.get(Main
                 .players - 1)) && Main.numPasses < Main.players - 1) {
+            System.out.println("FUCK");
             Main.numPasses = 0;
         } else {
+            System.out.println("WEEE");
             Main.numPasses++;
         }
         startBut.setDisable(false);
         Main.newPlayerSetupTurn();
     }
 
-    private void selectLand(Button button) {
-        String name = button.getId();
-        int xPos = GridPane.getColumnIndex(button);
-        int yPos = GridPane.getRowIndex(button);
-        Tile tile = new Tile(name, xPos, yPos);
-        if (!Main.checkPlayerTiles(tile)) {
-            System.out.println("New Tile");
-            button.setStyle("-fx-background-color:" + Main
-                    .getCurrentPlayer().getColor());
-            button.setOpacity(.5);
-            Main.getCurrentPlayer().addProperty(tile);
-            tile.setTileOwner(Main.getCurrentPlayer());
-            Main.tileMap[xPos][yPos] = tile;
-        } else {
-            System.out.println("Oops that land is already owned!");
-        }
-        //button.setDisable(true);
-    }
 }

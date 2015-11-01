@@ -67,7 +67,7 @@
       <ChoiceBox fx:id="color" layoutX="98.0" layoutY="405.0" prefWidth="150.0" style="-fx-background-color: #77ba9b; -fx-background-radius: 50px;" />
       <ImageView fitHeight="127.0" fitWidth="322.0" layoutX="52.0" layoutY="38.0">
          <image>
-            <Image url="@pics/League_of_Legends_logo.png" />
+            <Image url="@pics/leagueOfMulelogo.png" />
          </image>
       </ImageView>
       <Label layoutX="98.0" layoutY="182.0" prefHeight="26.0" prefWidth="204.0" text="Player Setup" textFill="WHITE">
