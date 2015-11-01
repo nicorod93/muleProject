@@ -61,8 +61,8 @@ public class Player {
         return name + " " + race + " " + color;
     }
 
-    public int setScore(int newScore) {
-        return this.score = newScore;
+    public void setScore(int newScore) {
+        this.score = newScore;
     }
 
     public int getScore() {
@@ -119,4 +119,9 @@ public class Player {
         return null;
     }
 
+    public void calculateScore() {
+        int i = this.getSpecificItem(0).getAmount() + this.getSpecificItem(1).getAmount() + this.getSpecificItem(2).getAmount();
+        int total = getMoney() + tiles.size() * 500 + i;
+        setScore(total);
+    }
 }
