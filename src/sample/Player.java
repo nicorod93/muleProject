@@ -106,11 +106,16 @@ public class Player {
     }
 
     public Tile getTileAt(String name, int x, int y) {
-        for (Tile t : tiles) {
-            if (t.equals(new Tile(name, x, y))) {
-                return t;
+        Tile tile = new Tile(name, x, y);
+        for (int i = 0; i < Main.tileMap.length; i++) {
+            for (Tile t : Main.tileMap[i]) {
+                if (tile.equals(t)) {
+                    System.out.println("EQUAL!");
+                    return t;
+                }
             }
         }
+        System.out.println("Not equal");
         return null;
     }
 

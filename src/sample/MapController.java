@@ -164,6 +164,7 @@ public class MapController implements Initializable {
                 int yPos = GridPane.getRowIndex(landButton);
                 Tile t = Main.getCurrentPlayer().getTileAt(name, xPos, yPos);
                 if (t != null) {
+                    System.out.println("Add mule");
                     t.addMule(new FoodMule());
                 }
                 landButton.setDisable(false);
@@ -189,6 +190,7 @@ public class MapController implements Initializable {
                 int yPos = GridPane.getRowIndex(landButton);
                 Tile t = Main.getCurrentPlayer().getTileAt(name, xPos, yPos);
                 if (t != null) {
+                    System.out.println("Add mule");
                     t.addMule(new EnergyMule());
                 }
                 landButton.setDisable(false);
@@ -214,6 +216,7 @@ public class MapController implements Initializable {
                 int yPos = GridPane.getRowIndex(landButton);
                 Tile t = Main.getCurrentPlayer().getTileAt(name, xPos, yPos);
                 if (t != null) {
+                    System.out.println("Add mule");
                     t.addMule(new SmithoreMule());
                 }
                 landButton.setDisable(false);
@@ -265,6 +268,8 @@ public class MapController implements Initializable {
                     .getCurrentPlayer().getColor());
             button.setOpacity(.5);
             Main.getCurrentPlayer().addProperty(tile);
+            tile.setTileOwner(Main.getCurrentPlayer());
+            Main.tileMap[xPos][yPos] = tile;
         } else {
             System.out.println("Oops that land is already owned!");
         }

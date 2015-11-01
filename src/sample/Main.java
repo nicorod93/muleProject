@@ -39,6 +39,8 @@ public class Main extends Application {
 
     public static int[] foodRequirement = {3,3,3,3,4,4,4,4,5,5,5,5};
 
+    public static Tile[][] tileMap = new Tile[9][5];
+
     public static Player currentPlayer;
 
     public static boolean bought = false;
@@ -118,17 +120,21 @@ public class Main extends Application {
     }
 
     public static void doProduction() {
-        for (Tile t : getCurrentPlayer().getTiles()) {
-            System.out.println(getCurrentPlayer().getNumMules());
-            System.out.println(getCurrentPlayer().getSpecificItem(1).getAmount());
-            if (getCurrentPlayer().getNumMules() <= getCurrentPlayer().getSpecificItem(1).getAmount()) {
-                System.out.println("Attempt Production");
-                Item calculatedItem = calcProduction(t);
-                System.out.println(calculatedItem);
-                if (calculatedItem != null) {
-                    System.out.println("Do Production");
-                    System.out.println("Tile produced" + calculatedItem);
-                    getCurrentPlayer().addItem(calculatedItem);
+        for (int i = 0; i < tileMap.length; i++) {
+            for (Tile t : tileMap[i]) {
+                if (t != null) {
+                    System.out.println(getCurrentPlayer().getNumMules());
+                    System.out.println(getCurrentPlayer().getSpecificItem(1).getAmount());
+                    if (getCurrentPlayer().getNumMules() <= getCurrentPlayer().getSpecificItem(1).getAmount()) {
+                        System.out.println("Attempt Production");
+                        Item calculatedItem = calcProduction(t);
+                        System.out.println(calculatedItem);
+                        if (calculatedItem != null) {
+                            System.out.println("Do Production");
+                            System.out.println("Tile produced" + calculatedItem);
+                            getCurrentPlayer().addItem(calculatedItem);
+                        }
+                    }
                 }
             }
         }
@@ -136,7 +142,7 @@ public class Main extends Application {
 
     public static void newRound() {
         round++;
-        calaculateScore();
+        calculateScore();
         playerArray.sort(new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
@@ -167,7 +173,7 @@ public class Main extends Application {
         }
     }
 
-    public static void calaculateScore() {
+    public static void calculateScore() {
         for (int i = 0; i < Main.players; i++) {
             int money = Main.playerArray.get(i).getMoney();
             int numLand = Main.playerArray.get(i).numTiles() * 500;

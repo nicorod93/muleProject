@@ -14,6 +14,7 @@ public class Tile {
         this.name = name;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
+        this. tileOwner = null;
     }
 
     public int getXPosition() {
