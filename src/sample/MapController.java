@@ -75,7 +75,7 @@ public class MapController implements Initializable {
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         playerEnergy.textProperty().set(Main.playerArray.get(0).getSpecificItem(1).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
         playerFood.textProperty().set(Main.playerArray.get(0).getSpecificItem(0).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
-        roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
+        roundNumber.textProperty().set("Round " + Integer.toString(Main.round));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
@@ -129,8 +129,7 @@ public class MapController implements Initializable {
             startBut.setDisable(true);
             Main.bought = false;
         } else if (!Main.finishGame) {
-            Main.roundNumber++;
-            roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
+            roundNumber.textProperty().set("Round " + Integer.toString(Main.round));
             Main.timeRemain = Main.calculateTurnTime();
             Main.timer = new Timer();
             Main.finishTurn = false;
@@ -153,8 +152,7 @@ public class MapController implements Initializable {
             Main.playerTurn++;
         } else {
             Main.playerTurn = 0;
-            Main.roundNumber++;
-            roundNumber.textProperty().set("Round " + Integer.toString(Main.roundNumber));
+            roundNumber.textProperty().set("Round " + Integer.toString(Main.round));
 
         }
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
