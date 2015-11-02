@@ -120,29 +120,29 @@ public class Main extends Application {
             newRound();
         }
         timeRemain = calculateTurnTime();
-        doProduction();
+        //doProduction();
     }
 
-    public static void doProduction() {
-        for (int i = 0; i < tileMap.length; i++) {
-            for (Tile t : tileMap[i]) {
-                if (t != null) {
-                    System.out.println(getCurrentPlayer().getNumMules());
-                    System.out.println(getCurrentPlayer().getSpecificItem(1).getAmount());
-                    if (getCurrentPlayer().getNumMules() <= getCurrentPlayer().getSpecificItem(1).getAmount()) {
-                        System.out.println("Attempt Production");
-                        Item calculatedItem = calcProduction(t);
-                        System.out.println(calculatedItem);
-                        if (calculatedItem != null) {
-                            System.out.println("Do Production");
-                            System.out.println("Tile produced" + calculatedItem);
-                            getCurrentPlayer().addItem(calculatedItem);
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    public static void doProduction() {
+//        for (int i = 0; i < tileMap.length; i++) {
+//            for (Tile t : tileMap[i]) {
+//                if (t != null) {
+//                    System.out.println(getCurrentPlayer().getNumMules());
+//                    System.out.println(getCurrentPlayer().getSpecificItem(1).getAmount());
+//                    if (getCurrentPlayer().getNumMules() <= getCurrentPlayer().getSpecificItem(1).getAmount()) {
+//                        System.out.println("Attempt Production");
+//                        Item calculatedItem = calcProduction(t);
+//                        System.out.println(calculatedItem);
+//                        if (calculatedItem != null) {
+//                            System.out.println("Do Production");
+//                            System.out.println("Tile produced" + calculatedItem);
+//                            getCurrentPlayer().addItem(calculatedItem);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     public static void newRound() {
         round++;
