@@ -52,7 +52,7 @@ public class buyMuleController  implements Initializable {
         try {
             Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
             t.setScene(Main.map);
-            t.setTitle("Player Configuration");
+            t.setTitle("Map");
             t.show();
         } catch (Exception e) {
             throw new IllegalArgumentException("No file");
@@ -66,7 +66,7 @@ public class buyMuleController  implements Initializable {
             Main.placeFood = true;
             Stage t = (Stage) ((Node) ev.getSource()).getScene().getWindow();
             t.setScene(Main.map);
-            t.setTitle("Player Configuration");
+            t.setTitle("Map");
             t.show();
         } catch (Exception e) {
             throw new IllegalArgumentException("No file");
@@ -80,7 +80,7 @@ public class buyMuleController  implements Initializable {
             Main.placeEnergy = true;
             Stage t = (Stage) ((Node) eve.getSource()).getScene().getWindow();
             t.setScene(Main.map);
-            t.setTitle("Player Configuration");
+            t.setTitle("Map");
             t.show();
         } catch (Exception e) {
             throw new IllegalArgumentException("No file");
@@ -94,7 +94,7 @@ public class buyMuleController  implements Initializable {
             Main.placeOre = true;
             Stage t = (Stage) ((Node) even.getSource()).getScene().getWindow();
             t.setScene(Main.map);
-            t.setTitle("Player Configuration");
+            t.setTitle("Map");
             t.show();
         } catch (Exception e) {
             throw new IllegalArgumentException("No file");

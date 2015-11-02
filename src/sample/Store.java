@@ -21,10 +21,4 @@ public class Store {
             //Mule.add(new Item("Mule", 14));
         }
     }
-
-    public void buyItem() {
-    }
-
-    public void sellItem() {
-    }
 }

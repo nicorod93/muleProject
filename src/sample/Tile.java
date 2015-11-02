@@ -14,6 +14,7 @@ public class Tile {
         this.name = name;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
+        this. tileOwner = null;
     }
 
     public int getXPosition() {
@@ -25,8 +26,8 @@ public class Tile {
     }
 
     public int[] getPosition() {
-        int[] pos = {xPosition, yPosition};
-        return pos;
+        return new int[] {xPosition, yPosition};
+
     }
 
     public String getName() {
@@ -51,67 +52,26 @@ public class Tile {
 
     public String toString() { return this.name + " " + xPosition + " " + yPosition; }
 
-    public Item calcProduction() {
-        if (getName().equals("River")) {
-            if (tileMule != null) {
-                if (tileMule.getName().equals("Energy Mule")) {
-                    return new Item("Energy", 2, 25);
-                } else if (tileMule.getName().equals("Food Mule")) {
-                    return new Item("Food", 4, 25);
-                }
-            }
-        } else if (getName().equals("Plain")) {
-            if (tileMule != null) {
-                if (tileMule.getName().equals("Energy Mule")) {
-                    return new Item("Energy", 3, 25);
-                } else if (tileMule.getName().equals("Food Mule")) {
-                    return new Item("Food", 2, 25);
-                }
-            }
-        } else if (getName().equals("Mountain1")) {
-            if (tileMule != null) {
-                if (tileMule.getName().equals("Energy Mule")) {
-                    return new Item("Energy", 1, 25);
-                } else if (tileMule.getName().equals("Food Mule")) {
-                    return new Item("Food", 1, 25);
-                }
-            }
-        } else if (getName().equals("Mountain2")) {
-            if (tileMule != null) {
-                if (tileMule.getName().equals("Energy Mule")) {
-                    return new Item("Energy", 1, 25);
-                } else if (tileMule.getName().equals("Food Mule")) {
-                    return new Item("Food", 1, 25);
-                }
-            }
-        } else if (getName().equals("Mountain3")) {
-            if (tileMule != null) {
-                if (tileMule.getName().equals("Energy Mule")) {
-                    return new Item("Energy", 1, 25);
-                } else if (tileMule.getName().equals("Food Mule")) {
-                    return new Item("Food", 1, 25);
-                }
-            }
-        }
-        return null;
-    }
-
-    public void doProduction() {
-        for (Player p : Main.playerArray) {
-            for (Tile t : p.getTiles()) {
-                Item calculatedItem = t.calcProduction();
-                if (calculatedItem != null) {
-                    p.addItem(calculatedItem);
-                }
-            }
-        }
-    }
-
     public void setTileOwner(Player p) {
         this.tileOwner = p;
     }
 
     public Player getTileOwner() {
         return this.tileOwner;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Item)) {
+            return false;
+        }
+        Tile that = (Tile) o;
+        return this.getXPosition() == that.getXPosition() && this.getYPosition() == that.getYPosition();
     }
 }
