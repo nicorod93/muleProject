@@ -49,6 +49,10 @@ public class PubController {
         int oldMoney = Main.getCurrentPlayer().getMoney();
         Main.getCurrentPlayer().setMoney(oldMoney + total);
         Main.timeRemain = 0;
+        Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        t.setScene(Main.map);
+        t.setTitle("Player Configuration");
+        t.show();
     }
 
 

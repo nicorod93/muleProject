@@ -118,8 +118,6 @@ public class buyController implements Initializable {
             }
             else {
                 try {
-                    Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 300);
-                    playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
                     Scene town = new Scene(FXMLLoader.load(getClass().getResource("buyMuleScreen.fxml")));
                     Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     t.setScene(town);

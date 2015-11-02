@@ -1,6 +1,4 @@
 package sample;
-//import com.sun.tools.javac.jvm.Items;
-//import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +11,16 @@ public class Player {
     private String color;
     private String race;
     private List<Item> items;
-    private static int money;
     private List<Tile> tiles;
     private static int score;
+    private static int money;
+    private int numMules;
 
     public Player(String name, String color, String race) {
         this.name = name;
         this.color = color;
         this.race = race;
+        this.numMules = 0;
         items = new ArrayList<>();
         tiles = new ArrayList<>();
     }
@@ -73,6 +73,18 @@ public class Player {
         return tiles.size();
     }
 
+    public int getNumMules() {
+        return numMules;
+    }
+
+    public int increaseMules() {
+        return numMules + 1;
+    }
+
+    public int decreaseMules() {
+        return numMules - 1;
+    }
+
     public int valueOfGoods() {
         int sum = 0;
         for (Item i: items) {
@@ -91,6 +103,20 @@ public class Player {
 
     public List<Tile> getTiles() {
         return tiles;
+    }
+
+    public Tile getTileAt(String name, int x, int y) {
+        Tile tile = new Tile(name, x, y);
+        for (int i = 0; i < Main.tileMap.length; i++) {
+            for (Tile t : Main.tileMap[i]) {
+                if (tile.equals(t)) {
+                    System.out.println("EQUAL!");
+                    return t;
+                }
+            }
+        }
+        System.out.println("Not equal");
+        return null;
     }
 
     public void calculateScore() {
