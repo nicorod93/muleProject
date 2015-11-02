@@ -9,11 +9,29 @@ import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.util.Comparator;
 import java.util.Timer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+
+import java.util.Scanner;
+import java.io.File;
+import java.io.PrintWriter;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+import org.json.simple.JSONObject;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
 
 public class Main extends Application {
     public static String difficulty;
@@ -40,6 +58,40 @@ public class Main extends Application {
     public static int[] foodRequirement = {3,3,3,3,4,4,4,4,5,5,5,5};
 
     public static Tile[][] tileMap = new Tile[9][5];
+
+    public static String[] variables = {"difficulty",
+            "mapType",
+            "strTime",
+            "players",
+            "counter",
+            "playerTurn",
+            "playerStart",
+            "round",
+            "numSelectionRounds",
+            "numPasses",
+            "food",
+            "energy",
+            "timeRemain",
+            "playerRace",
+            "playerColor",
+            "playerName",
+            "playerArray",
+            "items",
+            "currentPlayer",
+            "bought",
+            "started",
+            "finishBuyingRound",
+            "finishGame",
+            "finishTurn",
+            "ownedTile",
+            "timer",
+            "map",
+            "placeFood",
+            "placeEnergy",
+            "placeOre",
+            "placeFood",
+            "placeEnergy",
+            "placeOre"};
 
     public static Player currentPlayer;
 
@@ -265,7 +317,82 @@ public class Main extends Application {
         return null;
     }
 
-    public static void main(String[] args) {
+    public static void fileSave() throws Exception {
+        JSONObject obj = new JSONObject();
+        obj.put("difficulty", difficulty);
+        obj.put("mapType ", mapType);
+        obj.put("strTime ", strTime);
+        obj.put("players ", players);
+        obj.put("counter ", counter);
+        obj.put("playerTurn ", playerTurn);
+        obj.put("playerStart ", playerStart);
+        obj.put("round ", round);
+        obj.put("numSelectionRounds ", numSelectionRounds);
+        obj.put("numPasses ", numPasses);
+        obj.put("food ", food);
+        obj.put("energy ", energy);
+        obj.put("timeRemain ", timeRemain);
+        obj.put("playerRace ", playerRace);
+        obj.put("playerColor ", playerColor);
+        obj.put("playerName) ", playerName);
+        obj.put("playerArray ", playerArray);
+        obj.put("items ", items);
+        obj.put("currentPlayer ", currentPlayer);
+        obj.put("bought ", bought);
+        obj.put("started ", started);
+        obj.put("finishBuyingRound ", finishBuyingRound);
+        obj.put("finishGame ", finishGame);
+        obj.put("finishTurn ", finishTurn);
+        obj.put("ownedTile ", ownedTile);
+        obj.put("timer ", timer);
+        obj.put("map ", map);
+        obj.put("placeFood ", placeFood);
+        obj.put("placeEnergy ", placeEnergy);
+        obj.put("placeOre ", placeOre);
+        obj.put("placeFood ", placeFood);
+        obj.put("placeEnergy ", placeEnergy);
+        obj.put("placeOre ", placeOre);
+
+        try {
+            FileWriter file = new FileWriter("fileSave.json");
+            file.write(obj.toJSONString());
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void fileLoad() throws FileNotFoundException {
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader fileReader = new FileReader("fileSave.json");
+            Object obj = (JSONObject) parser.parse(fileReader);
+
+            JSONObject jsonObject = (JSONObject) obj;
+
+            String name = (String) jsonObject.get("name");
+            System.out.println(name);
+
+            long age = (Long) jsonObject.get("age");
+            System.out.println(age);
+
+            // loop array
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void main (String[] args) {
+        Main main = new Main();
         launch(args);
     }
 }
