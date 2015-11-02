@@ -76,11 +76,11 @@ public class Main extends Application {
     public static void setPlayersMoney() {
         for (Player p : playerArray) {
             if (p.getRace().equals("Flapper")) {
-                p.setMoney(6500);
+                p.setMoney(1600);
             } else if (p.getRace().equals("Human")) {
-                p.setMoney(6000);
+                p.setMoney(600);
             } else if (p.getRace().equals("Other")) {
-                p.setMoney(6000);
+                p.setMoney(1000);
             }
         }
     }

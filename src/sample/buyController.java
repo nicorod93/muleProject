@@ -113,13 +113,16 @@ public class buyController implements Initializable {
     @FXML
     private void buyMule(MouseEvent event) {
 
-            if (Main.getCurrentPlayer().getMoney() < 300) {
+            if (Main.getCurrentPlayer().getMoney() < 100) {
                 System.out.println("Not Enough Money");
             }
             else {
                 try {
-                    Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 300);
+                    Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 100);
                     playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                    if (Main.getCurrentPlayer().getMoney() < 25) {
+                        return;
+                    }
                     Scene town = new Scene(FXMLLoader.load(getClass().getResource("buyMuleScreen.fxml")));
                     Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     t.setScene(town);

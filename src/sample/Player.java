@@ -16,6 +16,9 @@ public class Player {
     private static int money;
     private List<Tile> tiles;
     private static int score;
+    private static int fMule;
+    private static int eMule;
+    private static int oMule;
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -23,6 +26,9 @@ public class Player {
         this.race = race;
         items = new ArrayList<>();
         tiles = new ArrayList<>();
+        this.fMule = 0;
+        this.eMule = 0;
+        this.oMule = 0;
     }
 
     public void addItem(Item item) {
@@ -97,5 +103,41 @@ public class Player {
         int i = this.getSpecificItem(0).getAmount() + this.getSpecificItem(1).getAmount() + this.getSpecificItem(2).getAmount();
         int total = getMoney() + tiles.size() * 500 + i;
         setScore(total);
+    }
+
+    public void addFMule() {
+        fMule++;
+    }
+
+    public void addEMule() {
+        eMule++;
+    }
+
+    public void addOMule() {
+        oMule++;
+    }
+
+    public void calcProduction() {
+        System.out.println(name + " owns " + fMule + " Food Mules");
+        System.out.println(name + " owns " + eMule + " Energy Mules");
+        System.out.println(name + " owns " + oMule + " Ore Mules");
+        if ((this.getSpecificItem(1).getAmount()) > (fMule + eMule + oMule) ) {
+            if (fMule > 0) {
+                int a = fMule * 2;
+                System.out.println(a + " units of Food were produced");
+                this.getSpecificItem(0).setAmount(this.getSpecificItem(0).getAmount() +a);
+            }
+            if (eMule > 0) {
+                int b = eMule * 3;
+                System.out.println(b + " units of Energy were produced");
+                this.getSpecificItem(1).setAmount(this.getSpecificItem(1).getAmount() + b);
+            }
+            if (oMule > 0) {
+                int c = oMule * 1;
+                System.out.println(c + " units of Ore were produced");
+                this.getSpecificItem(2).setAmount(this.getSpecificItem(2).getAmount() + c);
+            }
+        }
+
     }
 }

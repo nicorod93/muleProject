@@ -91,7 +91,7 @@ public class MapController implements Initializable {
             public void run() {
                 Platform.runLater(() -> {
                     String strTimeFinal = "" + Main.timeRemain;
-                    System.out.println(strTimeFinal + " | " + Main.timeRemain);
+                    //System.out.println(strTimeFinal + " | " + Main.timeRemain);
                     timerCount.textProperty().set(strTimeFinal);
                     Main.timeRemain--;
                     if (Main.timeRemain == -1) {
@@ -137,12 +137,12 @@ public class MapController implements Initializable {
             Main.timer = new Timer();
             Main.finishTurn = false;
             System.out.println(Main.round);
-            System.out.println("Before Timer");
+            //System.out.println("Before Timer");
             while (startTimer()) {
-                System.out.println("Inside timer");
+                //System.out.println("Inside timer");
             }
 
-            System.out.println("After Timer");
+            //System.out.println("After Timer");
             Main.newPlayerTurn();
         }
     }
@@ -150,11 +150,14 @@ public class MapController implements Initializable {
     @FXML
     public void endTurn() {
         Main.getCurrentPlayer().calculateScore();
-        System.out.println(Main.getCurrentPlayer().getScore());
+        System.out.println("Your Score: " + Main.getCurrentPlayer().getScore());
         randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
+        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+        playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
         if (Main.playerTurn < Main.players - 1) {
-            System.out.println("THIS IS EXECUTED");
-            System.out.println(Main.playerTurn + " " + Main.players);
+//            System.out.println("THIS IS EXECUTED");
+//            System.out.println(Main.playerTurn + " " + Main.players);
             Main.playerTurn++;
         } else {
             Main.playerTurn = 0;
@@ -165,6 +168,10 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
+        Main.getCurrentPlayer().calcProduction();
+        playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+        playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+
         Main.timeRemain = 50;
         startBut.setDisable(true);
 
@@ -181,13 +188,20 @@ public class MapController implements Initializable {
                 bb.setOpacity(1);
                 Image image = new Image(getClass().getResourceAsStream("ward.png"));
                 bb.setGraphic(new ImageView(image));
-                bb.setStyle("-fx-background-color: transparent;");
+                bb.setStyle("-fx-background-color:" + Main.getCurrentPlayer().getColor());
                 bb.setDisable(true);
+                Main.getCurrentPlayer().addFMule();
                 Main.placeFood = false;
+                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
             else {
                 System.out.println("Placed Mule Wrong! Mule is lost");
                 Main.placeFood = false;
+                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
         }
         if (Main.placeEnergy) {
@@ -199,13 +213,20 @@ public class MapController implements Initializable {
                 bb.setOpacity(1);
                 Image image = new Image(getClass().getResourceAsStream("energyward.png"));
                 bb.setGraphic(new ImageView(image));
-                bb.setStyle("-fx-background-color: transparent;");
+                bb.setStyle("-fx-background-color:" + Main.getCurrentPlayer().getColor());
                 bb.setDisable(true);
+                Main.getCurrentPlayer().addEMule();
                 Main.placeEnergy = false;
+                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
             else {
                 System.out.println("Placed Mule Wrong! Mule is lost");
                 Main.placeEnergy = false;
+                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
         }
         if (Main.placeOre) {
@@ -217,13 +238,20 @@ public class MapController implements Initializable {
                 bb.setOpacity(1);
                 Image image = new Image(getClass().getResourceAsStream("oreward.png"));
                 bb.setGraphic(new ImageView(image));
-                bb.setStyle("-fx-background-color: transparent;");
+                bb.setStyle("-fx-background-color:" + Main.getCurrentPlayer().getColor());
                 bb.setDisable(true);
+                Main.getCurrentPlayer().addOMule();
                 Main.placeOre = false;
+                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
             else {
                 System.out.println("Placed Mule Wrong! Mule is lost");
                 Main.placeOre = false;
+                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
         }
         if (!Main.bought && Main.started) {
@@ -240,10 +268,10 @@ public class MapController implements Initializable {
             Tile tile = new Tile(name, xPos, yPos);
             System.out.println(tile);
             Main.getCurrentPlayer().addProperty(tile);
-//            butt.setDisable(true);
+           // butt.setDisable(true);
             passBut.setDisable(true);
-//            Main.bought = true;
-//            Main.newPlayerSetupTurn();
+            Main.bought = true;
+            Main.newPlayerSetupTurn();
 
 
         } else {
@@ -260,14 +288,13 @@ public class MapController implements Initializable {
         System.out.println(Main.playerArray.get(Main.players - 1));
         if (Main.getCurrentPlayer().equals(Main.playerArray.get(Main.players - 1))
                 && Main.numPasses == Main.players - 1) {
-            System.out.println("DNA");
+            //System.out.println("DNA");
             Main.finishBuyingRound = true;
         } else if (Main.getCurrentPlayer().equals(Main.playerArray.get(Main
                 .players - 1)) && Main.numPasses < Main.players - 1) {
-            System.out.println("FUCK");
             Main.numPasses = 0;
         } else {
-            System.out.println("WEEE");
+            //System.out.println("WEEE");
             Main.numPasses++;
         }
         startBut.setDisable(false);

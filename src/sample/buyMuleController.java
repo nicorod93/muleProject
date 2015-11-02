@@ -62,6 +62,7 @@ public class buyMuleController  implements Initializable {
     @FXML
     private void buyFood(MouseEvent ev) {
         try {
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 25);
             Main.placeFood = true;
             Stage t = (Stage) ((Node) ev.getSource()).getScene().getWindow();
             t.setScene(Main.map);
@@ -75,6 +76,7 @@ public class buyMuleController  implements Initializable {
     @FXML
     private void buyEnergy(MouseEvent eve) {
         try {
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 50);
             Main.placeEnergy = true;
             Stage t = (Stage) ((Node) eve.getSource()).getScene().getWindow();
             t.setScene(Main.map);
@@ -88,6 +90,7 @@ public class buyMuleController  implements Initializable {
     @FXML
     private void buyOre(MouseEvent even) {
         try {
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 100);
             Main.placeOre = true;
             Stage t = (Stage) ((Node) even.getSource()).getScene().getWindow();
             t.setScene(Main.map);

@@ -33,10 +33,11 @@ public class randomEvent {
             int rNum1 = (int) Math.ceil(Math.random() * 6);
             doRandom(rNum1);
         }
+        if (rNum >= 27) {
+            System.out.println("No Random Event Occured");
+        }
         if (round < 4 || this.player.equals(b)) {
-            System.out.println("I'm Here");
             this.roundBonus = 25;
-            System.out.println("Still Here");
         } else if (round < 8) {
             this.roundBonus = 50;
         } else if (round < 12) {
