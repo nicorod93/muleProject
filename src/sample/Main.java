@@ -55,40 +55,6 @@ public class Main extends Application {
 
     public static Tile[][] tileMap = new Tile[9][5];
 
-    public static String[] variables = {"difficulty",
-            "mapType",
-            "strTime",
-            "players",
-            "counter",
-            "playerTurn",
-            "playerStart",
-            "round",
-            "numSelectionRounds",
-            "numPasses",
-            "food",
-            "energy",
-            "timeRemain",
-            "playerRace",
-            "playerColor",
-            "playerName",
-            "playerArray",
-            "items",
-            "currentPlayer",
-            "bought",
-            "started",
-            "finishBuyingRound",
-            "finishGame",
-            "finishTurn",
-            "ownedTile",
-            "timer",
-            "map",
-            "placeFood",
-            "placeEnergy",
-            "placeOre",
-            "placeFood",
-            "placeEnergy",
-            "placeOre"};
-
     public static Player currentPlayer;
 
     public static boolean bought = false;
@@ -345,9 +311,6 @@ public class Main extends Application {
         obj.put("placeFood ", placeFood);
         obj.put("placeEnergy ", placeEnergy);
         obj.put("placeOre ", placeOre);
-        obj.put("placeFood ", placeFood);
-        obj.put("placeEnergy ", placeEnergy);
-        obj.put("placeOre ", placeOre);
 
         try {
             FileWriter file = new FileWriter("fileSave.json");
@@ -364,7 +327,7 @@ public class Main extends Application {
         JSONParser parser = new JSONParser();
         try {
             FileReader fileReader = new FileReader("fileSave.json");
-            Object obj = (JSONObject) parser.parse(fileReader);
+            Object obj = parser.parse(fileReader);
 
             JSONObject jsonObject = (JSONObject) obj;
 
@@ -395,9 +358,6 @@ public class Main extends Application {
             ownedTile = (boolean) jsonObject.get("ownedTile");
             timer = (Timer) jsonObject.get("timer");
             map = (Scene) jsonObject.get("map");
-            placeFood = (boolean) jsonObject.get("placeFood");
-            placeEnergy = (boolean) jsonObject.get("placeEnergy");
-            placeOre = (boolean) jsonObject.get("placeOre");
             placeFood = (boolean) jsonObject.get("placeFood");
             placeEnergy = (boolean) jsonObject.get("placeEnergy");
             placeOre = (boolean) jsonObject.get("placeOre");
