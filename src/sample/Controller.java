@@ -9,8 +9,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 public class Controller implements Initializable {
 
@@ -52,5 +61,64 @@ public class Controller implements Initializable {
         } catch (Exception e) {
             throw new IllegalArgumentException("No file");
         }
+    }
+
+    @FXML
+    private void fileLoad(MouseEvent event) throws FileNotFoundException {
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader fileReader = new FileReader("fileSave.json");
+            Object obj = parser.parse(fileReader);
+
+            JSONObject jsonObject = (JSONObject) obj;
+            //JSONValue jsonValue = (JSONValue) obj;
+
+            Main.difficulty = (String) jsonObject.get("difficulty");
+            Main.mapType = (String) jsonObject.get("mapType");
+            Main.strTime = (String) jsonObject.get("strTime");
+            Long player = (long) jsonObject.get("players");
+            Main.players = player.intValue();
+            Main.counter = (long) jsonObject.get("counter");
+            Long playerT = (long) jsonObject.get("playerTurn");
+            Main.playerTurn = playerT.intValue();
+            Long playerS = (long) jsonObject.get("playerStart");
+            Main.playerStart = playerS.intValue();
+            Long r = (long) jsonObject.get("round");
+            Main.players = r.intValue();
+            Main.numSelectionRounds = (long) jsonObject.get("numSelectionRounds");
+            Main.numPasses = (long) jsonObject.get("numPasses");
+            Main.food = (long) jsonObject.get("food");
+            Main.energy = (long) jsonObject.get("energy");
+            Main.timeRemain = (long) jsonObject.get("timeRemain");
+            Main.playerRace = (List<String>) jsonObject.get("playerRace");
+            Main.playerColor = (List<String>) jsonObject.get("playerColor");
+            Main.playerName = (List<String>) jsonObject.get("playerName");
+            Main.playerArray = (List<Player>) jsonObject.get("playerArray");
+            Main.items = (List<Item>) jsonObject.get("items");
+            Main.currentPlayer = (Player) jsonObject.get("currentPlayer");
+            Main.bought = (boolean) jsonObject.get("bought");
+            Main.started = (boolean) jsonObject.get("started");
+            Main.finishBuyingRound = (boolean) jsonObject.get("finishBuyingRound");
+            Main.finishGame = (boolean) jsonObject.get("finishGame");
+            Main.finishTurn = (boolean) jsonObject.get("finishTurn");
+            Main.ownedTile = (boolean) jsonObject.get("ownedTile");
+            Main.timer = (Timer) jsonObject.get("timer");
+            Main.map = (Scene) jsonObject.get("map");
+            Main.placeFood = (boolean) jsonObject.get("placeFood");
+            Main.placeEnergy = (boolean) jsonObject.get("placeEnergy");
+            Main.placeOre = (boolean) jsonObject.get("placeOre");
+            Scene town = new Scene(FXMLLoader.load(getClass().getResource("map.fxml")));
+            Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            t.setScene(town);
+            t.setTitle("Player Configuration");
+            t.show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 }

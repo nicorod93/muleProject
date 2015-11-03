@@ -17,6 +17,8 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -24,6 +26,7 @@ import java.util.TimerTask;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.json.simple.JSONObject;
 
 import java.awt.Color;
 
@@ -309,4 +312,48 @@ public class MapController implements Initializable {
         Main.newPlayerSetupTurn();
     }
 
+    @FXML
+    private void fileSave() throws Exception {
+        JSONObject obj = new JSONObject();
+        obj.put("difficulty", Main.difficulty);
+        obj.put("mapType", Main.mapType);
+        obj.put("strTime", Main.strTime);
+        obj.put("players", Main.players);
+        obj.put("counter", Main.counter);
+        obj.put("playerTurn", Main.playerTurn);
+        obj.put("playerStart", Main.playerStart);
+        obj.put("round", Main.round);
+        obj.put("numSelectionRounds", Main.numSelectionRounds);
+        obj.put("numPasses", Main.numPasses);
+        obj.put("food", Main.food);
+        obj.put("energy", Main.energy);
+        obj.put("timeRemain", Main.timeRemain);
+        obj.put("playerRace", Main.playerRace);
+        obj.put("playerColor", Main.playerColor);
+        obj.put("playerName", Main.playerName);
+        obj.put("playerArray", Main.playerArray);
+        obj.put("items", Main.items);
+        obj.put("currentPlayer", Main.currentPlayer);
+        obj.put("bought", Main.bought);
+        obj.put("started", Main.started);
+        obj.put("finishBuyingRound", Main.finishBuyingRound);
+        obj.put("finishGame", Main.finishGame);
+        obj.put("finishTurn", Main.finishTurn);
+        obj.put("ownedTile", Main.ownedTile);
+        obj.put("timer", Main.timer);
+        obj.put("map", Main.map);
+        obj.put("placeFood", Main.placeFood);
+        obj.put("placeEnergy", Main.placeEnergy);
+        obj.put("placeOre", Main.placeOre);
+        System.out.println("Saved");
+        try {
+            FileWriter file = new FileWriter("fileSave.json");
+            file.write(obj.toJSONString());
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

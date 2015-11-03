@@ -197,5 +197,7 @@
       <Button id="Mountain1" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button id="Mountain1" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
       <Button id="Town" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#goToTown" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <Button  mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#fileSave" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+
    </children>
 </GridPane>

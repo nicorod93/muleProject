@@ -1,35 +1,15 @@
 package sample;
 
-import com.sun.tools.javac.jvm.Items;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
-import javafx.scene.paint.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
-import java.util.*;
-
-import java.io.File;
-import java.io.PrintWriter;
-
-import java.io.FileWriter;
-import java.io.IOException;
-
-
-import org.json.simple.JSONObject;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.lang.Long;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Timer;
 
 
 
@@ -283,103 +263,9 @@ public class Main extends Application {
         return null;
     }
 
-    public static void fileSave() throws Exception {
-        JSONObject obj = new JSONObject();
-        obj.put("difficulty", difficulty);
-        obj.put("mapType", mapType);
-        obj.put("strTime", strTime);
-        obj.put("players", players);
-        obj.put("counter", counter);
-        obj.put("playerTurn", playerTurn);
-        obj.put("playerStart", playerStart);
-        obj.put("round", round);
-        obj.put("numSelectionRounds", numSelectionRounds);
-        obj.put("numPasses", numPasses);
-        obj.put("food", food);
-        obj.put("energy", energy);
-        obj.put("timeRemain", timeRemain);
-        obj.put("playerRace", playerRace);
-        obj.put("playerColor", playerColor);
-        obj.put("playerName", playerName);
-        obj.put("playerArray", playerArray);
-        obj.put("items", items);
-        obj.put("currentPlayer", currentPlayer);
-        obj.put("bought", bought);
-        obj.put("started", started);
-        obj.put("finishBuyingRound", finishBuyingRound);
-        obj.put("finishGame", finishGame);
-        obj.put("finishTurn", finishTurn);
-        obj.put("ownedTile", ownedTile);
-        obj.put("timer", timer);
-        obj.put("map", map);
-        obj.put("placeFood", placeFood);
-        obj.put("placeEnergy", placeEnergy);
-        obj.put("placeOre", placeOre);
 
-        try {
-            FileWriter file = new FileWriter("fileSave.json");
-            file.write(obj.toJSONString());
-            file.flush();
-            file.close();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public static void fileLoad() throws FileNotFoundException {
-        JSONParser parser = new JSONParser();
-        try {
-            FileReader fileReader = new FileReader("fileSave.json");
-            Object obj = parser.parse(fileReader);
-
-            JSONObject jsonObject = (JSONObject) obj;
-            //JSONValue jsonValue = (JSONValue) obj;
-
-            difficulty = (String) jsonObject.get("difficulty");
-            mapType = (String) jsonObject.get("mapType");
-            strTime = (String) jsonObject.get("strTime");
-            Long player = (long) jsonObject.get("players");
-            players = player.intValue();
-            counter = (long) jsonObject.get("counter");
-            Long playerT = (long) jsonObject.get("playerTurn");
-            playerTurn = playerT.intValue();
-            Long playerS = (long) jsonObject.get("playerStart");
-            playerStart = playerS.intValue();
-            Long r = (long) jsonObject.get("round");
-            players = r.intValue();
-            numSelectionRounds = (long) jsonObject.get("numSelectionRounds");
-            numPasses = (long) jsonObject.get("numPasses");
-            food = (long) jsonObject.get("food");
-            energy = (long) jsonObject.get("energy");
-            timeRemain = (long) jsonObject.get("timeRemain");
-            playerRace = (List<String>) jsonObject.get("playerRace");
-            playerColor = (List<String>) jsonObject.get("playerColor");
-            playerName = (List<String>) jsonObject.get("playerName");
-            playerArray = (List<Player>) jsonObject.get("playerArray");
-            items = (List<Item>) jsonObject.get("items");
-            currentPlayer = (Player) jsonObject.get("currentPlayer");
-            bought = (boolean) jsonObject.get("bought");
-            started = (boolean) jsonObject.get("started");
-            finishBuyingRound = (boolean) jsonObject.get("finishBuyingRound");
-            finishGame = (boolean) jsonObject.get("finishGame");
-            finishTurn = (boolean) jsonObject.get("finishTurn");
-            ownedTile = (boolean) jsonObject.get("ownedTile");
-            timer = (Timer) jsonObject.get("timer");
-            map = (Scene) jsonObject.get("map");
-            placeFood = (boolean) jsonObject.get("placeFood");
-            placeEnergy = (boolean) jsonObject.get("placeEnergy");
-            placeOre = (boolean) jsonObject.get("placeOre");
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public static void main (String[] args) throws Exception {
         Main main = new Main();
