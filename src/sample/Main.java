@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.tools.javac.jvm.Items;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,13 +11,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
-import java.util.Comparator;
-import java.util.Timer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
+import java.util.*;
 
-import java.util.Scanner;
 import java.io.File;
 import java.io.PrintWriter;
 
@@ -372,14 +368,39 @@ public class Main extends Application {
 
             JSONObject jsonObject = (JSONObject) obj;
 
-            String name = (String) jsonObject.get("name");
-            System.out.println(name);
-
-            long age = (Long) jsonObject.get("age");
-            System.out.println(age);
-
-            // loop array
-
+            difficulty = (String) jsonObject.get("difficulty");
+            mapType = (String) jsonObject.get("mapType");
+            strTime = (String) jsonObject.get("strTime");
+            players = (int) jsonObject.get("players");
+            counter = (int) jsonObject.get("counter");
+            playerTurn = (int) jsonObject.get("playerTurn");
+            playerStart = (int) jsonObject.get("playerStart");
+            round = (int) jsonObject.get("round");
+            numSelectionRounds = (int) jsonObject.get("numSelectionRounds");
+            numPasses = (int) jsonObject.get("numPasses");
+            food = (int) jsonObject.get("food");
+            energy = (int) jsonObject.get("energy");
+            timeRemain = (int) jsonObject.get("timeRemain");
+            playerRace = (List<String>) jsonObject.get("playerRace");
+            playerColor = (List<String>) jsonObject.get("playerColor");
+            playerName = (List<String>) jsonObject.get("playerName");
+            playerArray = (List<Player>) jsonObject.get("playerArray");
+            items = (List<Item>) jsonObject.get("items");
+            currentPlayer = (Player) jsonObject.get("currentPlayer");
+            bought = (boolean) jsonObject.get("bought");
+            started = (boolean) jsonObject.get("started");
+            finishBuyingRound = (boolean) jsonObject.get("finishBuyingRound");
+            finishGame = (boolean) jsonObject.get("finishGame");
+            finishTurn = (boolean) jsonObject.get("finishTurn");
+            ownedTile = (boolean) jsonObject.get("ownedTile");
+            timer = (Timer) jsonObject.get("timer");
+            map = (Scene) jsonObject.get("map");
+            placeFood = (boolean) jsonObject.get("placeFood");
+            placeEnergy = (boolean) jsonObject.get("placeEnergy");
+            placeOre = (boolean) jsonObject.get("placeOre");
+            placeFood = (boolean) jsonObject.get("placeFood");
+            placeEnergy = (boolean) jsonObject.get("placeEnergy");
+            placeOre = (boolean) jsonObject.get("placeOre");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
