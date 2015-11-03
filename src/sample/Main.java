@@ -383,8 +383,6 @@ public class Main extends Application {
 
     public static void main (String[] args) throws Exception {
         Main main = new Main();
-        Main.fileSave();
-        Main.fileLoad();
         launch(args);
     }
 }
