@@ -29,7 +29,7 @@ public class PubController {
         }
 
         int timeBonus = 0;
-        int timeLeft = Main.timeRemain;
+        Long timeLeft = Main.timeRemain;
         if (timeLeft >= 37) {
             timeBonus = 200;
         } else if (timeLeft >= 25) {
@@ -46,7 +46,7 @@ public class PubController {
             total = 250;
         }
         System.out.println("You Won $" + total + " at the Pub! Congrats!");
-        int oldMoney = Main.getCurrentPlayer().getMoney();
+        Long oldMoney = Main.getCurrentPlayer().getMoney();
         Main.getCurrentPlayer().setMoney(oldMoney + total);
         Main.timeRemain = 0;
         Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();

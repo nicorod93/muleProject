@@ -13,12 +13,12 @@ public class Player {
     private String color;
     private String race;
     private List<Item> items;
-    private static int money;
+    private static long money;
     private List<Tile> tiles;
-    private static int score;
-    private static int fMule;
-    private static int eMule;
-    private static int oMule;
+    private static long score;
+    private static long fMule;
+    private static long eMule;
+    private static long oMule;
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -55,11 +55,11 @@ public class Player {
         return race;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(long money) {
         this.money = money;
     }
 
-    public int getMoney() {
+    public long getMoney() {
         return money;
     }
 
@@ -67,11 +67,11 @@ public class Player {
         return name + " " + race + " " + color;
     }
 
-    public void setScore(int newScore) {
+    public void setScore(long newScore) {
         this.score = newScore;
     }
 
-    public int getScore() {
+    public long getScore() {
         return this.score;
     }
 
@@ -100,8 +100,9 @@ public class Player {
     }
 
     public void calculateScore() {
-        int i = this.getSpecificItem(0).getAmount() + this.getSpecificItem(1).getAmount() + this.getSpecificItem(2).getAmount();
-        int total = getMoney() + tiles.size() * 500 + i;
+        long i = this.getSpecificItem(0).getAmount() + this.getSpecificItem
+                (1).getAmount() + this.getSpecificItem(2).getAmount();
+        long total = getMoney() + tiles.size() * 500 + i;
         setScore(total);
     }
 
@@ -123,17 +124,17 @@ public class Player {
         System.out.println(name + " owns " + oMule + " Ore Mules");
         if ((this.getSpecificItem(1).getAmount()) > (fMule + eMule + oMule) ) {
             if (fMule > 0) {
-                int a = fMule * 2;
+                long a = fMule * 2;
                 System.out.println(a + " units of Food were produced");
                 this.getSpecificItem(0).setAmount(this.getSpecificItem(0).getAmount() +a);
             }
             if (eMule > 0) {
-                int b = eMule * 3;
+                long b = eMule * 3;
                 System.out.println(b + " units of Energy were produced");
                 this.getSpecificItem(1).setAmount(this.getSpecificItem(1).getAmount() + b);
             }
             if (oMule > 0) {
-                int c = oMule * 1;
+                long c = oMule * 1;
                 System.out.println(c + " units of Ore were produced");
                 this.getSpecificItem(2).setAmount(this.getSpecificItem(2).getAmount() + c);
             }
