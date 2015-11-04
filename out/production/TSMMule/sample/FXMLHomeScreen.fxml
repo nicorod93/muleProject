@@ -54,6 +54,9 @@
             <Font name="Copperplate Gothic Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="629.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#fileLoad" text="LOAD" />
+      <Button layoutX="88.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#fileLoad" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #77BA9B; -fx-background-radius: 50px;" text="LOAD" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
    </children>
 </Pane>
