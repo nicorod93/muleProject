@@ -138,6 +138,7 @@ public class MapController implements Initializable {
             startBut.setDisable(true);
             Main.bought = false;
         } else if (!Main.finishGame) {
+            Main.round++;
             roundNumber.textProperty().set("Round " + Long.toString(Main
                     .round));
             Main.timeRemain = Main.calculateTurnTime();
@@ -173,7 +174,7 @@ public class MapController implements Initializable {
             Main.playerTurn = 0;
             roundNumber.textProperty().set("Round " + Long.toString(Main
                     .round));
-
+            Main.round++;
         }
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer
