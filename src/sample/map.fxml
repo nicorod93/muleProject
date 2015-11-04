@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -77,7 +79,7 @@
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="100.0" prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
       <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="103.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <Button id="River" mnemonicParsing="false" onMouseClicked="#buyLand" opacity="0.0" prefHeight="99.0" prefWidth="78.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-      <Button id="Town" mnemonicParsing="false" onMouseClicked="#goToTown" opacity="0.0" prefHeight="98.0" prefWidth="79.0" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+      <Button id="Town" mnemonicParsing="false" onMouseClicked="#goToTown" opacity="0.0" prefHeight="98.0" prefWidth="79.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
       <Circle fill="#ffff1f" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="6" />
       <Button fx:id="passBut" mnemonicParsing="false" onAction="#pass" prefHeight="96.0" prefWidth="78.0" style="-fx-background-color: none;" text="PASS" GridPane.columnIndex="3" GridPane.rowIndex="6">
          <font>
@@ -118,7 +120,7 @@
          </font>
       </Label>
 
-      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+      <Button id="Plain" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
       <Circle fill="RED" radius="39.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="7" />
       <Button fx:id="endBut" mnemonicParsing="false" onAction="#endTurn" prefHeight="84.0" prefWidth="104.0" style="-fx-background-color: none;" text="END" GridPane.columnIndex="3" GridPane.rowIndex="7">
          <font>
@@ -197,7 +199,14 @@
       <Button id="Mountain1" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button id="Mountain1" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#buyLand" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
       <Button id="Town" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#goToTown" opacity="0.0" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-      <Button  mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#fileSave" prefHeight="107.0" prefWidth="77.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff3434" height="30.0" stroke="BLACK" strokeType="INSIDE" width="60.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets left="7.0" right="7.0" />
+         </GridPane.margin></Rectangle>
+      <Button mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#fileSave" prefHeight="41.0" prefWidth="76.0" style="-fx-background-color: none;" text="Save" textFill="WHITE" GridPane.columnIndex="8" GridPane.rowIndex="5">
+         <font>
+            <Font size="21.0" />
+         </font></Button>
 
    </children>
 </GridPane>
