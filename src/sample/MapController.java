@@ -17,6 +17,8 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -24,6 +26,9 @@ import java.util.TimerTask;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import com.google.gson.Gson;
 
 import java.awt.Color;
 
@@ -73,12 +78,13 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        playerEnergy.textProperty().set(Main.playerArray.get(0).getSpecificItem(1).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
-        playerFood.textProperty().set(Main.playerArray.get(0).getSpecificItem(0).getName() + ": " + Integer.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
-        roundNumber.textProperty().set("Round " + Integer.toString(Main.round));
+        playerEnergy.textProperty().set(Main.playerArray.get(0).getSpecificItem(1).getName() + ": " + Long.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
+        playerFood.textProperty().set(Main.playerArray.get(0).getSpecificItem(0).getName() + ": " + Long.toString(Main.playerArray.get(0).getSpecificItem(0).getAmount()));
+        roundNumber.textProperty().set("Round " + Long.toString(Main.round));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         timerCount.textProperty().set(Main.strTime);
-        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer
+                ().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
     }
 
@@ -108,7 +114,8 @@ public class MapController implements Initializable {
     @FXML
     public void startTurn() {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer
+                ().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         Main.getCurrentPlayer().calculateScore();
         System.out.println(Main.getCurrentPlayer().getScore());
@@ -131,7 +138,8 @@ public class MapController implements Initializable {
             startBut.setDisable(true);
             Main.bought = false;
         } else if (!Main.finishGame) {
-            roundNumber.textProperty().set("Round " + Integer.toString(Main.round));
+            roundNumber.textProperty().set("Round " + Long.toString(Main
+                    .round));
             Main.timeRemain = Main.calculateTurnTime();
             Main.timer = new Timer();
             Main.finishTurn = false;
@@ -151,24 +159,31 @@ public class MapController implements Initializable {
         Main.getCurrentPlayer().calculateScore();
         System.out.println("Your Score: " + Main.getCurrentPlayer().getScore());
         randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
-        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-        playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-        playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+        playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer
+                ().getMoney()));
+        playerEnergy.textProperty().set("Energy: " + Long.toString(Main
+                .getCurrentPlayer().getSpecificItem(1).getAmount()));
+        playerFood.textProperty().set("Food: " + Long.toString(Main
+                .getCurrentPlayer().getSpecificItem(0).getAmount()));
         if (Main.playerTurn < Main.players - 1) {
 //            System.out.println("THIS IS EXECUTED");
 //            System.out.println(Main.playerTurn + " " + Main.players);
             Main.playerTurn++;
         } else {
             Main.playerTurn = 0;
-            roundNumber.textProperty().set("Round " + Integer.toString(Main.round));
+            roundNumber.textProperty().set("Round " + Long.toString(Main
+                    .round));
 
         }
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
-        playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+        playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer
+                ().getMoney()));
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         Main.getCurrentPlayer().calcProduction();
-        playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-        playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+        playerEnergy.textProperty().set("Energy: " + Long.toString(Main
+                .getCurrentPlayer().getSpecificItem(1).getAmount()));
+        playerFood.textProperty().set("Food: " + Long.toString(Main
+                .getCurrentPlayer().getSpecificItem(0).getAmount()));
 
         Main.timeRemain = 50;
         startBut.setDisable(true);
@@ -190,16 +205,16 @@ public class MapController implements Initializable {
                 bb.setDisable(true);
                 Main.getCurrentPlayer().addFMule();
                 Main.placeFood = false;
-                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+                playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
             else {
                 System.out.println("Placed Mule Wrong! Mule is lost");
                 Main.placeFood = false;
-                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+                playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
         }
         if (Main.placeEnergy) {
@@ -215,16 +230,16 @@ public class MapController implements Initializable {
                 bb.setDisable(true);
                 Main.getCurrentPlayer().addEMule();
                 Main.placeEnergy = false;
-                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+                playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
             else {
                 System.out.println("Placed Mule Wrong! Mule is lost");
                 Main.placeEnergy = false;
-                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+                playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
         }
         if (Main.placeOre) {
@@ -240,20 +255,20 @@ public class MapController implements Initializable {
                 bb.setDisable(true);
                 Main.getCurrentPlayer().addOMule();
                 Main.placeOre = false;
-                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+                playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
             else {
                 System.out.println("Placed Mule Wrong! Mule is lost");
                 Main.placeOre = false;
-                playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-                playerEnergy.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-                playerFood.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+                playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+                playerEnergy.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+                playerFood.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             }
         }
         if (!Main.bought && Main.started) {
-            playerMoney.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
+            playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
             Button butt = (Button) event.getSource();
             butt.setStyle("-fx-background-color:" + Main
                     .getCurrentPlayer().getColor());
@@ -299,4 +314,70 @@ public class MapController implements Initializable {
         Main.newPlayerSetupTurn();
     }
 
+    @FXML
+    private void fileSave() throws Exception {
+        System.out.println("Start File Save");
+        JSONObject obj = new JSONObject();
+        Gson gsonObj = new Gson();
+        JSONArray arr = new JSONArray();
+        //String jsonMap = gsonObj.toJson(Main.map);
+        //String jsonTimer = gsonObj.toJson(Main.timer);
+        obj.put("difficulty", Main.difficulty);
+        obj.put("mapType", Main.mapType);
+        obj.put("strTime", Main.strTime);
+        obj.put("players", Main.players);
+        obj.put("counter", Main.counter);
+        obj.put("playerTurn", Main.playerTurn);
+        obj.put("playerStart", Main.playerStart);
+        obj.put("round", Main.round);
+        obj.put("numSelectionRounds", Main.numSelectionRounds);
+        obj.put("numPasses", Main.numPasses);
+        obj.put("food", Main.food);
+        obj.put("energy", Main.energy);
+        obj.put("timeRemain", Main.timeRemain);
+        obj.put("playerRace", Main.playerRace);
+        obj.put("playerColor", Main.playerColor);
+        obj.put("playerName", Main.playerName);
+        //String jsonPlayersArray = "";
+        int counter = 0;
+        for (Player p : Main.playerArray) {
+            //jsonPlayersArray += gsonObj.toJson(p);
+            obj.put("p" + counter, gsonObj.toJson(p));
+            counter++;
+        }
+        arr.add(Main.playerArray);
+        //obj.put("playerArray", arr);
+        //System.out.println("Saved Array");
+        obj.put("items", Main.items);
+        obj.put("currentPlayer", Main.currentPlayer);
+        obj.put("bought", Main.bought);
+        obj.put("started", Main.started);
+        obj.put("finishBuyingRound", Main.finishBuyingRound);
+        obj.put("finishGame", Main.finishGame);
+        obj.put("finishTurn", Main.finishTurn);
+        obj.put("ownedTile", Main.ownedTile);
+        //obj.put("timer", Main.timer);
+        //obj.put("map", Main.map);
+        obj.put("placeFood", Main.placeFood);
+        obj.put("placeEnergy", Main.placeEnergy);
+        obj.put("placeOre", Main.placeOre);
+        //obj.put("playersArray", jsonPlayersArray);
+
+        System.out.println("Saved");
+        try {
+            FileWriter file = new FileWriter("fileSave.json");
+            file.write(obj.toJSONString());
+            //file.write(arr.toJSONString());
+            //file.write(",");
+            //file.write(jsonPlayersArray.toString());
+            //file.write(jsonMap);
+            //file.write(jsonPlayersArray);
+            //file.write(jsonTimer);
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

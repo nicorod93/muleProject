@@ -52,12 +52,12 @@ public class sellController implements Initializable{
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        playerEnergy.textProperty().set("x" + Integer.toString(Main.energy));
-        playerFood.textProperty().set("x" + Integer.toString(Main.food));
+        playerEnergy.textProperty().set("x" + Long.toString(Main.energy));
+        playerFood.textProperty().set("x" + Long.toString(Main.food));
         playerNameID.textProperty().set(Main.getCurrentPlayer().getName());
-        playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-        playerEnergyAmm.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-        playerFoodAmm.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+        playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+        playerEnergyAmm.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+        playerFoodAmm.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
     }
 
     @FXML
@@ -80,10 +80,10 @@ public class sellController implements Initializable{
             Main.food++;
             Main.getCurrentPlayer().getSpecificItem(0).decreaseAmount(1);
             Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() + 30);
-            playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-            playerFood.textProperty().set("x" + Integer.toString(Main.food));
-            playerEnergyAmm.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-            playerFoodAmm.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+            playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+            playerFood.textProperty().set("x" + Long.toString(Main.food));
+            playerEnergyAmm.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+            playerFoodAmm.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
         }
     }
 
@@ -95,10 +95,10 @@ public class sellController implements Initializable{
             Main.getCurrentPlayer().getSpecificItem(1).decreaseAmount(1);
             Main.energy++;
             Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() + 25);
-            playerMoneyLabel.textProperty().set("$" + Integer.toString(Main.getCurrentPlayer().getMoney()));
-            playerEnergy.textProperty().set("x" + Integer.toString(Main.energy));
-            playerEnergyAmm.textProperty().set("Energy: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
-            playerFoodAmm.textProperty().set("Food: " + Integer.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
+            playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
+            playerEnergy.textProperty().set("x" + Long.toString(Main.energy));
+            playerEnergyAmm.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
+            playerFoodAmm.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
         }
     }
 }

@@ -8,15 +8,15 @@ import java.util.List;
  */
 public class randomEvent {
     private Player player;
-    private static int round;
-    private static int roundBonus;
+    private static long round;
+    private static long roundBonus;
     private List<Player> array;
 
-    public randomEvent(Player p, int r, List<Player> array) {
+    public randomEvent(Player p, long r, List<Player> array) {
         this.player = p;
         this.round = r;
         this.array = array;
-        int low = p.getScore();
+        long low = p.getScore();
         for (Player a: array) {
             if (low > a.getScore()) {
                 low = a.getScore();
@@ -50,31 +50,31 @@ public class randomEvent {
     public void doRandom(int rNum1) {
         if (rNum1 == 0) {
             System.out.println("YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.");
-            int newFood = this.player.getSpecificItem(0).getAmount() + 3;
-            int newEnergy = this.player.getSpecificItem(1).getAmount() + 2;
+            long newFood = this.player.getSpecificItem(0).getAmount() + 3;
+            long newEnergy = this.player.getSpecificItem(1).getAmount() + 2;
             this.player.getSpecificItem(0).setAmount(newFood);
             this.player.getSpecificItem(1).setAmount(newEnergy);
         }
         if (rNum1 == 1) {
             System.out.println("A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING TWO BARS OF ORE.");
-            int newOre = this.player.getSpecificItem(2).getAmount() + 2;
+            long newOre = this.player.getSpecificItem(2).getAmount() + 2;
             this.player.getSpecificItem(2).setAmount(newOre);
         }
         if (rNum1 == 2) {
-            int a = this.roundBonus * 8;
-            int newMoney = this.player.getMoney() + a;
+            long a = this.roundBonus * 8;
+            long newMoney = this.player.getMoney() + a;
             System.out.println("THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $ " + a);
             this.player.setMoney(newMoney);
         }
         if (rNum1 == 3) {
-            int b = this.roundBonus * 2;
-            int newMoney = this.player.getMoney() + b;
+            long b = this.roundBonus * 2;
+            long newMoney = this.player.getMoney() + b;
             System.out.println("YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $ " + b);
             this.player.setMoney(newMoney);
         }
         if (rNum1 == 4) {
-            int c = this.roundBonus * 4;
-            int newMoney = this.player.getMoney() - c;
+            long c = this.roundBonus * 4;
+            long newMoney = this.player.getMoney() - c;
             if (newMoney < 0 ) {
                 this.player.setMoney(0);
             } else {
@@ -83,13 +83,13 @@ public class randomEvent {
             System.out.println("FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $ " + c);
         }
         if (rNum1 == 5) {
-            int newMoney = this.player.getMoney() / 2;
+            long newMoney = this.player.getMoney() / 2;
             System.out.println("MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.");
             this.player.setMoney(newMoney);
         }
         if (rNum1 == 6) {
-            int d = this.roundBonus * 6;
-            int newMoney = this.player.getMoney() - d;
+            long d = this.roundBonus * 6;
+            long newMoney = this.player.getMoney() - d;
             if (newMoney < 0) {
                 this.player.setMoney(0);
             } else {

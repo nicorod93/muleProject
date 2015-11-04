@@ -4,16 +4,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
-import javafx.scene.paint.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.util.Comparator;
-import java.util.Timer;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-import java.util.HashMap;
+import java.util.Timer;
+
+
 
 public class Main extends Application {
     public static String difficulty;
@@ -21,15 +19,15 @@ public class Main extends Application {
     public static String strTime = "" + Main.timeRemain;
 
     public static int players = 0;
-    public static int counter = 1;
+    public static long counter = 1;
     public static int playerTurn = 0;
     public static int playerStart = 0;
     public static int round = 0;
-    public static int numSelectionRounds = 0;
-    public static int numPasses = 0;
-    public static int food = 16;
-    public static int energy = 16;
-    public static int timeRemain;
+    public static long numSelectionRounds = 0;
+    public static long numPasses = 0;
+    public static long food = 16;
+    public static long energy = 16;
+    public static long timeRemain;
 
     public static List<String> playerRace = new ArrayList<>();
     public static List<String> playerColor = new ArrayList<>();
@@ -37,7 +35,7 @@ public class Main extends Application {
     public static List<Player> playerArray = new ArrayList<>();
     public static List<Item> items;
 
-    public static int[] foodRequirement = {3,3,3,3,4,4,4,4,5,5,5,5};
+    public static long[] foodRequirement = {3,3,3,3,4,4,4,4,5,5,5,5};
 
     public static Tile[][] tileMap = new Tile[9][5];
 
@@ -57,7 +55,6 @@ public class Main extends Application {
     public static boolean placeFood = false;
     public static boolean placeEnergy = false;
     public static boolean placeOre = false;
-
 
 
     @Override
@@ -179,16 +176,16 @@ public class Main extends Application {
 
     public static void calculateScore() {
         for (int i = 0; i < Main.players; i++) {
-            int money = Main.playerArray.get(i).getMoney();
-            int numLand = Main.playerArray.get(i).numTiles() * 500;
-            int valueOfGoods = Main.playerArray.get(i).valueOfGoods();
+            long money = Main.playerArray.get(i).getMoney();
+            long numLand = Main.playerArray.get(i).numTiles() * 500;
+            long valueOfGoods = Main.playerArray.get(i).valueOfGoods();
             Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
         }
     }
 
 
-    public static int calculateTurnTime() {
-        int numFood = 0;
+    public static long calculateTurnTime() {
+        long numFood = 0;
         for (Item i : Main.getCurrentPlayer().getItems()) {
             if (i.getName().equals("Food")) {
                 numFood += i.getAmount();
@@ -265,7 +262,12 @@ public class Main extends Application {
         return null;
     }
 
-    public static void main(String[] args) {
+
+
+
+
+    public static void main (String[] args) throws Exception {
+        Main mainGame = new Main();
         launch(args);
     }
 }

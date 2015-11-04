@@ -7,14 +7,14 @@ import java.util.Timer;
  */
 public class Item {
     private String name;
-    private int amount;
-    private int price;
+    private long amount;
+    private long price;
 
     public Item(String name) {
         this(name, 0, 0);
     }
 
-    public Item(String name, int amount, int price) {
+    public Item(String name, long amount, long price) {
         this.name = name;
         this.amount = amount;
         this.price = price;
@@ -24,15 +24,15 @@ public class Item {
         return this.name;
     }
 
-    public int getAmount() {
+    public long getAmount() {
         return amount;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setAmount(int food) {
+    public void setAmount(long food) {
         this.amount = food;
     }
 
@@ -44,7 +44,7 @@ public class Item {
         }
     }
 
-    public void increaseAmount(int numAdd) {
+    public void increaseAmount(long numAdd) {
         amount += numAdd;
     }
 
