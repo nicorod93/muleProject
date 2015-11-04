@@ -26,7 +26,9 @@ import java.util.TimerTask;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import com.google.gson.Gson;
 
 import java.awt.Color;
 
@@ -314,7 +316,12 @@ public class MapController implements Initializable {
 
     @FXML
     private void fileSave() throws Exception {
+        System.out.println("Start File Save");
         JSONObject obj = new JSONObject();
+        Gson gsonObj = new Gson();
+        JSONArray arr = new JSONArray();
+        //String jsonMap = gsonObj.toJson(Main.map);
+        //String jsonTimer = gsonObj.toJson(Main.timer);
         obj.put("difficulty", Main.difficulty);
         obj.put("mapType", Main.mapType);
         obj.put("strTime", Main.strTime);
@@ -331,7 +338,16 @@ public class MapController implements Initializable {
         obj.put("playerRace", Main.playerRace);
         obj.put("playerColor", Main.playerColor);
         obj.put("playerName", Main.playerName);
-        obj.put("playerArray", Main.playerArray);
+        //String jsonPlayersArray = "";
+        int counter = 0;
+        for (Player p : Main.playerArray) {
+            //jsonPlayersArray += gsonObj.toJson(p);
+            obj.put("p" + counter, gsonObj.toJson(p));
+            counter++;
+        }
+        arr.add(Main.playerArray);
+        //obj.put("playerArray", arr);
+        //System.out.println("Saved Array");
         obj.put("items", Main.items);
         obj.put("currentPlayer", Main.currentPlayer);
         obj.put("bought", Main.bought);
@@ -340,15 +356,23 @@ public class MapController implements Initializable {
         obj.put("finishGame", Main.finishGame);
         obj.put("finishTurn", Main.finishTurn);
         obj.put("ownedTile", Main.ownedTile);
-        obj.put("timer", Main.timer);
-        obj.put("map", Main.map);
+        //obj.put("timer", Main.timer);
+        //obj.put("map", Main.map);
         obj.put("placeFood", Main.placeFood);
         obj.put("placeEnergy", Main.placeEnergy);
         obj.put("placeOre", Main.placeOre);
+        //obj.put("playersArray", jsonPlayersArray);
+
         System.out.println("Saved");
         try {
             FileWriter file = new FileWriter("fileSave.json");
             file.write(obj.toJSONString());
+            //file.write(arr.toJSONString());
+            //file.write(",");
+            //file.write(jsonPlayersArray.toString());
+            //file.write(jsonMap);
+            //file.write(jsonPlayersArray);
+            //file.write(jsonTimer);
             file.flush();
             file.close();
 

@@ -57,7 +57,6 @@ public class Main extends Application {
     public static boolean placeOre = false;
 
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLHomeScreen.fxml")); //main screen is home screen
@@ -268,7 +267,7 @@ public class Main extends Application {
 
 
     public static void main (String[] args) throws Exception {
-        Main main = new Main();
+        Main mainGame = new Main();
         launch(args);
     }
 }
