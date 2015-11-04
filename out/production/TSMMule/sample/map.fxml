@@ -103,7 +103,7 @@
             <Font name="Copperplate Gothic Light" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="playerName" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="380.0" text="Player" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="6">
+      <Label fx:id="playerName" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="68.0" prefWidth="300.0" text="Player" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="6">
          <font>
             <Font name="Copperplate Gothic Light" size="50.0" />
          </font>
@@ -127,7 +127,7 @@
             <Font name="Copperplate Gothic Light" size="15.0" />
          </font>
       </Button>
-      <Label fx:id="roundNumber" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="381.0" text="Round" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="5">
+      <Label fx:id="roundNumber" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="290.0" text="Round" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="5">
          <font>
             <Font name="Copperplate Gothic Light" size="60.0" />
          </font>
