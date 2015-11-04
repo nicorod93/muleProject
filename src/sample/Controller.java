@@ -74,13 +74,18 @@ public class Controller implements Initializable {
         Gson gson = new Gson();
         try {
             FileReader fileReader = new FileReader("fileSave.json");
+            FileReader playerReader = new FileReader("savePlayer.json");
+            //FileReader timerReader = new FileReader("saveTimer.json");
+            //FileReader mapReader = new FileReader("saveMap.json");
             Object obj = parser.parse(fileReader);
 
             JSONObject jsonObject = (JSONObject) obj;
             //JSONValue jsonValue = (JSONValue) obj;
 
-            BufferedReader br = new BufferedReader(new FileReader("fileSave" +
-                    ".json"));
+            BufferedReader br = new BufferedReader(playerReader);
+            //BufferedReader brt = new BufferedReader(timerReader);
+            //BufferedReader brm = new BufferedReader(mapReader);
+
 
             Main.difficulty = (String) jsonObject.get("difficulty");
             Main.mapType = (String) jsonObject.get("mapType");
@@ -93,7 +98,7 @@ public class Controller implements Initializable {
             Long playerS = (long) jsonObject.get("playerStart");
             Main.playerStart = playerS.intValue();
             Long r = (long) jsonObject.get("round");
-            Main.players = r.intValue();
+            Main.round = r.intValue();
             Main.numSelectionRounds = (long) jsonObject.get("numSelectionRounds");
             Main.numPasses = (long) jsonObject.get("numPasses");
             Main.food = (long) jsonObject.get("food");
@@ -102,34 +107,15 @@ public class Controller implements Initializable {
             Main.playerRace = (List<String>) jsonObject.get("playerRace");
             Main.playerColor = (List<String>) jsonObject.get("playerColor");
             Main.playerName = (List<String>) jsonObject.get("playerName");
-            for (int i = 0; i <= Main.players; i++) {
-                String playerStr = (String) jsonObject.get("p" + i);
-                System.out.println(playerStr);
-                int i1 = playerStr.indexOf(":", 7);
-                System.out.println(i1);
-                int i2 = playerStr.indexOf(",", 9);
-                System.out.println(i2);
-                String name = playerStr.substring(i1+2, i2-1);
-                System.out.println(name);
-                int i3 = playerStr.indexOf(":", i2 + 5);
-                System.out.println(i3);
-                int i4 = playerStr.indexOf(",", i2 + 5);
-                System.out.println(i4);
-                String color = playerStr.substring(i3 + 2, i4 - 1);
-                System.out.println(color);
-                int i5 = playerStr.indexOf(":", i4 + 5);
-                System.out.println(i5);
-                int i6 = playerStr.indexOf(",",i4 + 5);
-                System.out.println(i6);
-                String race = playerStr.substring(i5+2, i6-1);
-                System.out.println(race);
-                Player p = new Player(name, color, race);
-                Main.playerArray.add(p);
+            for (int i = 0; i < Main.players; i++) {
+                Player p1 = gson.fromJson(br.readLine(), Player.class);
+                System.out.println(p1);
+                Main.playerArray.add(p1);
             }
             //Main.playerArray = (List<Player>) jsonObject.get("playersArray");
             System.out.println(Main.playerArray);
-            Main.setPlayersMoney();
-            Main.setPlayersItems();
+//            Main.setPlayersMoney();
+//            Main.setPlayersItems();
             Main.items = (List<Item>) jsonObject.get("items");
             Main.currentPlayer = (Player) jsonObject.get("currentPlayer");
             Main.bought = (boolean) jsonObject.get("bought");
@@ -138,8 +124,8 @@ public class Controller implements Initializable {
             Main.finishGame = (boolean) jsonObject.get("finishGame");
             Main.finishTurn = (boolean) jsonObject.get("finishTurn");
             Main.ownedTile = (boolean) jsonObject.get("ownedTile");
-            //Main.timer = gson.fromJson(br, Timer.class);
-            //Main.map = gson.fromJson(br, Scene.class);
+//            Main.timer = gson.fromJson(brt, Timer.class);
+//            Main.map = gson.fromJson(brm, Scene.class);
             Main.placeFood = (boolean) jsonObject.get("placeFood");
             Main.placeEnergy = (boolean) jsonObject.get("placeEnergy");
             Main.placeOre = (boolean) jsonObject.get("placeOre");
