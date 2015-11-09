@@ -13,7 +13,7 @@ public class Player {
     private String color;
     private String race;
     private List<Item> items;
-    private static long money;
+    private long money;
     private List<Tile> tiles;
     private static long score;
     private static long fMule;
@@ -29,6 +29,7 @@ public class Player {
         this.fMule = 0;
         this.eMule = 0;
         this.oMule = 0;
+        this.money = 0;
     }
 
     public void addItem(Item item) {

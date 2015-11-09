@@ -10,12 +10,10 @@ public class randomEvent {
     private Player player;
     private static long round;
     private static long roundBonus;
-    private List<Player> array;
 
     public randomEvent(Player p, long r, List<Player> array) {
         this.player = p;
         this.round = r;
-        this.array = array;
         long low = p.getScore();
         for (Player a: array) {
             if (low > a.getScore()) {

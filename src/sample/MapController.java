@@ -278,7 +278,7 @@ public class MapController implements Initializable {
             String name = butt.getId();
             System.out.println(name);
             int xPos = GridPane.getColumnIndex(butt);
-            int yPos = GridPane.getRowIndex(butt) - 1;
+            int yPos = GridPane.getRowIndex(butt);
             Tile tile = new Tile(name, xPos, yPos);
             System.out.println(tile);
             Main.getCurrentPlayer().addProperty(tile);
@@ -320,7 +320,7 @@ public class MapController implements Initializable {
         System.out.println("Start File Save");
         JSONObject obj = new JSONObject();
         Gson gsonObj = new Gson();
-        JSONArray arr = new JSONArray();
+        //JSONArray arr = new JSONArray();
         //String jsonMap = gsonObj.toJson(Main.map);
         //String jsonTimer = gsonObj.toJson(Main.timer);
         obj.put("difficulty", Main.difficulty);
@@ -339,14 +339,14 @@ public class MapController implements Initializable {
         obj.put("playerRace", Main.playerRace);
         obj.put("playerColor", Main.playerColor);
         obj.put("playerName", Main.playerName);
-        //String jsonPlayersArray = "";
+        String jsonPlayersArray = "";
         int counter = 0;
         for (Player p : Main.playerArray) {
-            //jsonPlayersArray += gsonObj.toJson(p);
+            jsonPlayersArray += gsonObj.toJson(p) + "\n";
             obj.put("p" + counter, gsonObj.toJson(p));
             counter++;
         }
-        arr.add(Main.playerArray);
+        //arr.add(Main.playerArray);
         //obj.put("playerArray", arr);
         //System.out.println("Saved Array");
         obj.put("items", Main.items);
@@ -357,8 +357,10 @@ public class MapController implements Initializable {
         obj.put("finishGame", Main.finishGame);
         obj.put("finishTurn", Main.finishTurn);
         obj.put("ownedTile", Main.ownedTile);
-        //obj.put("timer", Main.timer);
-        //obj.put("map", Main.map);
+//        String jsonTimer = gsonObj.toJson(Main.timer);
+//        System.out.println("Saved Timer");
+//        String jsonMap = gsonObj.toJson(Main.map);
+//        System.out.println("Saved Map");
         obj.put("placeFood", Main.placeFood);
         obj.put("placeEnergy", Main.placeEnergy);
         obj.put("placeOre", Main.placeOre);
@@ -367,13 +369,24 @@ public class MapController implements Initializable {
         System.out.println("Saved");
         try {
             FileWriter file = new FileWriter("fileSave.json");
+            FileWriter playerFile = new FileWriter("savePlayer.json");
+//            FileWriter timerFile = new FileWriter("saveTimer.json");
+//            FileWriter mapFile = new FileWriter("saveMap.json");
             file.write(obj.toJSONString());
             //file.write(arr.toJSONString());
             //file.write(",");
-            //file.write(jsonPlayersArray.toString());
+            playerFile.write(jsonPlayersArray);
+//            timerFile.write(jsonTimer);
+//            mapFile.write(jsonMap);
             //file.write(jsonMap);
             //file.write(jsonPlayersArray);
             //file.write(jsonTimer);
+//            timerFile.flush();
+//            mapFile.flush();
+//            timerFile.close();
+//            mapFile.close();
+            playerFile.flush();
+            playerFile.close();
             file.flush();
             file.close();
 
