@@ -175,11 +175,12 @@ public class Main extends Application {
     }
 
     public static void calculateScore() {
-        for (int i = 0; i < Main.players; i++) {
-            long money = Main.playerArray.get(i).getMoney();
-            long numLand = Main.playerArray.get(i).numTiles() * 500;
-            long valueOfGoods = Main.playerArray.get(i).valueOfGoods();
-            Main.playerArray.get(i).setScore(money + numLand + valueOfGoods);
+        for (int i = 0; i < players; i++) {
+            long money = playerArray.get(i).getMoney();
+            long numLand = playerArray.get(i).numTiles() * 500;
+            long valueOfGoods = playerArray.get(i).valueOfGoods();
+            long total = money + numLand + valueOfGoods;
+            playerArray.get(i).setScore(total);
         }
     }
 
