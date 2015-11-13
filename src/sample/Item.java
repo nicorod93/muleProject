@@ -59,7 +59,7 @@ public class Item {
     }
 
     @Override
-    public abstract int hashCode();
+    public final int hashCode() {return 0;}
 
     public final String toString() {
         return this.name + " " + amount;

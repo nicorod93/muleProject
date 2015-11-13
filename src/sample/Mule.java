@@ -5,10 +5,10 @@ package sample;
  */
 public abstract class Mule {
     private Item item;
-    private int cost;
-    private String name;
+    protected int cost;
+    protected String name;
 
-    public final int getItem() {return item};
+    public final Item getItem() {return item;}
 
     public final int getCost() {
         return cost;
