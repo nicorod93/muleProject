@@ -11,158 +11,71 @@ public class GordonJUnitTest {
 
     private static final int TIMEOUT = 200;
 
-//    @Before
-//    public void setUp() {
-//        Player player1 = new Player("Gordon", "Blue", "Human");
-//        Player player2 = new Player("Nico", "Red", "Flapper");
-//        Player player3 = new Player("Dick", "Purple", "Other");
-//        Player player4 = new Player("Advaith", "Orange", "Human");
-//        Main.playerArray.add(player1);
-//        Main.playerArray.add(player2);
-//        Main.playerArray.add(player3);
-//        Main.playerArray.add(player4);
-//        Main.difficulty = "Beginner";
-//        Main.setPlayersItems();
-//    }
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer1Food() {
-//        long food = 8;
-//        Player player = Main.playerArray.get(0);
-//        assertEquals(food, player.getSpecificItem(0).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer2Food() {
-//        long food = 8;
-//        Player player = Main.playerArray.get(1);
-//        assertEquals(food, player.getItems().get(0).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer3Food() {
-//        long food = 8;
-//        Player player = Main.playerArray.get(2);
-//        assertEquals(food, player.getItems().get(0).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer4Food() {
-//        long food = 8;
-//        Player player = Main.playerArray.get(3);
-//        assertEquals(food, player.getItems().get(0).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer1Energy() {
-//        long energy = 4;
-//        Player player = Main.playerArray.get(0);
-//        assertEquals(energy, player.getItems().get(1).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer2Energy() {
-//        long energy = 4;
-//        Player player = Main.playerArray.get(1);
-//        assertEquals(energy, player.getItems().get(1).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer3Energy() {
-//        long energy = 4;
-//        Player player = Main.playerArray.get(2);
-//        assertEquals(energy, player.getItems().get(1).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer4Energy() {
-//        long energy = 4;
-//        Player player = Main.playerArray.get(3);
-//        assertEquals(energy, player.getItems().get(1).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer1Smithore() {
-//        long smithore = 0;
-//        Player player = Main.playerArray.get(0);
-//        assertEquals(smithore, player.getItems().get(2).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer2Smithore() {
-//        long smithore = 0;
-//        Player player = Main.playerArray.get(1);
-//        assertEquals(smithore, player.getItems().get(2).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer3Smithore() {
-//        long smithore = 0;
-//        Player player = Main.playerArray.get(2);
-//        assertEquals(smithore, player.getItems().get(2).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer4Smithore() {
-//        long smithore = 0;
-//        Player player = Main.playerArray.get(3);
-//        assertEquals(smithore, player.getItems().get(2).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer1Crystite() {
-//        long crystite = 0;
-//        Player player = Main.playerArray.get(0);
-//        assertEquals(crystite, player.getItems().get(3).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer2Crystite() {
-//        long crystite = 0;
-//        Player player = Main.playerArray.get(1);
-//        assertEquals(crystite, player.getItems().get(3).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer3Crystite() {
-//        long crystite = 0;
-//        Player player = Main.playerArray.get(2);
-//        assertEquals(crystite, player.getItems().get(3).getAmount());
-//    }
-//
-//    @Test (timeout = TIMEOUT)
-//    public void testPlayer4Crystite() {
-//        long crystite = 0;
-//        Player player = Main.playerArray.get(3);
-//        assertEquals(crystite, player.getItems().get(3).getAmount());
-//    }
-//
-
-
     @Test (timeout = TIMEOUT)
     public void testMainInitialize1() {
         Main.difficulty = "Beginner";
-        Main.playerArray.add(new Player("Bob", "Red", "Human"));
+        Main.playerArray.add(new Player("Gordon", "Blue", "Human"));
+        Main.playerArray.add(new Player("Nico", "Red", "Flapper"));
+        Main.playerArray.add(new Player("Dick", "Purple", "Other"));
         Main.setPlayersItems();
-        assertEquals(1, Main.playerArray.size());
+        assertEquals(3, Main.playerArray.size());
     }
-
+// Human
     @Test (timeout = TIMEOUT)
-    public void testFood() {
+    public void testFoodHuman() {
         assertEquals(8, Main.playerArray.get(0).getSpecificItem(0).getAmount());
     }
 
     @Test (timeout = TIMEOUT)
-    public void testEnergy() {
+    public void testEnergyHuman() {
         assertEquals(4, Main.playerArray.get(0).getSpecificItem(1).getAmount());
     }
 
     @Test (timeout = TIMEOUT)
-    public void testOre() {
+    public void testOreHuman() {
         assertEquals(0, Main.playerArray.get(0).getSpecificItem(2).getAmount());
     }
 
     @Test (timeout = TIMEOUT)
-    public void testCrystite() {
+    public void testCrystiteHuman() {
         assertEquals(0, Main.playerArray.get(0).getSpecificItem(3).getAmount());
     }
+//Flapper
+    @Test (timeout = TIMEOUT)
+    public void testFoodFlapper() {
+        assertEquals(8, Main.playerArray.get(1).getSpecificItem(0).getAmount());
+    }
+
+    @Test (timeout = TIMEOUT)
+    public void testEnergyFlapper() {
+        assertEquals(4, Main.playerArray.get(1).getSpecificItem(1).getAmount());
+    }
+
+    @Test (timeout = TIMEOUT)
+    public void testOreFlapper() {
+        assertEquals(0, Main.playerArray.get(1).getSpecificItem(2).getAmount());
+    }
+
+//Other
+    @Test (timeout = TIMEOUT)
+    public void testFoodOther() {
+        assertEquals(8, Main.playerArray.get(2).getSpecificItem(0).getAmount());
+    }
+
+    @Test (timeout = TIMEOUT)
+    public void testEnergyOther() {
+        assertEquals(4, Main.playerArray.get(2).getSpecificItem(1).getAmount());
+    }
+
+    @Test (timeout = TIMEOUT)
+    public void testOreOther() {
+        assertEquals(0, Main.playerArray.get(2).getSpecificItem(2).getAmount());
+    }
+
+    @Test (timeout = TIMEOUT)
+    public void testCrystiteOther() {
+        assertEquals(0, Main.playerArray.get(2).getSpecificItem(3).getAmount());
+    }
+
+
 }
