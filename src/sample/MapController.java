@@ -119,7 +119,7 @@ public class MapController implements Initializable {
         playerName.textProperty().set(Main.getCurrentPlayer().getName());
         Main.getCurrentPlayer().calculateScore();
         System.out.println(Main.getCurrentPlayer().getScore());
-        randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
+        RandomEvent a = new RandomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
         if (Main.numSelectionRounds < Main.players * 2) {
             System.out.println(Main.numSelectionRounds);
             Main.bought = false;
@@ -159,7 +159,7 @@ public class MapController implements Initializable {
     public void endTurn() {
         Main.getCurrentPlayer().calculateScore();
         System.out.println("Your Score: " + Main.getCurrentPlayer().getScore());
-        randomEvent a = new randomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
+        RandomEvent a = new RandomEvent(Main.getCurrentPlayer(), Main.round, Main.playerArray);
         playerMoney.textProperty().set("$" + Long.toString(Main.getCurrentPlayer
                 ().getMoney()));
         playerEnergy.textProperty().set("Energy: " + Long.toString(Main

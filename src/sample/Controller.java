@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.apache.log4j.LogManager;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -20,7 +21,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import com.google.gson.Gson;
 
 public class Controller implements Initializable {
@@ -28,7 +28,7 @@ public class Controller implements Initializable {
     public static final int PLAYER_TWO = 2;
     public static final int PLAYER_THREE = 3;
     public static final int PLAYER_FOUR = 4;
-
+    private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     @FXML
     private ChoiceBox<String> difficulty;
 
@@ -62,8 +62,7 @@ public class Controller implements Initializable {
             t.setTitle("Player Configuration");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML
@@ -132,11 +131,11 @@ public class Controller implements Initializable {
             t.setTitle("Player Configuration");
             t.show();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            log.error("File Not Found", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("IO", e);
         } catch (ParseException e) {
-            e.printStackTrace();
+            log.error("Parse", e);
         }
 
     }

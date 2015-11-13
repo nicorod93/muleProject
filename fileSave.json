@@ -1,1 +1,40 @@
-{"p0":"{\"name\":\"be\",\"color\":\"Red\",\"race\":\"Human\",\"items\":[{\"name\":\"Food\",\"amount\":0,\"price\":30},{\"name\":\"Energy\",\"amount\":0,\"price\":25},{\"name\":\"Smithore\",\"amount\":4,\"price\":50},{\"name\":\"Crystite\",\"amount\":0,\"price\":100}],\"money\":15,\"tiles\":[{\"xPosition\":3,\"yPosition\":4,\"name\":\"Plain\"},{\"xPosition\":5,\"yPosition\":4,\"name\":\"Plain\"}]}","p1":"{\"name\":\"asf\",\"color\":\"Blue\",\"race\":\"Flapper\",\"items\":[{\"name\":\"Food\",\"amount\":29,\"price\":30},{\"name\":\"Energy\",\"amount\":40,\"price\":25},{\"name\":\"Smithore\",\"amount\":0,\"price\":50},{\"name\":\"Crystite\",\"amount\":0,\"price\":100}],\"money\":297,\"tiles\":[{\"xPosition\":4,\"yPosition\":4,\"name\":\"River\"},{\"xPosition\":2,\"yPosition\":4,\"name\":\"Mountain2\"}]}","placeFood":false,"playerStart":0,"numPasses":1,"playerTurn":1,"finishTurn":true,"strTime":"0","finishBuyingRound":true,"placeOre":false,"energy":20,"numSelectionRounds":4,"timeRemain":48,"playerName":["be","asf"],"currentPlayer":null,"players":2,"bought":true,"mapType":"Standard","playerColor":["Red","Blue"],"started":true,"counter":2,"food":31,"difficulty":"Beginner","placeEnergy":false,"round":20,"ownedTile":false,"playerRace":["Human","Flapper"],"finishGame":false,"items":null}
+{
+  "p0": "{\"name\":\"be\",\"color\":\"Red\",\"race\":\"Human\",\"items\":[{\"name\":\"Food\",\"amount\":0,\"price\":30},{\"name\":\"Energy\",\"amount\":0,\"price\":25},{\"name\":\"Smithore\",\"amount\":4,\"price\":50},{\"name\":\"Crystite\",\"amount\":0,\"price\":100}],\"money\":15,\"tiles\":[{\"xPosition\":3,\"yPosition\":4,\"name\":\"Plain\"},{\"xPosition\":5,\"yPosition\":4,\"name\":\"Plain\"}]}",
+  "p1": "{\"name\":\"asf\",\"color\":\"Blue\",\"race\":\"Flapper\",\"items\":[{\"name\":\"Food\",\"amount\":29,\"price\":30},{\"name\":\"Energy\",\"amount\":40,\"price\":25},{\"name\":\"Smithore\",\"amount\":0,\"price\":50},{\"name\":\"Crystite\",\"amount\":0,\"price\":100}],\"money\":297,\"tiles\":[{\"xPosition\":4,\"yPosition\":4,\"name\":\"River\"},{\"xPosition\":2,\"yPosition\":4,\"name\":\"Mountain2\"}]}",
+  "placeFood": false,
+  "playerStart": 0,
+  "numPasses": 1,
+  "playerTurn": 1,
+  "finishTurn": true,
+  "strTime": "0",
+  "finishBuyingRound": true,
+  "placeOre": false,
+  "energy": 20,
+  "numSelectionRounds": 4,
+  "timeRemain": 48,
+  "playerName": [
+    "be",
+    "asf"
+  ],
+  "currentPlayer": null,
+  "players": 2,
+  "bought": true,
+  "mapType": "Standard",
+  "playerColor": [
+    "Red",
+    "Blue"
+  ],
+  "started": true,
+  "counter": 2,
+  "food": 31,
+  "difficulty": "Beginner",
+  "placeEnergy": false,
+  "round": 20,
+  "ownedTile": false,
+  "playerRace": [
+    "Human",
+    "Flapper"
+  ],
+  "finishGame": false,
+  "items": null
+}

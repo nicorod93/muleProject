@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.apache.log4j.LogManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,8 +14,8 @@ import java.util.ResourceBundle;
 /**
  * Created by RichardWang on 10/16/15.
  */
-public class buyMuleController  implements Initializable {
-
+public class BuyMuleController  implements Initializable {
+    private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     public static final int ENERGY_PRICE = 50;
     public static final int FOOD_PRICE = 25;
     public static final int ORE_PRICE = 100;
@@ -61,7 +62,7 @@ public class buyMuleController  implements Initializable {
             t.setTitle(MAP_NAME);
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException(NO_FILE);
+            log.error("No file", e);
         }
     }
 
@@ -75,8 +76,7 @@ public class buyMuleController  implements Initializable {
             t.setTitle(MAP_NAME);
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException(NO_FILE);
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML
@@ -89,8 +89,7 @@ public class buyMuleController  implements Initializable {
             t.setTitle(MAP_NAME);
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException(NO_FILE);
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML
@@ -103,7 +102,6 @@ public class buyMuleController  implements Initializable {
             t.setTitle(MAP_NAME);
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException(NO_FILE);
-        }
+            log.error("File Not Found", e);        }
     }
 }

@@ -4,13 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.apache.log4j.LogManager;
 
 public class StoreController {
-
+    private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     @FXML
     private void goBuy(MouseEvent event) {
         try {
@@ -20,8 +19,7 @@ public class StoreController {
             t.setTitle("Buy Screen");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML
@@ -33,8 +31,7 @@ public class StoreController {
             t.setTitle("Sell Screen");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML
@@ -45,7 +42,6 @@ public class StoreController {
             t.setTitle("Player Configuration");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 }

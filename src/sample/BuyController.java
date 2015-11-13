@@ -1,15 +1,14 @@
 package sample;
 
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.apache.log4j.LogManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,8 +16,8 @@ import java.util.ResourceBundle;
 /**
  * Created by RichardWang on 10/15/15.
  */
-public class buyController implements Initializable {
-
+public class BuyController implements Initializable {
+    private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     private static final int MULE_PRICE = 100;
     private static final int ENERGY_PRICE = 25;
     private static final int FOOD_PRICE = 30;
@@ -34,9 +33,6 @@ public class buyController implements Initializable {
 
     @FXML
     private Label playerEnergy;
-
-    @FXML
-    private Label playerOre;
 
     @FXML
     private Label playerNameID;
@@ -74,7 +70,7 @@ public class buyController implements Initializable {
             t.setTitle("Player Configuration");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
+            log.error("File Not Found", e);
         }
     }
 
@@ -126,7 +122,7 @@ public class buyController implements Initializable {
                     t.show();
                 }
                 catch (Exception e) {
-                    throw new IllegalArgumentException("No file");
+                    log.error("Error", e);
                 }
             }
 

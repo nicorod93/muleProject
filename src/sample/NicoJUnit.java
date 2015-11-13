@@ -3,7 +3,6 @@ package sample;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -35,8 +34,8 @@ public class NicoJUnit {
     public void testPlayer1TurnTime() {
         long turnTime = 50;
         long calculatedTurnTime = Main.calculateTurnTime();
-        assertTrue("Calculated time was " + calculatedTurnTime + " when it " +
-                "should have been " + turnTime, calculatedTurnTime
+        assertTrue("Calc time was " + calculatedTurnTime + " when " +
+                "should be " + turnTime, calculatedTurnTime
                 == turnTime);
     }
 
@@ -55,7 +54,7 @@ public class NicoJUnit {
         Main.playerTurn = 2;
         long turnTime = 5;
         long calculatedTurnTime = Main.calculateTurnTime();
-        assertTrue("Calculated time was " + calculatedTurnTime + " when it " +
+        assertTrue("time " + calculatedTurnTime +
                 "should have been " + turnTime, calculatedTurnTime
                 == turnTime);
     }
@@ -65,8 +64,8 @@ public class NicoJUnit {
         Main.playerTurn = 3;
         long turnTime = 5;
         long calculatedTurnTime = Main.calculateTurnTime();
-        assertTrue("Calculated time was " + calculatedTurnTime + " when it " +
-                "should have been " + turnTime, calculatedTurnTime
+        assertTrue("Calculated time " + calculatedTurnTime +
+                "should be " + turnTime, calculatedTurnTime
                 == turnTime);
     }
 

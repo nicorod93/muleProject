@@ -6,11 +6,13 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.apache.log4j.LogManager;
 
 /**
  * Created by Gordon on 10/1/2015.
  */
-public class townController {
+public class TownController {
+    private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     @FXML
     private void goToStore(MouseEvent event) {
         try {
@@ -20,8 +22,7 @@ public class townController {
             t.setTitle("Store");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML
@@ -33,8 +34,7 @@ public class townController {
             t.setTitle("Land Office");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML
@@ -46,7 +46,6 @@ public class townController {
             t.setTitle("Pub");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 }

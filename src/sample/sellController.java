@@ -1,13 +1,13 @@
 package sample;
 
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.apache.log4j.LogManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +15,8 @@ import java.util.ResourceBundle;
 /**
  * Created by RichardWang on 10/15/15.
  */
-public class sellController implements Initializable{
-
+public class SellController implements Initializable{
+    private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     public static final int FOOD_PRICE = 30;
     public static final int ENERGY_PRICE = 25;
 
@@ -31,9 +31,6 @@ public class sellController implements Initializable{
 
     @FXML
     private Label playerEnergy;
-
-    @FXML
-    private Label playerOre;
 
     @FXML
     private Label playerNameID;
@@ -71,8 +68,7 @@ public class sellController implements Initializable{
             t.setTitle("Player Configuration");
             t.show();
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 
     @FXML

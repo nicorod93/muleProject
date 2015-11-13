@@ -7,22 +7,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
-import java.awt.*;
-import java.util.ArrayList;
+import javafx.stage.Stage;
+import org.apache.log4j.LogManager;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PlayerConfigController implements Initializable {
     @FXML
     private ChoiceBox<String> races;
-
+    private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     @FXML
     private ChoiceBox<String> color;
 
@@ -61,7 +58,6 @@ public class PlayerConfigController implements Initializable {
                 t.show();
             }
         } catch (Exception e) {
-            throw new IllegalArgumentException("No file");
-        }
+            log.error("File Not Found", e);        }
     }
 }
