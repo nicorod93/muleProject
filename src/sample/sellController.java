@@ -75,7 +75,7 @@ public class sellController implements Initializable{
     @FXML
     private void sellFood() {
         if (Main.getCurrentPlayer().getSpecificItem(0).getAmount() == 0) {
-            System.out.println("No more food!");
+            return;
         } else {
             Main.food++;
             Main.getCurrentPlayer().getSpecificItem(0).decreaseAmount(1);
@@ -90,7 +90,7 @@ public class sellController implements Initializable{
     @FXML
     private void sellEnergy() {
         if (Main.getCurrentPlayer().getSpecificItem(1).getAmount() == 0) {
-            System.out.println("No more energy!");
+            return;
         } else {
             Main.getCurrentPlayer().getSpecificItem(1).decreaseAmount(1);
             Main.energy++;

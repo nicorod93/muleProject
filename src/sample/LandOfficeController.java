@@ -10,10 +10,7 @@ import javafx.stage.Stage;
  */
 public class LandOfficeController {
 
-    @FXML
-    private void sell(MouseEvent event) {
 
-    }
     @FXML
     private void back(MouseEvent event) {
         try {

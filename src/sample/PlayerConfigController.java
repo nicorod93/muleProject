@@ -42,7 +42,6 @@ public class PlayerConfigController implements Initializable {
         Main.playerRace.add(races.getValue());
         Main.playerColor.add(color.getValue());
         Main.playerName.add(plname.getText());
-        System.out.println("Player names: " + Main.playerName + " Player Races: " + Main.playerRace + " Player Colors: " + Main.playerColor);
         try {
             if (Main.counter < Main.players) {
                 Scene town = new Scene(FXMLLoader.load(getClass().getResource("playerConfig.fxml")));
@@ -55,7 +54,6 @@ public class PlayerConfigController implements Initializable {
                 Main.initializePlayers();
                 Main.setPlayersItems();
                 Main.setPlayersMoney();
-                System.out.println("Players: " + Main.playerArray);
                 Main.map = new Scene(FXMLLoader.load(getClass().getResource("map.fxml")));
                 Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 t.setScene(Main.map);

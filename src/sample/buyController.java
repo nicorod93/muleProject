@@ -19,6 +19,10 @@ import java.util.ResourceBundle;
  */
 public class buyController implements Initializable {
 
+    private static final int MULE_PRICE = 100;
+    private static final int ENERGY_PRICE = 25;
+    private static final int FOOD_PRICE = 30;
+
     @FXML
     private Label playerFoodAmm;
 
@@ -76,16 +80,12 @@ public class buyController implements Initializable {
 
     @FXML
     private void buyFood() {
-        if (Main.food == 0 || Main.getCurrentPlayer().getMoney() < 30) {
-            if (Main.food == 0) {
-                System.out.println("No more food!");
-            } else {
-                System.out.println("No more money!");
-            }
+        if (Main.food == 0 || Main.getCurrentPlayer().getMoney() < FOOD_PRICE) {
+            return;
         } else {
             Main.getCurrentPlayer().getSpecificItem(0).increaseAmount(1);
             Main.food--;
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 30);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - FOOD_PRICE);
             playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
             playerFoodAmm.textProperty().set("Food: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(0).getAmount()));
             playerFood.textProperty().set("x" + Long.toString(Main.food));
@@ -94,16 +94,12 @@ public class buyController implements Initializable {
 
     @FXML
     private void buyEnergy() {
-        if (Main.energy == 0 || Main.getCurrentPlayer().getMoney() < 25) {
-            if (Main.energy == 0) {
-                System.out.println("No more energy!");
-            } else {
-                System.out.println("No more money!");
-            }
+        if (Main.energy == 0 || Main.getCurrentPlayer().getMoney() < ENERGY_PRICE) {
+            return;
         } else {
             Main.getCurrentPlayer().getSpecificItem(1).increaseAmount(1);
             Main.energy--;
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 25);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - ENERGY_PRICE);
             playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
             playerEnergyAmm.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
             playerEnergy.textProperty().set("x" + Long.toString(Main.energy));
@@ -113,14 +109,14 @@ public class buyController implements Initializable {
     @FXML
     private void buyMule(MouseEvent event) {
 
-            if (Main.getCurrentPlayer().getMoney() < 100) {
-                System.out.println("Not Enough Money");
+            if (Main.getCurrentPlayer().getMoney() < MULE_PRICE) {
+                return;
             }
             else {
                 try {
-                    Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 100);
+                    Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - MULE_PRICE);
                     playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
-                    if (Main.getCurrentPlayer().getMoney() < 25) {
+                    if (Main.getCurrentPlayer().getMoney() < ENERGY_PRICE) {
                         return;
                     }
                     Scene town = new Scene(FXMLLoader.load(getClass().getResource("buyMuleScreen.fxml")));

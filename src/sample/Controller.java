@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,10 +18,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 import com.google.gson.Gson;
 
@@ -54,9 +51,6 @@ public class Controller implements Initializable {
             Main.players = numPlayers.getValue();
             Main.difficulty = difficulty.getValue();
             Main.mapType = mapType.getValue();
-            System.out.println("Difficulty: " + Main.difficulty);
-            System.out.println("Map type: " + Main.mapType);
-            System.out.println("Number of Players: " + Main.players);
 
             Scene town = new Scene(FXMLLoader.load(getClass().getResource("playerConfig.fxml")));
             Stage t = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -109,11 +103,9 @@ public class Controller implements Initializable {
             Main.playerName = (List<String>) jsonObject.get("playerName");
             for (int i = 0; i < Main.players; i++) {
                 Player p1 = gson.fromJson(br.readLine(), Player.class);
-                System.out.println(p1);
                 Main.playerArray.add(p1);
             }
             //Main.playerArray = (List<Player>) jsonObject.get("playersArray");
-            System.out.println(Main.playerArray);
 //            Main.setPlayersMoney();
 //            Main.setPlayersItems();
             Main.items = (List<Item>) jsonObject.get("items");

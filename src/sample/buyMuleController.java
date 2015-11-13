@@ -15,6 +15,9 @@ import java.util.ResourceBundle;
  */
 public class buyMuleController  implements Initializable {
 
+    public static final int ENERGY_PRICE = 50;
+    public static final int FOOD_PRICE = 25;
+    public static final int ORE_PRICE = 100;
     public static final String MAP_NAME = "Map";
     public static final String NO_FILE = "No file";
 
@@ -65,7 +68,7 @@ public class buyMuleController  implements Initializable {
     @FXML
     private void buyFood(MouseEvent ev) {
         try {
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 25);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - FOOD_PRICE);
             Main.placeFood = true;
             Stage t = (Stage) ((Node) ev.getSource()).getScene().getWindow();
             t.setScene(Main.map);
@@ -79,7 +82,7 @@ public class buyMuleController  implements Initializable {
     @FXML
     private void buyEnergy(MouseEvent eve) {
         try {
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 50);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - ENERGY_PRICE);
             Main.placeEnergy = true;
             Stage t = (Stage) ((Node) eve.getSource()).getScene().getWindow();
             t.setScene(Main.map);
@@ -93,7 +96,7 @@ public class buyMuleController  implements Initializable {
     @FXML
     private void buyOre(MouseEvent even) {
         try {
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - 100);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() - ORE_PRICE);
             Main.placeOre = true;
             Stage t = (Stage) ((Node) even.getSource()).getScene().getWindow();
             t.setScene(Main.map);

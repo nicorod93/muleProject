@@ -10,14 +10,11 @@ public class Item {
     private long amount;
     private long price;
 
-    public Item(String name) {
-        this(name, 0, 0);
-    }
 
-    public Item(String name, long amount, long price) {
-        this.name = name;
-        this.amount = amount;
-        this.price = price;
+    public Item(String name1, long amount1, long price1) {
+        this.name = name1;
+        this.amount = amount1;
+        this.price = price1;
     }
 
     public String getName() {
@@ -62,6 +59,9 @@ public class Item {
         Item that = (Item) o;
         return this.getName().equals(that.getName());
     }
+
+    @Override
+    public abstract int hashCode();
 
     public String toString() {
         return this.name + " " + amount;

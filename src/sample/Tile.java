@@ -9,11 +9,12 @@ public class Tile {
     private String name;
     private Mule tileMule;
     private Player tileOwner;
+    private static final int CONSTANT = 300;
 
-    public Tile(String name, int xPosition, int yPosition) {
-        this.name = name;
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
+    public Tile(String name1, int xPosition1, int yPosition1) {
+        this.name = name1;
+        this.xPosition = xPosition1;
+        this.yPosition = yPosition1;
         this. tileOwner = null;
     }
 
@@ -45,7 +46,7 @@ public class Tile {
     }
 
     public void purchase() {
-        Main.getCurrentPlayer().setMoney(Main.currentPlayer.getMoney() - 300);
+        Main.getCurrentPlayer().setMoney(Main.currentPlayer.getMoney() - CONSTANT);
         Main.getCurrentPlayer().addProperty(new Tile(getName(), getXPosition
                 (), getYPosition()));
     }
@@ -74,4 +75,7 @@ public class Tile {
         Tile that = (Tile) o;
         return this.getXPosition() == that.getXPosition() && this.getYPosition() == that.getYPosition();
     }
+
+    @Override
+    public abstract int hashCode();
 }
