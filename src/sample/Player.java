@@ -32,7 +32,7 @@ public class Player {
         this.money = 0;
     }
 
-    public void addItem(Item item) {
+    final public void addItem(Item item) {
         if (!items.contains(item)) {
             this.items.add(item);
         } else {
@@ -40,47 +40,47 @@ public class Player {
         }
     }
 
-    public void addProperty(Tile tile) {
+    final public void addProperty(Tile tile) {
         this.tiles.add(tile);
     }
 
-    public String getName() {
+    final public String getName() {
         return name;
     }
 
-    public String getColor() {
+    final public String getColor() {
         return color;
     }
 
-    public String getRace() {
+    final public String getRace() {
         return race;
     }
 
-    public void setMoney(long money) {
+    final public void setMoney(long money) {
         this.money = money;
     }
 
-    public long getMoney() {
+    final public long getMoney() {
         return money;
     }
 
-    public String toString() {
+    final public String toString() {
         return name + " " + race + " " + color;
     }
 
-    public void setScore(long newScore) {
+    final public void setScore(long newScore) {
         this.score = newScore;
     }
 
-    public long getScore() {
+    final public long getScore() {
         return this.score;
     }
 
-    public int numTiles() {
+    final public int numTiles() {
         return tiles.size();
     }
 
-    public int valueOfGoods() {
+    final public int valueOfGoods() {
         int sum = 0;
         for (Item i: items) {
             sum += (i.getAmount() * i.getPrice());
@@ -88,38 +88,38 @@ public class Player {
         return sum;
     }
 
-    public List<Item> getItems() {
+    final public List<Item> getItems() {
         return items;
     }
 
-    public Item getSpecificItem(int i) {
+    final public Item getSpecificItem(int i) {
         return items.get(i);
     }
 
-    public List<Tile> getTiles() {
+    final public List<Tile> getTiles() {
         return tiles;
     }
 
-    public void calculateScore() {
+    final public void calculateScore() {
         long i = this.getSpecificItem(0).getAmount() + this.getSpecificItem
                 (1).getAmount() + this.getSpecificItem(2).getAmount();
         long total = getMoney() + tiles.size() * 500 + i;
         setScore(total);
     }
 
-    public void addFMule() {
+    final public void addFMule() {
         fMule++;
     }
 
-    public void addEMule() {
+    final public void addEMule() {
         eMule++;
     }
 
-    public void addOMule() {
+    final public void addOMule() {
         oMule++;
     }
 
-    public void calcProduction() {
+    final public void calcProduction() {
         System.out.println(name + " owns " + fMule + " Food Mules");
         System.out.println(name + " owns " + eMule + " Energy Mules");
         System.out.println(name + " owns " + oMule + " Ore Mules");
