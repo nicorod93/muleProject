@@ -7,6 +7,6 @@ public class CrystiteMule extends Mule {
     public static final int CRYSTITE_COST = 200;
 
     public CrystiteMule() {
-        super.cost = CRYSTITE_COST;
+         setCost(CRYSTITE_COST);
     }
 }

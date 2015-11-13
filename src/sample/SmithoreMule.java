@@ -7,6 +7,6 @@ public class SmithoreMule extends Mule {
     public static final int SMITHORE_COST = 175;
 
     public SmithoreMule() {
-        super.cost = SMITHORE_COST;
+        setCost(SMITHORE_COST);
     }
 }

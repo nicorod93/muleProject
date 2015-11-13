@@ -5,8 +5,8 @@ package sample;
  */
 public abstract class Mule {
     private Item item;
-    protected int cost;
-    protected String name;
+    private int cost;
+    private String name;
 
     public final Item getItem() {return item;}
 
@@ -16,5 +16,13 @@ public abstract class Mule {
 
     public final String getName() {
         return name;
+    }
+
+    public final void setName(String name1) {
+        name = name1;
+    }
+
+    public final void setCost(int cost1) {
+        cost = cost1;
     }
 }

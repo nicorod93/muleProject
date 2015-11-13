@@ -6,8 +6,8 @@ package sample;
 public class EnergyMule extends Mule {
     public static final int ENERGY_COST = 150;
     public EnergyMule() {
-        super.cost = ENERGY_COST;
-        super.name = "Energy Mule";
+        setCost(ENERGY_COST);
+        setName("Energy Mule");
     }
 
 }

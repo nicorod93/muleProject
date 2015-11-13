@@ -15,7 +15,6 @@ public class BeiwenJUnitTest {
         Main.difficulty = "Beginner";
         Main.playerArray.add(new Player("Bob", "Red", "Human"));
         Main.setPlayersItems();
-        Player player = new Player("Bob", "Red", "Human");
         assertEquals("Food", Main.playerArray.get(0).getSpecificItem(0).getName());
         assertEquals(8, Main.playerArray.get(0).getSpecificItem(0).getAmount());
     }

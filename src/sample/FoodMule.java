@@ -7,7 +7,7 @@ public class FoodMule extends Mule {
     public static final int FOOD_COST = 125;
 
     public FoodMule() {
-        super.cost = FOOD_COST;
-        super.name = "Food Mule";
+        setCost(FOOD_COST);
+        setName("Food Mule");
     }
 }
