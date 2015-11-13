@@ -30,7 +30,7 @@ public class PlayerConfigController implements Initializable {
     private TextField plname;
 
     @Override
-    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+    public final void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         races.setItems(FXCollections.observableArrayList());
         races.getItems().addAll("Human", "Flapper", "Other");
         color.setItems(FXCollections.observableArrayList());

@@ -25,6 +25,10 @@ import com.google.gson.Gson;
 
 public class Controller implements Initializable {
 
+    public static final int PLAYER_TWO = 2;
+    public static final int PLAYER_THREE = 3;
+    public static final int PLAYER_FOUR = 4;
+
     @FXML
     private ChoiceBox<String> difficulty;
 
@@ -35,13 +39,13 @@ public class Controller implements Initializable {
     private ChoiceBox<Integer> numPlayers;
 
     @Override
-    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+    public final void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         difficulty.setItems(FXCollections.observableArrayList());
         difficulty.getItems().addAll("Beginner", "Standard", "Tournament");
         mapType.setItems(FXCollections.observableArrayList());
         mapType.getItems().addAll("Standard");
         numPlayers.setItems(FXCollections.observableArrayList());
-        numPlayers.getItems().addAll(2, 3, 4);
+        numPlayers.getItems().addAll(PLAYER_TWO, PLAYER_THREE, PLAYER_FOUR);
     }
 
 

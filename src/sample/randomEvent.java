@@ -46,7 +46,7 @@ public class randomEvent {
         }
     }
 
-    public void doRandom(int rNum1) {
+    public final void doRandom(int rNum1) {
         if (rNum1 == 0) {
 //            System.out.println("YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.");
             long newFood = this.player.getSpecificItem(0).getAmount() + 3;

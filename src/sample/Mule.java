@@ -4,15 +4,17 @@ package sample;
  * Created by Beiwen on 10/2/15.
  */
 public abstract class Mule {
-    protected Item item;
-    protected int cost;
-    String name;
+    private Item item;
+    private int cost;
+    private String name;
 
-    public int getCost() {
+    public final int getItem() {return item};
+
+    public final int getCost() {
         return cost;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 }

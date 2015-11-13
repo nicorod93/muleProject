@@ -46,7 +46,7 @@ public class buyMuleController  implements Initializable {
 //    private Button oreBut;
 
     @Override
-    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+    public final void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         playerNameID.textProperty().set(Main.getCurrentPlayer().getName());
         playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
         playerEnergyAmm.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));

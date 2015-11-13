@@ -20,6 +20,7 @@ public class Player {
     private static long eMule;
     private static long oMule;
     private static final int TILE_SCORE = 500;
+    public static final int MULE_PLACE = 3;
 
 
     public Player(String name1, String color1, String race1) {
@@ -129,7 +130,7 @@ public class Player {
                 this.getSpecificItem(0).setAmount(this.getSpecificItem(0).getAmount() +a);
             }
             if (eMule > 0) {
-                long b = eMule * 3;
+                long b = eMule * MULE_PLACE;
                 this.getSpecificItem(1).setAmount(this.getSpecificItem(1).getAmount() + b);
             }
             if (oMule > 0) {

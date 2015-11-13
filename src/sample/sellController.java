@@ -17,6 +17,9 @@ import java.util.ResourceBundle;
  */
 public class sellController implements Initializable{
 
+    public static final int FOOD_PRICE = 30;
+    public static final int ENERGY_PRICE = 25;
+
     @FXML
     private Label playerFoodAmm;
 
@@ -51,7 +54,7 @@ public class sellController implements Initializable{
 //    private Button oreBut;
 
     @Override
-    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+    public final void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         playerEnergy.textProperty().set("x" + Long.toString(Main.energy));
         playerFood.textProperty().set("x" + Long.toString(Main.food));
         playerNameID.textProperty().set(Main.getCurrentPlayer().getName());
@@ -79,7 +82,7 @@ public class sellController implements Initializable{
         } else {
             Main.food++;
             Main.getCurrentPlayer().getSpecificItem(0).decreaseAmount(1);
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() + 30);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() + FOOD_PRICE);
             playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
             playerFood.textProperty().set("x" + Long.toString(Main.food));
             playerEnergyAmm.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));
@@ -94,7 +97,7 @@ public class sellController implements Initializable{
         } else {
             Main.getCurrentPlayer().getSpecificItem(1).decreaseAmount(1);
             Main.energy++;
-            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() + 25);
+            Main.getCurrentPlayer().setMoney(Main.getCurrentPlayer().getMoney() + ENERGY_PRICE);
             playerMoneyLabel.textProperty().set("$" + Long.toString(Main.getCurrentPlayer().getMoney()));
             playerEnergy.textProperty().set("x" + Long.toString(Main.energy));
             playerEnergyAmm.textProperty().set("Energy: " + Long.toString(Main.getCurrentPlayer().getSpecificItem(1).getAmount()));

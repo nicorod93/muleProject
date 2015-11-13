@@ -18,51 +18,51 @@ public class Tile {
         this. tileOwner = null;
     }
 
-    public int getXPosition() {
+    public final int getXPosition() {
         return xPosition;
     }
 
-    public int getYPosition() {
+    public final int getYPosition() {
         return yPosition;
     }
 
-    public int[] getPosition() {
+    public final int[] getPosition() {
         return new int[] {xPosition, yPosition};
 
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public void addMule(Mule mule) {
+    public final void addMule(Mule mule) {
         if (tileMule == null) {
             tileMule = mule;
         }
     }
 
-    public Mule getMule() {
+    public final Mule getMule() {
         return tileMule;
     }
 
-    public void purchase() {
+    public final void purchase() {
         Main.getCurrentPlayer().setMoney(Main.currentPlayer.getMoney() - CONSTANT);
         Main.getCurrentPlayer().addProperty(new Tile(getName(), getXPosition
                 (), getYPosition()));
     }
 
-    public String toString() { return this.name + " " + xPosition + " " + yPosition; }
+    public final String toString() { return this.name + " " + xPosition + " " + yPosition; }
 
-    public void setTileOwner(Player p) {
+    public final void setTileOwner(Player p) {
         this.tileOwner = p;
     }
 
-    public Player getTileOwner() {
+    public final Player getTileOwner() {
         return this.tileOwner;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (o == null) {
             return false;
         }

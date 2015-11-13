@@ -1,6 +1,4 @@
 package sample;
-import java.util.Comparator;
-import java.util.Timer;
 
 /**
  * Created by nico on 9/30/15.
@@ -17,23 +15,23 @@ public class Item {
         this.price = price1;
     }
 
-    public String getName() {
+    public final String getName() {
         return this.name;
     }
 
-    public long getAmount() {
+    public final long getAmount() {
         return amount;
     }
 
-    public long getPrice() {
+    public final long getPrice() {
         return price;
     }
 
-    public void setAmount(long food) {
+    public final void setAmount(long food) {
         this.amount = food;
     }
 
-    public void decreaseAmount(int numSubtract) {
+    public final void decreaseAmount(int numSubtract) {
         if (amount >= numSubtract) {
             amount -= numSubtract;
         } else {
@@ -41,12 +39,12 @@ public class Item {
         }
     }
 
-    public void increaseAmount(long numAdd) {
+    public final void increaseAmount(long numAdd) {
         amount += numAdd;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (o == null) {
             return false;
         }
@@ -63,7 +61,7 @@ public class Item {
     @Override
     public abstract int hashCode();
 
-    public String toString() {
+    public final String toString() {
         return this.name + " " + amount;
     }
 }

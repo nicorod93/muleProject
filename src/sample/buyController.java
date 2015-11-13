@@ -57,7 +57,7 @@ public class buyController implements Initializable {
 //    private Button oreBut;
 
     @Override
-    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+    public final void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         playerEnergy.textProperty().set("x" + Long.toString(Main.energy));
         playerFood.textProperty().set("x" + Long.toString(Main.food));
         playerNameID.textProperty().set(Main.getCurrentPlayer().getName());
