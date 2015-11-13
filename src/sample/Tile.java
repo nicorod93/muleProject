@@ -77,5 +77,5 @@ public class Tile {
     }
 
     @Override
-    public int hashCode() {return 0;}
+    public final int hashCode() {return 0;}
 }
