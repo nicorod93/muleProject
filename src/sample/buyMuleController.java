@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 /**
  * Created by RichardWang on 10/16/15.
  */
-public class BuyMuleController  implements Initializable {
+public class buyMuleController  implements Initializable {
     private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     public static final int ENERGY_PRICE = 50;
     public static final int FOOD_PRICE = 25;

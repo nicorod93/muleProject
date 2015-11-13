@@ -56,6 +56,11 @@ public class GordonJUnitTest {
         assertEquals(0, Main.playerArray.get(1).getSpecificItem(2).getAmount());
     }
 
+    @Test (timeout = TIMEOUT)
+    public void testCrystiteFlapper() {
+        assertEquals(0, Main.playerArray.get(1).getSpecificItem(3).getAmount());
+    }
+
 //Other
     @Test (timeout = TIMEOUT)
     public void testFoodOther() {

@@ -9,7 +9,7 @@ import org.apache.log4j.LogManager;
 /**
  * Created by RichardWang on 10/14/15.
  */
-public class PubController {
+public class pubController {
     private static org.apache.log4j.Logger log = LogManager.getRootLogger();
 
     @FXML

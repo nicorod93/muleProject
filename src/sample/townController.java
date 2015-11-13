@@ -11,7 +11,7 @@ import org.apache.log4j.LogManager;
 /**
  * Created by Gordon on 10/1/2015.
  */
-public class TownController {
+public class townController {
     private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     @FXML
     private void goToStore(MouseEvent event) {

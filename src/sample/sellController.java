@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 /**
  * Created by RichardWang on 10/15/15.
  */
-public class SellController implements Initializable{
+public class sellController implements Initializable{
     private static org.apache.log4j.Logger log = LogManager.getRootLogger();
     public static final int FOOD_PRICE = 30;
     public static final int ENERGY_PRICE = 25;

@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * Created by RichardWang on 10/19/15.
  */
-public class RandomEvent {
+public class randomEvent {
     private Player player;
     private static long round;
     private static long roundBonus;
 
-    public RandomEvent(Player p, long r, List<Player> array) {
+    public randomEvent(Player p, long r, List<Player> array) {
         this.player = p;
         this.round = r;
         long low = p.getScore();
